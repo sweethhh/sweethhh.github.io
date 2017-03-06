@@ -443,7 +443,7 @@ body {
   color: #b9babc;
   background-color: #181818;
   font-size: 15px;
-  font-family: "Baskerville Old Face", monospace;
+  font-family: "Brush Script MT", monospace;
   font-weight: 400;
   line-height: 1.725;
   text-rendering: geometricPrecision;
@@ -1363,7 +1363,7 @@ article .content .caption {
   color: #dedede;
   text-align: center;
   font-size: 40px;
-  font-family: "Baskerville Old Face", monospace;
+  font-family: "Brush Script MT", monospace;
   font-weight: 700;
 }
 @-moz-keyframes spinsun {
@@ -2109,7 +2109,7 @@ article .content .caption {
   text-decoration: underline;
 }
 pre {
-  font-family: "Baskerville Old Face", monospace;
+  font-family: "Brush Script MT", monospace;
   font-size: 13px;
   padding: 10px 15px;
   padding-bottom: 0;
@@ -2131,7 +2131,7 @@ pre code {
   padding: 0;
 }
 .highlight {
-  font-family: "Baskerville Old Face", monospace;
+  font-family: "Brush Script MT", monospace;
   background: #3b3b3b;
   -webkit-border-radius: 4px;
   border-radius: 7px;
