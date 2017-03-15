@@ -4,12 +4,29 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>我的第一篇文章 | 你家谷谷</title>
+    <title>html5css3笔记系列 | 二 | 你家谷谷</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="Hou honggu">
     
-    <meta name="description" content="Git操作1.cd 文件夹名字2.git init3.git add 文件名字（git add -A 添加当前目录全部文件）4.git commit -m “操作名”5.在github上创建同名仓库6.git remote add origin git@github.com:sweethhh/文件夹">
+    <meta name="description" content="属性选择器
+
+
+选择器
+说明 
+
+
+
+
+E[attr=“value”]
+指定属性名，并指定了该属性的属性值 
+
+
+E[attr~=”value”]
+指定属性名，并且具有属性值，此属性值是一个词列表，并且以空格隔开，其中词列表中包含了一个value词，而且等号前面的“~”不能不写
+
+
+E[attr^=">
     
     
     
@@ -69,15 +86,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/01/13/我的第一篇文章/" title="我的第一篇文章" itemprop="url">我的第一篇文章</a>
+      <a href="/2017/03/15/html5css3笔记 二回目/" title="html5css3笔记系列 | 二" itemprop="url">html5css3笔记系列 | 二</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://houhonggu.top" title="Hou honggu">Hou honggu</a>
     </p>
   <p class="article-time">
-    <time datetime="2017-01-13T08:22:29.666Z" itemprop="datePublished">2017-01-13</time>
-    更新日期:<time datetime="2017-03-15T02:37:54.525Z" itemprop="dateModified">2017-03-15</time>
+    <time datetime="2017-03-15T08:56:47.195Z" itemprop="datePublished">2017-03-15</time>
+    更新日期:<time datetime="2017-03-15T09:28:02.153Z" itemprop="dateModified">2017-03-15</time>
     
   </p>
 </header>
@@ -86,24 +103,102 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Git操作"><span class="toc-number">1.</span> <span class="toc-text">Git操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#发布博客"><span class="toc-number">2.</span> <span class="toc-text">发布博客</span></a></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#属性选择器"><span class="toc-number">1.</span> <span class="toc-text">属性选择器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结构性伪类"><span class="toc-number">2.</span> <span class="toc-text">结构性伪类</span></a></li></ol>
 		</div>
 		
-		<h2 id="Git操作"><a href="#Git操作" class="headerlink" title="Git操作"></a>Git操作</h2><p>1.cd 文件夹名字<br>2.git init<br>3.git add 文件名字（git add -A 添加当前目录全部文件）<br>4.git commit -m “操作名”<br>5.在github上创建同名仓库<br>6.git remote add origin git@github.com:sweethhh/文件夹名字.git<br>7.git push -u origin master</p>
-<h2 id="发布博客"><a href="#发布博客" class="headerlink" title="发布博客"></a>发布博客</h2><p>1.hexo g<br>2.hexo deploy<br>3.hexo restart 重启服务器<br>4.hexo n page “pageName” 新建一个Tab标签文件</p>
+		<h1 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h1><table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>说明 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E[attr=“value”]</td>
+<td>指定属性名，并指定了该属性的属性值 </td>
+</tr>
+<tr>
+<td>E[attr~=”value”]</td>
+<td>指定属性名，并且具有属性值，此属性值是一个词列表，并且以空格隔开，其中词列表中包含了一个value词，而且等号前面的“~”不能不写</td>
+</tr>
+<tr>
+<td>E[attr^=”value”]</td>
+<td>指定了属性名，并且有属性值，属性值是以value开头的</td>
+</tr>
+<tr>
+<td>E[attr$=”value”]</td>
+<td>指定了属性名，并且有属性值，属性值是以value结尾的</td>
+</tr>
+<tr>
+<td>E[attr*=”value”]</td>
+<td>指定了属性名，并且有属性值，而且属值中包含了value</td>
+</tr>
+<tr>
+<td>E[attr(竖)=”value”]</td>
+<td>指定了属性名，并且属性值是value或者以“value-”开头的值（比如说zh-cn）</td>
+</tr>
+</tbody>
+</table>
+<h1 id="结构性伪类"><a href="#结构性伪类" class="headerlink" title="结构性伪类"></a>结构性伪类</h1><table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E:nth-child(n)</td>
+<td>表示E父元素中的第n个字节点，其中n可以为odd(奇数),even(偶数),2n等</td>
+</tr>
+<tr>
+<td>E:nth-last-child(n)</td>
+<td>表示E父元素中的第n个字节点，从后向前计算</td>
+</tr>
+<tr>
+<td>E:nth-of-type(n)</td>
+<td>表示E父元素中的第n个字节点，且类型为E</td>
+</tr>
+<tr>
+<td>E:nth-last-of-type(n)</td>
+<td>表示E父元素中的第n个字节点，且类型为E,从后向前计算</td>
+</tr>
+<tr>
+<td>E:first-child</td>
+<td>表示E元素中的第一个子节点</td>
+</tr>
+<tr>
+<td>E:last-child</td>
+<td>表示E元素中的最后一个子节点</td>
+</tr>
+<tr>
+<td>E:first-of-type</td>
+<td>表示E父元素中的第一个子节点且节点类型是E的</td>
+</tr>
+<tr>
+<td>E:last-of-type</td>
+<td>表示E父元素中的最后一个子节点且节点类型是E的</td>
+</tr>
+<tr>
+<td>E:only-child</td>
+<td>表示E元素中只有一个子节点。注意：子节点不包含文本节点</td>
+</tr>
+</tbody>
+</table>
   
 	</div>
 		<footer class="article-footer clearfix">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Git/">Git</a><a href="/tags/命令/">命令</a>
+  <span></span> <a href="/tags/HTML5/">HTML5</a><a href="/tags/CSS3/">CSS3</a>
   </div>
 
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/Git命令/">Git命令</a>
+  <a class="article-category-link" href="/categories/代码/">代码</a>
 </div>
 
 
@@ -138,19 +233,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2017/03/06/html5css3笔记 一回目/" title="html5css3笔记系列 | 一">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  html5css3笔记系列 | 一</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2017/01/13/hello-world/"  title="Hello World">
+<a href="/2017/03/09/html5css3笔记 旋转特效/"  title="html5css3笔记系列 | 旋转特效">
  <strong>NEXT:</strong><br/> 
- <span>Hello World
+ <span>html5css3笔记系列 | 旋转特效
 </span>
 </a>
 </div>
@@ -167,7 +254,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Git操作"><span class="toc-number">1.</span> <span class="toc-text">Git操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#发布博客"><span class="toc-number">2.</span> <span class="toc-text">发布博客</span></a></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#属性选择器"><span class="toc-number">1.</span> <span class="toc-text">属性选择器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结构性伪类"><span class="toc-number">2.</span> <span class="toc-text">结构性伪类</span></a></li></ol>
   </div>
 
 <div id="asidepart">
