@@ -43,13 +43,13 @@
 			<nav class="animated">
 				<ul>
 					
-						<li><a href="/">主页</a></li>
+						<li><a href="/">主页 | Index</a></li>
 					
-						<li><a href="/archives">目录</a></li>
+						<li><a href="/archives">归档 | Archives</a></li>
 					
-						<li><a href="/about">关于</a></li>
+						<li><a href="/about">关于 | About</a></li>
 					
-						<li><a href="/resume">简历</a></li>
+						<li><a href="/resume">简历 | Resume</a></li>
 					
 					<li>
 					
@@ -79,7 +79,7 @@
     </p>
   <p class="article-time">
     <time datetime="2017-03-09T12:28:29.032Z" itemprop="datePublished">2017-03-09</time>
-    更新日期:<time datetime="2017-03-13T11:43:58.578Z" itemprop="dateModified">2017-03-13</time>
+    更新日期:<time datetime="2017-03-15T02:49:46.472Z" itemprop="dateModified">2017-03-15</time>
     
   </p>
 </header>
@@ -88,12 +88,12 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-transition属性"><span class="toc-number">1.</span> <span class="toc-text">1.transition属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-transform属性"><span class="toc-number">2.</span> <span class="toc-text">2.transform属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实例："><span class="toc-number">3.</span> <span class="toc-text">实例：</span></a></li></ol>
 		</div>
 		
-		<p>1.transition属性<br>用于过渡动画<br>如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">transition:transform 0.5s;</div></pre></td></tr></table></figure></p>
-<p>2.transform属性<br>用于图形旋转<br>如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">transform:rotate(180deg);//旋转180度</div></pre></td></tr></table></figure></p>
-<p>实例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</div><div class="line">&lt;style type=&quot;text/css&quot;&gt;</div><div class="line">	.rotate&#123;</div><div class="line">		box-shadow:2px 2px 3px #aaaaaa;</div><div class="line">		border: 1px solid #BFBFBF; </div><div class="line">		width: 200px;</div><div class="line">		height: 270px;</div><div class="line">		margin: 0px auto;</div><div class="line">		padding: 20px;</div><div class="line">		transform: rotate(20deg);</div><div class="line">	&#125;</div><div class="line">		.rotate1&#123;</div><div class="line">			background: white;</div><div class="line">			transform: rotate(-10deg);</div><div class="line">		box-shadow:2px 2px 3px #aaaaaa;</div><div class="line">		border: 1px solid #BFBFBF; </div><div class="line">		width: 200px;</div><div class="line">		height: 270px;</div><div class="line">		margin: 0 auto;</div><div class="line">		padding: 20px;</div><div class="line">	&#125;</div><div class="line">	.rotate:hover&#123;</div><div class="line">		transition: transform 0.5s;</div><div class="line">		transform: rotate(380deg);</div><div class="line">	&#125;</div><div class="line">&lt;/style&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;title&gt;xuanzhuan&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">	&lt;div class=&quot;rotate&quot;&gt;</div><div class="line">		&lt;img src=&quot;img/ssr.jpg&quot; width=&quot;200px&quot; height=&quot;200px&quot;&gt;</div><div class="line">		&lt;p&gt;我一定会抽到ssr的！&lt;/p&gt;</div><div class="line">	&lt;/div&gt;</div><div class="line">	&lt;div class=&quot;rotate1&quot;&gt;</div><div class="line">		&lt;img src=&quot;img/ssr.jpg&quot; width=&quot;200px&quot; height=&quot;200px&quot;&gt;</div><div class="line">		&lt;p&gt;我一定会抽到ssr的！&lt;/p&gt;</div><div class="line">	&lt;/div&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+		<h2 id="1-transition属性"><a href="#1-transition属性" class="headerlink" title="1.transition属性"></a>1.transition属性</h2><p>用于过渡动画<br>如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">transition:transform 0.5s;</div></pre></td></tr></table></figure></p>
+<h2 id="2-transform属性"><a href="#2-transform属性" class="headerlink" title="2.transform属性"></a>2.transform属性</h2><p>用于图形旋转<br>如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">transform:rotate(180deg);//旋转180度</div></pre></td></tr></table></figure></p>
+<h2 id="实例："><a href="#实例：" class="headerlink" title="实例："></a>实例：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</div><div class="line">&lt;style type=&quot;text/css&quot;&gt;</div><div class="line">	.rotate&#123;</div><div class="line">		box-shadow:2px 2px 3px #aaaaaa;</div><div class="line">		border: 1px solid #BFBFBF; </div><div class="line">		width: 200px;</div><div class="line">		height: 270px;</div><div class="line">		margin: 0px auto;</div><div class="line">		padding: 20px;</div><div class="line">		transform: rotate(20deg);</div><div class="line">	&#125;</div><div class="line">		.rotate1&#123;</div><div class="line">			background: white;</div><div class="line">			transform: rotate(-10deg);</div><div class="line">		box-shadow:2px 2px 3px #aaaaaa;</div><div class="line">		border: 1px solid #BFBFBF; </div><div class="line">		width: 200px;</div><div class="line">		height: 270px;</div><div class="line">		margin: 0 auto;</div><div class="line">		padding: 20px;</div><div class="line">	&#125;</div><div class="line">	.rotate:hover&#123;</div><div class="line">		transition: transform 0.5s;</div><div class="line">		transform: rotate(380deg);</div><div class="line">	&#125;</div><div class="line">&lt;/style&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;title&gt;xuanzhuan&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">	&lt;div class=&quot;rotate&quot;&gt;</div><div class="line">		&lt;img src=&quot;img/ssr.jpg&quot; width=&quot;200px&quot; height=&quot;200px&quot;&gt;</div><div class="line">		&lt;p&gt;我一定会抽到ssr的！&lt;/p&gt;</div><div class="line">	&lt;/div&gt;</div><div class="line">	&lt;div class=&quot;rotate1&quot;&gt;</div><div class="line">		&lt;img src=&quot;img/ssr.jpg&quot; width=&quot;200px&quot; height=&quot;200px&quot;&gt;</div><div class="line">		&lt;p&gt;我一定会抽到ssr的！&lt;/p&gt;</div><div class="line">	&lt;/div&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -162,7 +162,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-transition属性"><span class="toc-number">1.</span> <span class="toc-text">1.transition属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-transform属性"><span class="toc-number">2.</span> <span class="toc-text">2.transform属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实例："><span class="toc-number">3.</span> <span class="toc-text">实例：</span></a></li></ol>
   </div>
 
 <div id="asidepart">
