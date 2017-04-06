@@ -89,7 +89,7 @@ ease
     </p>
   <p class="article-time">
     <time datetime="2017-04-06T06:58:20.615Z" itemprop="datePublished">2017-04-06</time>
-    更新日期:<time datetime="2017-04-06T07:41:30.721Z" itemprop="dateModified">2017-04-06</time>
+    更新日期:<time datetime="2017-04-06T09:11:39.636Z" itemprop="dateModified">2017-04-06</time>
     
   </p>
 </header>
@@ -98,7 +98,7 @@ ease
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#transition过渡"><span class="toc-number">1.</span> <span class="toc-text">transition过渡</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#transitionend"><span class="toc-number">2.</span> <span class="toc-text">transitionend</span></a></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#transition过渡"><span class="toc-number">1.</span> <span class="toc-text">transition过渡</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#transitionend"><span class="toc-number">2.</span> <span class="toc-text">transitionend</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2D变换"><span class="toc-number">3.</span> <span class="toc-text">2D变换</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#transform"><span class="toc-number">4.</span> <span class="toc-text">transform</span></a></li></ol>
 		</div>
 		
 		<h1 id="transition过渡"><a href="#transition过渡" class="headerlink" title="transition过渡"></a>transition过渡</h1><p><code>transition: property duration timing-function</code></p>
@@ -139,7 +139,31 @@ ease
 </table>
 <p>示例代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">.transition&#123;</div><div class="line">		width: 100px;</div><div class="line">		height: 100px;</div><div class="line">		background: pink;</div><div class="line">		transition: width 1s,height 2s;//多样式变换，逗号隔开</div><div class="line">	&#125;</div><div class="line">	.transition:hover&#123;</div><div class="line">		width: 1000px;</div><div class="line">		height: 1000px;</div><div class="line">		background: red;</div><div class="line">	&#125;</div></pre></td></tr></table></figure></p>
 <h1 id="transitionend"><a href="#transitionend" class="headerlink" title="transitionend"></a>transitionend</h1><p><code>transitionend</code>：过渡完成后执行的函数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">.box&#123;width:100px;height:100px;background:red; transition:1s width;&#125;</div><div class="line">&lt;/style&gt;</div><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">oBox.onclick=function()</div><div class="line">&#123;</div><div class="line">	this.style.width=this.offsetWidth+100+&quot;px&quot;;</div><div class="line">&#125;;</div><div class="line">addEnd(oBox,function()&#123;</div><div class="line">	alert(&quot;end&quot;);	</div><div class="line">&#125;);</div><div class="line">function addEnd(obj,fn)</div><div class="line">&#123;</div><div class="line">	obj.addEventListener(&apos;WebkitTransitionEnd&apos;,fn,false);</div><div class="line">	obj.addEventListener(&apos;transitionend&apos;,fn,false);</div><div class="line">&#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>  
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">.box&#123;width:100px;height:100px;background:red; transition:1s width;&#125;</div><div class="line">&lt;/style&gt;</div><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">oBox.onclick=function()</div><div class="line">&#123;</div><div class="line">	this.style.width=this.offsetWidth+100+&quot;px&quot;;</div><div class="line">&#125;;</div><div class="line">addEnd(oBox,function()&#123;</div><div class="line">	alert(&quot;end&quot;);	</div><div class="line">&#125;);</div><div class="line">function addEnd(obj,fn)</div><div class="line">&#123;</div><div class="line">	obj.addEventListener(&apos;WebkitTransitionEnd&apos;,fn,false);</div><div class="line">	obj.addEventListener(&apos;transitionend&apos;,fn,false);</div><div class="line">&#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<h1 id="2D变换"><a href="#2D变换" class="headerlink" title="2D变换"></a>2D变换</h1><h1 id="transform"><a href="#transform" class="headerlink" title="transform"></a>transform</h1><pre><code>`rotate()` 旋转函数
+    - deg 度数
+    - transform-origin 旋转基点
+`示例代码`
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">.rotate&#123;</div><div class="line">	transition: 1s all;</div><div class="line">	width: 100px;</div><div class="line">	height: 100px;</div><div class="line">	background: red;</div><div class="line">&#125;</div><div class="line">.rotate:hover&#123;</div><div class="line">	transform: rotate(150deg);</div><div class="line">	transform-origin: 10px 10px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+`skew()`倾斜函数
+    - skewX()
+    - skewY()
+`示例代码`
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">.skew&#123;</div><div class="line">	width: 100px;</div><div class="line">	height: 100px;</div><div class="line">	background: pink;</div><div class="line">	transition: 1s all;</div><div class="line">&#125;</div><div class="line">.skew:hover&#123;</div><div class="line">	transform: skew(10deg,20deg);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+`scale()` 缩放函数 值为正数、负数、小数
+    - scaleY()
+    - scaleX()
+`示例代码`
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">.scale&#123;</div><div class="line">	width: 200px;</div><div class="line">	height: 300px;</div><div class="line">	background: purple;</div><div class="line">	transition: 1s all;</div><div class="line">&#125;</div><div class="line">.scale:hover&#123;</div><div class="line">	transform: scale(0.5);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+`translate()` 位移函数
+    - translateX()
+    - translateY()
+`示例代码`
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">.translate&#123;</div><div class="line">	width: 100px;</div><div class="line">	height: 300px;</div><div class="line">	background: black;</div><div class="line">	transition: 1s all;</div><div class="line">&#125;</div><div class="line">.translate:hover&#123;</div><div class="line">	transform: translate(100px,0px);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</code></pre>  
 	</div>
 		<footer class="article-footer clearfix">
 
@@ -207,7 +231,7 @@ ease
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#transition过渡"><span class="toc-number">1.</span> <span class="toc-text">transition过渡</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#transitionend"><span class="toc-number">2.</span> <span class="toc-text">transitionend</span></a></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#transition过渡"><span class="toc-number">1.</span> <span class="toc-text">transition过渡</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#transitionend"><span class="toc-number">2.</span> <span class="toc-text">transitionend</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2D变换"><span class="toc-number">3.</span> <span class="toc-text">2D变换</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#transform"><span class="toc-number">4.</span> <span class="toc-text">transform</span></a></li></ol>
   </div>
 
 <div id="asidepart">
