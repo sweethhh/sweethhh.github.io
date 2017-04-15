@@ -85,7 +85,7 @@ t">
     </p>
   <p class="article-time">
     <time datetime="2017-04-08T11:47:38.071Z" itemprop="datePublished">2017-04-08</time>
-    更新日期:<time datetime="2017-04-09T06:22:33.135Z" itemprop="dateModified">2017-04-09</time>
+    更新日期:<time datetime="2017-04-14T11:25:00.834Z" itemprop="dateModified">2017-04-14</time>
     
   </p>
 </header>
@@ -110,8 +110,8 @@ t">
 </ul>
 </li>
 </ul>
-<h1 id="立方体盒子"><a href="#立方体盒子" class="headerlink" title="立方体盒子"></a>立方体盒子</h1><pre><code>
-</code></pre><p><img src="" alt="立方体盒子"></p>
+<h1 id="立方体盒子"><a href="#立方体盒子" class="headerlink" title="立方体盒子"></a>立方体盒子</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;style type=&quot;text/css&quot;&gt;</div><div class="line">	.box&#123;</div><div class="line">		width: 300px;</div><div class="line">		height: 300px;</div><div class="line">		border: 1px solid black;</div><div class="line">		margin: 100px auto;</div><div class="line">		position: relative;</div><div class="line">		-webkit-perspective: 600px;</div><div class="line">	&#125;</div><div class="line">	.boxMain&#123;</div><div class="line">		transition: 1s;</div><div class="line">		-webkit-transform-style: preserve-3d;</div><div class="line">		position: relative;</div><div class="line">		width: 300px;</div><div class="line">		height: 300px;</div><div class="line">	&#125;</div><div class="line">	.boxMain div&#123;</div><div class="line">		font-size: 50px;</div><div class="line">		color: white;</div><div class="line">		width: 100px;</div><div class="line">		height: 100px;</div><div class="line">		line-height: 100px;</div><div class="line">		text-align: center;</div><div class="line">		position: absolute;</div><div class="line">	&#125;</div><div class="line">	.boxMain div:nth-of-type(1)&#123;</div><div class="line">		left: 100px;</div><div class="line">		top: 0;</div><div class="line">		background: black;</div><div class="line">		transform-origin: bottom;</div><div class="line">		transform:rotateX(90deg); </div><div class="line"></div><div class="line">	&#125;</div><div class="line">	.boxMain div:nth-of-type(2)&#123;</div><div class="line">		left: 100px;</div><div class="line">		top: 100px;</div><div class="line">		background: pink;</div><div class="line">	&#125;</div><div class="line">	.boxMain div:nth-of-type(3)&#123;</div><div class="line">		left: 100px;</div><div class="line">		top: 200px;</div><div class="line">		background: green;</div><div class="line">		transform-origin: top;</div><div class="line">		transform:rotateX(-90deg); </div><div class="line">	&#125;</div><div class="line">	.boxMain div:nth-of-type(4)&#123;</div><div class="line">		left: 0px;</div><div class="line">		top: 100px;</div><div class="line">		background: grey;</div><div class="line">		transform-origin: right;</div><div class="line">		transform:rotateY(-90deg); </div><div class="line">	&#125;</div><div class="line">	.boxMain div:nth-of-type(5)&#123;</div><div class="line">		left: 200px;</div><div class="line">		top: 100px;</div><div class="line">		background: grey;</div><div class="line">		transform-origin: left;</div><div class="line">		transform:rotateY(90deg); </div><div class="line">	&#125;</div><div class="line">	.boxMain div:nth-of-type(6)&#123;</div><div class="line">		left: 100px;</div><div class="line">		top: 100px;</div><div class="line">		background: yellow;</div><div class="line">		transform:translateZ(-100px);</div><div class="line">	&#125;</div><div class="line">	.box:hover .boxMain&#123;</div><div class="line">		transform:rotateX(-90deg);</div><div class="line">		transform-origin: center center -50px;</div><div class="line">	&#125;</div><div class="line">&lt;/style&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;title&gt;立体盒子再尝试&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;div class=&quot;box&quot;&gt;</div><div class="line">	&lt;div class=&quot;boxMain&quot;&gt;</div><div class="line">		&lt;div&gt;1&lt;/div&gt;</div><div class="line">		&lt;div&gt;2&lt;/div&gt;</div><div class="line">		&lt;div&gt;3&lt;/div&gt;</div><div class="line">		&lt;div&gt;4&lt;/div&gt;</div><div class="line">		&lt;div&gt;5&lt;/div&gt;</div><div class="line">		&lt;div&gt;6&lt;/div&gt;</div><div class="line">	&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<p><img src="http://onm9xh80o.bkt.clouddn.com/%E7%AB%8B%E6%96%B9%E4%BD%93%E7%9B%92%E5%AD%90.PNG" alt="立方体盒子"></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -159,6 +159,14 @@ t">
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev" >
+ <a href="/2017/04/14/Bootstrap （一）/" title="Bootstrap(一)">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  Bootstrap(一)</span>
+</a>
+</div>
+
 
 <div class="next">
 <a href="/2017/04/06/2D变换/"  title="过渡和2D变换">
@@ -192,6 +200,8 @@ t">
 	<p class="asidetitle">分类</p>
 		<ul>
 		
+			<li><a href="/categories/CSS框架/" title="CSS框架">CSS框架<sup>1</sup></a></li>
+		
 			<li><a href="/categories/Git命令/" title="Git命令">Git命令<sup>1</sup></a></li>
 		
 			<li><a href="/categories/代码/" title="代码">代码<sup>8</sup></a></li>
@@ -204,6 +214,8 @@ t">
 <div class="tagslist">
 	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
+		
+			<li><a href="/tags/Bootstrap/" title="Bootstrap">Bootstrap<sup>1</sup></a></li>
 		
 			<li><a href="/tags/CSS/" title="CSS">CSS<sup>1</sup></a></li>
 		
