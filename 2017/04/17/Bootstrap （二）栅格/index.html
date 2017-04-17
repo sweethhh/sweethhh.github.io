@@ -4,41 +4,13 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>响应式布局 | 你家谷谷</title>
+    <title>Bootstrap(二) | 你家谷谷</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="Hou honggu">
     
-    <meta name="description" content="css3分栏布局（-webkit-内核）
-
-
-属性
-说明
-
-
-
-
-column-width
-栏目宽度
-
-
-column-count
-栏目列数
-
-
-column-gap
-栏目距离
-
-
-column-rule
-栏目间隔线
-
-
-
-css3响应式布局引用样式适配分辨率
-引用样式表写法
-
-123&amp;lt;lin">
+    <meta name="description" content="栅格系统适应移动端&amp;lt;meta name=&amp;quot;viewport&amp;quot; content=&amp;quot;width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no&amp;quot;&amp;gt;
+布局容器步骤一一共12列">
     
     
     
@@ -98,15 +70,15 @@ css3响应式布局引用样式适配分辨率
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/03/27/响应式布局/" title="响应式布局" itemprop="url">响应式布局</a>
+      <a href="/2017/04/17/Bootstrap （二）栅格/" title="Bootstrap(二)" itemprop="url">Bootstrap(二)</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://houhonggu.top" title="Hou honggu">Hou honggu</a>
     </p>
   <p class="article-time">
-    <time datetime="2017-03-27T13:05:26.683Z" itemprop="datePublished">2017-03-27</time>
-    更新日期:<time datetime="2017-03-29T05:01:03.892Z" itemprop="dateModified">2017-03-29</time>
+    <time datetime="2017-04-17T09:07:54.309Z" itemprop="datePublished">2017-04-17</time>
+    更新日期:<time datetime="2017-04-17T12:36:18.177Z" itemprop="dateModified">2017-04-17</time>
     
   </p>
 </header>
@@ -115,69 +87,30 @@ css3响应式布局引用样式适配分辨率
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#css3分栏布局（-webkit-内核）"><span class="toc-number">1.</span> <span class="toc-text">css3分栏布局（-webkit-内核）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#css3响应式布局"><span class="toc-number">2.</span> <span class="toc-text">css3响应式布局</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#引用样式适配分辨率"><span class="toc-number">2.1.</span> <span class="toc-text">引用样式适配分辨率</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#横屏竖屏切换"><span class="toc-number">2.2.</span> <span class="toc-text">横屏竖屏切换</span></a></li></ol></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#栅格系统"><span class="toc-number">1.</span> <span class="toc-text">栅格系统</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#布局容器"><span class="toc-number">2.</span> <span class="toc-text">布局容器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#步骤"><span class="toc-number">2.1.</span> <span class="toc-text">步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#列偏移"><span class="toc-number">2.2.</span> <span class="toc-text">列偏移</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#嵌套"><span class="toc-number">2.3.</span> <span class="toc-text">嵌套</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#交换位置"><span class="toc-number">2.4.</span> <span class="toc-text">交换位置</span></a></li></ol></li></ol>
 		</div>
 		
-		<h1 id="css3分栏布局（-webkit-内核）"><a href="#css3分栏布局（-webkit-内核）" class="headerlink" title="css3分栏布局（-webkit-内核）"></a>css3分栏布局（-webkit-内核）</h1><table>
-<thead>
-<tr>
-<th>属性</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>column-width</td>
-<td>栏目宽度</td>
-</tr>
-<tr>
-<td>column-count</td>
-<td>栏目列数</td>
-</tr>
-<tr>
-<td>column-gap</td>
-<td>栏目距离</td>
-</tr>
-<tr>
-<td>column-rule</td>
-<td>栏目间隔线</td>
-</tr>
-</tbody>
-</table>
-<h1 id="css3响应式布局"><a href="#css3响应式布局" class="headerlink" title="css3响应式布局"></a>css3响应式布局</h1><h2 id="引用样式适配分辨率"><a href="#引用样式适配分辨率" class="headerlink" title="引用样式适配分辨率"></a>引用样式适配分辨率</h2><ul>
-<li>引用样式表写法</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;indexa.css&quot; media=&quot;screen and (min-width:800px)&quot;&gt;</div><div class="line">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;indexb.css&quot; media=&quot;screen and (min-width:400px) and (max-width: 800px)&quot;&gt;</div><div class="line">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;indexc.css&quot; media=&quot;screen and (max-width: 400px)&quot;&gt;</div></pre></td></tr></table></figure>
-<ul>
-<li>样式表内部写法<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">@media screen and (min-width:800px) &#123;		</div><div class="line">	.wrap&#123;</div><div class="line">	border:1px solid #000; </div><div class="line">	font:14px/28px &quot;宋体&quot;;</div><div class="line">	color:#000; </div><div class="line">	text-indent:2em; </div><div class="line">	-webkit-column-count:4;</div><div class="line">	-webkit-column-gap:30px; -webkit-column-rule:1px solid #000;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">@import url(&quot;indexc.css&quot;) screen and (min-width:400px) and (max-width:800px);</div><div class="line"></div><div class="line">@media screen and (max-width:400px) &#123;		</div><div class="line">	.wrap&#123;</div><div class="line">		border:1px solid #000; </div><div class="line">		font:16px/28px &quot;宋体&quot;;</div><div class="line">		color:#000; </div><div class="line">		text-indent:2em; -webkit-column-count:2; -webkit-column-gap:20px; -webkit-column-rule:1px solid #000;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="横屏竖屏切换"><a href="#横屏竖屏切换" class="headerlink" title="横屏竖屏切换"></a>横屏竖屏切换</h2><ul>
-<li>引用样式表写法</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;link rel=&quot;stylesheet&quot; media=&quot;all and (orientation:portrait)&quot; href=&quot;indexb.css&quot;&gt;</div><div class="line">&lt;link rel=&quot;stylesheet&quot; media=&quot;all and (orientation:landscape)&quot; href=&quot;indexa.css&quot;&gt;</div></pre></td></tr></table></figure>
-<ul>
-<li><p>样式表内部写法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">@media screen and (min-width:800px) &#123;		</div><div class="line">	.wrap&#123;</div><div class="line">		border:1px solid #000; </div><div class="line">		font:14px/28px &quot;宋体&quot;;</div><div class="line">		color:#000; </div><div class="line">		text-indent:2em; </div><div class="line">		-webkit-column-count:4; -webkit-column-gap:30px; -webkit-column-rule:1px solid #000;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">@import url(&quot;indexc.css&quot;) screen and (min-width:400px) and (max-width:800px);</div><div class="line"></div><div class="line">@media screen and (max-width:400px) &#123;		</div><div class="line">	.wrap&#123;</div><div class="line">		border:1px solid #000; </div><div class="line">		font:16px/28px &quot;宋体&quot;;</div><div class="line">		color:#000; </div><div class="line">		text-indent:2em; -webkit-column-count:2; -webkit-column-gap:20px; -webkit-column-rule:1px solid #000;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li>portrait 竖屏</li>
-<li>landscape 横屏</li>
-</ul>
-</li>
-</ul>
+		<h1 id="栅格系统"><a href="#栅格系统" class="headerlink" title="栅格系统"></a>栅格系统</h1><p><strong>适应移动端</strong><br><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no&quot;&gt;</code></p>
+<h1 id="布局容器"><a href="#布局容器" class="headerlink" title="布局容器"></a>布局容器</h1><h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p><em>一</em><br><strong>一共12列</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//固定宽度</div><div class="line">&lt;div class=&quot;container&quot;&gt;</div><div class="line"> ...</div><div class="line">&lt;/div&gt;</div><div class="line">//100%宽度</div><div class="line">&lt;div class=&quot;container-fluid&quot;&gt;</div><div class="line"> ...</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p><em>二</em><br><strong>创建一个row</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;container&quot;&gt;</div><div class="line"> 	&lt;div class=&quot;row&quot;&gt;...&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p><em>三</em><br><strong>创建列</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;container&quot;&gt;</div><div class="line">	&lt;div class=&quot;row&quot;&gt;</div><div class="line">		&lt;div class=&quot;col-md-4 a&quot;&gt;1&lt;/div&gt;</div><div class="line">		&lt;div class=&quot;col-md-4 a&quot;&gt;1&lt;/div&gt;</div><div class="line">		&lt;div class=&quot;col-md-4 a&quot;&gt;1&lt;/div&gt;</div><div class="line">	&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p><em>根据不同屏幕尺寸划分一行不同的列数</em><br><img src="http://onm9xh80o.bkt.clouddn.com/%E6%A0%85%E6%A0%BC%E5%8F%82%E6%95%B0%E8%A1%A8.PNG" alt="栅格参数表"></p>
+<h2 id="列偏移"><a href="#列偏移" class="headerlink" title="列偏移"></a>列偏移</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;container&quot;&gt;</div><div class="line">	&lt;div class=&quot;row&quot;&gt;</div><div class="line">		&lt;div class=&quot;col-md-8 a&quot;&gt;8&lt;/div&gt;</div><div class="line">		&lt;div class=&quot;col-md-3 col-md-offset-1 a&quot;&gt;3&lt;/div&gt;</div><div class="line">	&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<h2 id="嵌套"><a href="#嵌套" class="headerlink" title="嵌套"></a>嵌套</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;container&quot;&gt;</div><div class="line">	&lt;div class=&quot;row&quot;&gt;</div><div class="line">		&lt;div class=&quot;col-md-9 a&quot;&gt;</div><div class="line">			&lt;div class=&quot;col-md-8 a&quot;&gt;1-8&lt;/div&gt;</div><div class="line">			&lt;div class=&quot;col-md-4 a&quot;&gt;9-12&lt;/div&gt;</div><div class="line">		&lt;/div&gt;</div><div class="line">		&lt;div class=&quot;col-md-3 a&quot;&gt;11-12&lt;/div&gt;</div><div class="line">	&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<h2 id="交换位置"><a href="#交换位置" class="headerlink" title="交换位置"></a>交换位置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//可以把两个列交换位置，push向左移动，pull向右移动</div><div class="line">&lt;div class=&quot;container&quot;&gt;</div><div class="line">	&lt;div class=&quot;row&quot;&gt;</div><div class="line">		&lt;div class=&quot;col-md-9 col-md-push-3 a&quot;&gt;9&lt;/div&gt;</div><div class="line">		&lt;div class=&quot;col-md-3 col-md-pull-9 a&quot;&gt;3&lt;/div&gt;</div><div class="line">	&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
   
 	</div>
 		<footer class="article-footer clearfix">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/CSS3/">CSS3</a><a href="/tags/HTML5/">HTML5</a>
+  <span></span> <a href="/tags/Bootstrap/">Bootstrap</a><a href="/tags/移动端，框架/">移动端，框架</a>
   </div>
 
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/代码/">代码</a>
+  <a class="article-category-link" href="/categories/CSS框架/">CSS框架</a>
 </div>
 
 
@@ -212,19 +145,11 @@ css3响应式布局引用样式适配分辨率
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2017/03/29/css背景定位/" title="背景定位">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  背景定位</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2017/03/15/html5css3笔记 二回目/"  title="html5css3笔记系列 | 二">
+<a href="/2017/04/14/Bootstrap （一）/"  title="Bootstrap(一)">
  <strong>NEXT:</strong><br/> 
- <span>html5css3笔记系列 | 二
+ <span>Bootstrap(一)
 </span>
 </a>
 </div>
@@ -241,7 +166,7 @@ css3响应式布局引用样式适配分辨率
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#css3分栏布局（-webkit-内核）"><span class="toc-number">1.</span> <span class="toc-text">css3分栏布局（-webkit-内核）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#css3响应式布局"><span class="toc-number">2.</span> <span class="toc-text">css3响应式布局</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#引用样式适配分辨率"><span class="toc-number">2.1.</span> <span class="toc-text">引用样式适配分辨率</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#横屏竖屏切换"><span class="toc-number">2.2.</span> <span class="toc-text">横屏竖屏切换</span></a></li></ol></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#栅格系统"><span class="toc-number">1.</span> <span class="toc-text">栅格系统</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#布局容器"><span class="toc-number">2.</span> <span class="toc-text">布局容器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#步骤"><span class="toc-number">2.1.</span> <span class="toc-text">步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#列偏移"><span class="toc-number">2.2.</span> <span class="toc-text">列偏移</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#嵌套"><span class="toc-number">2.3.</span> <span class="toc-text">嵌套</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#交换位置"><span class="toc-number">2.4.</span> <span class="toc-text">交换位置</span></a></li></ol></li></ol>
   </div>
 
 <div id="asidepart">
