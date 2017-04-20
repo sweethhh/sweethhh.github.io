@@ -1,0 +1,385 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Bootstrap(五) | 你家谷谷</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Hou honggu">
+    
+    <meta name="description" content="路径分页标签和徽章组件路径组件面包屑导航12345&amp;lt;ol class=&amp;quot;breadcrumb&amp;quot;&amp;gt;	&amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;#&amp;quot;&amp;gt;首页&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;	&amp;lt;li&amp;gt;&amp;lt;a href=&amp;q">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="你家谷谷" title="你家谷谷"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="你家谷谷">你家谷谷</a></h1>
+				<h2 class="blog-motto">And I know it&#39;s long gone and there was nothing else I could do.</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">主页 | Index</a></li>
+					
+						<li><a href="/archives">归档 | Archives</a></li>
+					
+						<li><a href="/about">关于 | About</a></li>
+					
+						<li><a href="/resume">简历 | Resume</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:houhonggu.top">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/04/20/Bootstrap （五）/" title="Bootstrap(五)" itemprop="url">Bootstrap(五)</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://houhonggu.top" title="Hou honggu">Hou honggu</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2017-04-20T10:27:17.732Z" itemprop="datePublished">2017-04-20</time>
+    更新日期:<time datetime="2017-04-20T13:36:24.660Z" itemprop="dateModified">2017-04-20</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#路径分页标签和徽章组件"><span class="toc-number">1.</span> <span class="toc-text">路径分页标签和徽章组件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#路径组件"><span class="toc-number">1.1.</span> <span class="toc-text">路径组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#标签"><span class="toc-number">1.2.</span> <span class="toc-text">标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#徽章（badge）"><span class="toc-number">1.3.</span> <span class="toc-text">徽章（badge）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#巨幕组件"><span class="toc-number">1.4.</span> <span class="toc-text">巨幕组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#页头组件"><span class="toc-number">1.5.</span> <span class="toc-text">页头组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#缩略图"><span class="toc-number">1.6.</span> <span class="toc-text">缩略图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#缩略图自定义内容"><span class="toc-number">1.7.</span> <span class="toc-text">缩略图自定义内容</span></a></li></ol></li></ol>
+		</div>
+		
+		<h1 id="路径分页标签和徽章组件"><a href="#路径分页标签和徽章组件" class="headerlink" title="路径分页标签和徽章组件"></a>路径分页标签和徽章组件</h1><h2 id="路径组件"><a href="#路径组件" class="headerlink" title="路径组件"></a>路径组件</h2><p><em>面包屑导航</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;ol class=&quot;breadcrumb&quot;&gt;</div><div class="line">	&lt;li&gt;&lt;a href=&quot;#&quot;&gt;首页&lt;/a&gt;&lt;/li&gt;</div><div class="line">	&lt;li&gt;&lt;a href=&quot;#&quot;&gt;产品列表&lt;/a&gt;&lt;/li&gt;</div><div class="line">	&lt;li class=&quot;active&quot;&gt;韩版 2015 年羊绒毛衣&lt;/li&gt;</div><div class="line">&lt;/ol&gt;</div></pre></td></tr></table></figure></p>
+<p><img src="http://onm9xh80o.bkt.clouddn.com/%E9%9D%A2%E5%8C%85%E5%B1%91%E5%AF%BC%E8%88%AA.PNG" alt="面包屑导航"></p>
+<p><em>分页组件</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;ul class=&quot;pagination&quot;&gt;</div><div class="line">		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;&amp;laquo;&lt;/a&gt;&lt;/li&gt;</div><div class="line">		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;1&lt;/a&gt;&lt;/li&gt;</div><div class="line">		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;2&lt;/a&gt;&lt;/li&gt;</div><div class="line">		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;3&lt;/a&gt;&lt;/li&gt;</div><div class="line">		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;4&lt;/a&gt;&lt;/li&gt;</div><div class="line">		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;5&lt;/a&gt;&lt;/li&gt;</div><div class="line">		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;&amp;raquo;&lt;/a&gt;&lt;/li&gt;</div><div class="line">	&lt;/ul&gt;</div></pre></td></tr></table></figure></p>
+<p><img src="http://onm9xh80o.bkt.clouddn.com/%E5%88%86%E9%A1%B5%E7%BB%84%E4%BB%B6.PNG" alt="分页组件"></p>
+<p><em>首选项</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;1&lt;/a&gt;&lt;/li&gt;</div></pre></td></tr></table></figure></p>
+<p><img src="http://onm9xh80o.bkt.clouddn.com/%E5%88%86%E9%A1%B5%E9%A6%96%E9%80%89%E9%A1%B9.PNG" alt="首选项"></p>
+<p><em>禁用</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;li class=&quot;disabled&quot;&gt;&lt;a href=&quot;#&quot;&gt;1&lt;/a&gt;&lt;/li&gt;</div></pre></td></tr></table></figure></p>
+<p><em>尺寸</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;ul class=&quot;pagination pagination-lg&quot;&gt;</div><div class="line">&lt;ul class=&quot;pagination pagination&quot;&gt;</div><div class="line">&lt;ul class=&quot;pagination pagination-sm&quot;&gt;</div><div class="line">&lt;ul class=&quot;pagination pagination-xs&quot;&gt;</div></pre></td></tr></table></figure></p>
+<p><em>分页效果</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;ul class=&quot;pager&quot;&gt;</div><div class="line">	&lt;li&gt;&lt;a href=&quot;#&quot;&gt;上一页&lt;/a&gt;&lt;/li&gt;</div><div class="line">	&lt;li&gt;&lt;a href=&quot;#&quot;&gt;下一页&lt;/a&gt;&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div><div class="line"></div><div class="line">&lt;ul class=&quot;pager&quot;&gt;</div><div class="line">	&lt;li class=&quot;previous&quot;&gt;&lt;a href=&quot;#&quot;&gt;上一页&lt;/a&gt;&lt;/li&gt;</div><div class="line">	&lt;li class=&quot;next&quot;&gt;&lt;a href=&quot;#&quot;&gt;下一页&lt;/a&gt;&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure></p>
+<p><img src="http://onm9xh80o.bkt.clouddn.com/%E5%88%86%E9%A1%B5%E6%95%88%E6%9E%9C.PNG" alt="分页效果"></p>
+<h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;h3&gt;标签 &lt;span class=&quot;label label-default&quot;&gt;new&lt;/span&gt;&lt;/h3&gt;</div></pre></td></tr></table></figure>
+<p><img src="http://onm9xh80o.bkt.clouddn.com/%E6%A0%87%E7%AD%BE.PNG" alt="标签"></p>
+<p><em>各种颜色</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;h3&gt;标签 &lt;span class=&quot;label label-primary&quot;&gt;new&lt;/span&gt;&lt;/h3&gt;</div><div class="line">&lt;h3&gt;标签 &lt;span class=&quot;label label-success&quot;&gt;new&lt;/span&gt;&lt;/h3&gt;</div><div class="line">&lt;h3&gt;标签 &lt;span class=&quot;label label-info&quot;&gt;new&lt;/span&gt;&lt;/h3&gt;</div><div class="line">&lt;h3&gt;标签 &lt;span class=&quot;label label-warning&quot;&gt;new&lt;/span&gt;&lt;/h3&gt;</div><div class="line">&lt;h3&gt;标签 &lt;span class=&quot;label label-danger&quot;&gt;new&lt;/span&gt;&lt;/h3&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="徽章（badge）"><a href="#徽章（badge）" class="headerlink" title="徽章（badge）"></a>徽章（badge）</h2><p><em>未读信息</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;a href=&quot;#&quot;&gt;信息 &lt;span class=&quot;badge&quot;&gt;10&lt;/span&gt;&lt;/a&gt;</div></pre></td></tr></table></figure></p>
+<p><img src="http://onm9xh80o.bkt.clouddn.com/%E6%B1%87%E6%80%BB%E9%98%BF%E7%BA%A2.PNG" alt="未读信息徽章"></p>
+<p><em>按钮中的徽章</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;button class=&quot;btn btn-success&quot;&gt;</div><div class="line">	提交&lt;span class=&quot;badge&quot;&gt;5&lt;/span&gt;</div><div class="line">&lt;/button&gt;</div></pre></td></tr></table></figure></p>
+<p><img src="http://onm9xh80o.bkt.clouddn.com/%E6%8C%89%E9%92%AE%E5%BE%BD%E7%AB%A0.PNG" alt="按钮徽章"></p>
+<h2 id="巨幕组件"><a href="#巨幕组件" class="headerlink" title="巨幕组件"></a>巨幕组件</h2><p><em>固定</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;container&quot;&gt;</div><div class="line">	&lt;div class=&quot;jumbotron&quot;&gt;</div><div class="line">		&lt;h2&gt;网站标题&lt;/h2&gt;</div><div class="line">		&lt;p&gt;这是一个学习性的网站！&lt;/p&gt;</div><div class="line">		&lt;p&gt;&lt;a href=&quot;#&quot; class=&quot;btn btn-default&quot;&gt;更多内容&lt;/a&gt;&lt;/p&gt;</div><div class="line">	&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p><em>100%</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;jumbotron&quot;&gt;</div><div class="line">	&lt;div class=&quot;container&quot;&gt;</div><div class="line">		&lt;h2&gt;网站标题&lt;/h2&gt;</div><div class="line">		&lt;p&gt;这是一个学习性的网站！&lt;/p&gt;</div><div class="line">		&lt;p&gt;&lt;a href=&quot;#&quot; class=&quot;btn btn-default&quot;&gt;更多内容&lt;/a&gt;&lt;/p&gt;</div><div class="line">	&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="页头组件"><a href="#页头组件" class="headerlink" title="页头组件"></a>页头组件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;page-header&quot;&gt;</div><div class="line">	&lt;h1&gt;大标题 &lt;small&gt;小标题&lt;/small&gt;&lt;/h1&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<p><img src="http://onm9xh80o.bkt.clouddn.com/%E9%A1%B5%E5%A4%B4%E7%BB%84%E4%BB%B6.PNG" alt="页头组件"></p>
+<h2 id="缩略图"><a href="#缩略图" class="headerlink" title="缩略图"></a>缩略图</h2><p><em>配合响应式</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;container&quot;&gt;</div><div class="line">	&lt;div class=&quot;row&quot;&gt;</div><div class="line">		&lt;div class=&quot;col-md-3 col-sm-4 col-xs-6&quot;&gt;&lt;div class=&quot;thumbnail&quot;&gt;&lt;img src=&quot;img.jpg&quot;&gt;&lt;/div&gt;&lt;/div&gt;</div><div class="line">		&lt;div class=&quot;col-md-3 col-sm-4 col-xs-6&quot;&gt;&lt;div class=&quot;thumbnail&quot;&gt;&lt;img src=&quot;img.jpg&quot;&gt;&lt;/div&gt;&lt;/div&gt;</div><div class="line">		&lt;div class=&quot;col-md-3 col-sm-4 col-xs-6&quot;&gt;&lt;div class=&quot;thumbnail&quot;&gt;&lt;img src=&quot;img.jpg&quot;&gt;&lt;/div&gt;&lt;/div&gt;</div><div class="line">		&lt;div class=&quot;col-md-3 col-sm-4 col-xs-6&quot;&gt;&lt;div class=&quot;thumbnail&quot;&gt;&lt;img src=&quot;img.jpg&quot;&gt;&lt;/div&gt;&lt;/div&gt;</div><div class="line">	&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="缩略图自定义内容"><a href="#缩略图自定义内容" class="headerlink" title="缩略图自定义内容"></a>缩略图自定义内容</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;container&quot;&gt;</div><div class="line">	&lt;div class=&quot;row&quot;&gt;</div><div class="line">		&lt;div class=&quot;col-md-3 col-sm-4 col-xs-6&quot;&gt;</div><div class="line">			&lt;div class=&quot;thumbnail&quot;&gt;</div><div class="line">				&lt;img src=&quot;img.jpg&quot;&gt;</div><div class="line">				&lt;div class=&quot;caption&quot;&gt;</div><div class="line">					&lt;h3&gt;呸！&lt;/h3&gt;</div><div class="line">				&lt;p&gt;这是一张图片&lt;/p&gt;</div><div class="line">				&lt;a href=&quot;#&quot; class=&quot;btn btn-success&quot;&gt;查看详情&lt;/a&gt;</div><div class="line">				&lt;/div&gt;</div><div class="line">			&lt;/div&gt;</div><div class="line">		&lt;/div&gt;</div><div class="line">		&lt;div class=&quot;col-md-3 col-sm-4 col-xs-6&quot;&gt;&lt;div class=&quot;thumbnail&quot;&gt;&lt;img src=&quot;img.jpg&quot;&gt;&lt;/div&gt;&lt;/div&gt;</div><div class="line">		&lt;div class=&quot;col-md-3 col-sm-4 col-xs-6&quot;&gt;&lt;div class=&quot;thumbnail&quot;&gt;&lt;img src=&quot;img.jpg&quot;&gt;&lt;/div&gt;&lt;/div&gt;</div><div class="line">		&lt;div class=&quot;col-md-3 col-sm-4 col-xs-6&quot;&gt;&lt;div class=&quot;thumbnail&quot;&gt;&lt;img src=&quot;img.jpg&quot;&gt;&lt;/div&gt;&lt;/div&gt;</div><div class="line">	&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<p><img src="http://onm9xh80o.bkt.clouddn.com/%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BC%A9%E7%95%A5%E5%9B%BE%E5%86%85%E5%AE%B9.PNG" alt="自定义缩略图内容"></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Bootstrap/">Bootstrap</a><a href="/tags/移动端/">移动端</a><a href="/tags/框架/">框架</a>
+  </div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/CSS框架/">CSS框架</a>
+</div>
+
+
+
+<div class="article-share" id="share">
+
+  
+<div class="jiathis_style">
+    <span class="jiathis_txt">分享到：</span>
+    <a class="jiathis_button_tsina">新浪微博</a>
+    <a class="jiathis_button_weixin">微信</a>
+    <a class="jiathis_button_twitter">Twitter</a>
+    <a class="jiathis_button_evernote">EverNote</a>
+    <a href="http://www.jiathis.com/share?uid=1501277" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+</div>
+<script type="text/javascript" >
+    var jiathis_config={
+    data_track_clickback:true,
+    sm:"copy,renren,cqq",
+    pic:"",
+    summary:"",
+     ralateuid:{"tsina":"5205287645"},hideMore:false}
+    
+  </script> 
+<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=
+2127280" charset="utf-8"></script>      
+
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2017/04/19/Bootstrap （四）/"  title="Bootstrap(四)">
+ <strong>NEXT:</strong><br/> 
+ <span>Bootstrap(四)
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section class="comment">
+	<div class="ds-thread"></div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#路径分页标签和徽章组件"><span class="toc-number">1.</span> <span class="toc-text">路径分页标签和徽章组件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#路径组件"><span class="toc-number">1.1.</span> <span class="toc-text">路径组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#标签"><span class="toc-number">1.2.</span> <span class="toc-text">标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#徽章（badge）"><span class="toc-number">1.3.</span> <span class="toc-text">徽章（badge）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#巨幕组件"><span class="toc-number">1.4.</span> <span class="toc-text">巨幕组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#页头组件"><span class="toc-number">1.5.</span> <span class="toc-text">页头组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#缩略图"><span class="toc-number">1.6.</span> <span class="toc-text">缩略图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#缩略图自定义内容"><span class="toc-number">1.7.</span> <span class="toc-text">缩略图自定义内容</span></a></li></ol></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+			<li><a href="/categories/CSS框架/" title="CSS框架">CSS框架<sup>5</sup></a></li>
+		
+			<li><a href="/categories/Git命令/" title="Git命令">Git命令<sup>1</sup></a></li>
+		
+			<li><a href="/categories/代码/" title="代码">代码<sup>8</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/Bootstrap/" title="Bootstrap">Bootstrap<sup>5</sup></a></li>
+		
+			<li><a href="/tags/CSS/" title="CSS">CSS<sup>1</sup></a></li>
+		
+			<li><a href="/tags/CSS3/" title="CSS3">CSS3<sup>7</sup></a></li>
+		
+			<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
+		
+			<li><a href="/tags/HTML5/" title="HTML5">HTML5<sup>5</sup></a></li>
+		
+			<li><a href="/tags/命令/" title="命令">命令<sup>1</sup></a></li>
+		
+			<li><a href="/tags/框架/" title="框架">框架<sup>2</sup></a></li>
+		
+			<li><a href="/tags/移动端/" title="移动端">移动端<sup>2</sup></a></li>
+		
+			<li><a href="/tags/移动端，框架/" title="移动端，框架">移动端，框架<sup>2</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <iframe width="100%" height="550" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=2&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=1&isFans=1&uid=5205287645&verifier=fea7d72c&dpc=1"></iframe>
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+      <li><a href="http://www.yuanyang-miemie.win" target="_blank" title="袁咩咩的博客">Husband's Blog</a></li>
+      <li><a href="http://hexo.io" target="_blank" title="Hexo">Hexo</a></li>
+    </ul>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m Gu in Cqupt. <br/>
+			我自是年少，韶华倾负。</p>
+	</section>
+	 
+	<div class="social-font clearfix">
+		
+		<a href="http://weibo.com/5205287645" target="_blank" title="weibo"></a>
+		
+		
+		
+		<a href="https://github.com/sweethhh" target="_blank" title="github"></a>
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2017 
+		
+		<a href="http://houhonggu.top" target="_blank" title="Hou honggu">Hou honggu</a>
+		
+		 
+	<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1261489775'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1261489775%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+ 
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"sweethhh"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+ 
+
+  </body>
+</html>
