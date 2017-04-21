@@ -1,0 +1,378 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Bootstrap(六) | 你家谷谷</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Hou honggu">
+    
+    <meta name="description" content="进度条媒体对象和Well组件well组件123456&amp;lt;div class=&amp;quot;well well-sm&amp;quot;&amp;gt;	Well组件&amp;lt;/div&amp;gt;&amp;lt;div class=&amp;quot;well well-lg&amp;quot;&amp;gt;	Well组件&amp;lt;/div&amp;gt;
+进">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="你家谷谷" title="你家谷谷"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="你家谷谷">你家谷谷</a></h1>
+				<h2 class="blog-motto">And I know it&#39;s long gone and there was nothing else I could do.</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">主页 | Index</a></li>
+					
+						<li><a href="/archives">归档 | Archives</a></li>
+					
+						<li><a href="/about">关于 | About</a></li>
+					
+						<li><a href="/resume">简历 | Resume</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:houhonggu.top">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/04/21/Bootstrap （六）/" title="Bootstrap(六)" itemprop="url">Bootstrap(六)</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://houhonggu.top" title="Hou honggu">Hou honggu</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2017-04-21T07:35:04.086Z" itemprop="datePublished">2017-04-21</time>
+    更新日期:<time datetime="2017-04-21T08:35:05.938Z" itemprop="dateModified">2017-04-21</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#进度条媒体对象和Well组件"><span class="toc-number">1.</span> <span class="toc-text">进度条媒体对象和Well组件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#well组件"><span class="toc-number">1.1.</span> <span class="toc-text">well组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#进度条组件"><span class="toc-number">1.2.</span> <span class="toc-text">进度条组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#媒体对象组件"><span class="toc-number">1.3.</span> <span class="toc-text">媒体对象组件</span></a></li></ol></li></ol>
+		</div>
+		
+		<h1 id="进度条媒体对象和Well组件"><a href="#进度条媒体对象和Well组件" class="headerlink" title="进度条媒体对象和Well组件"></a>进度条媒体对象和Well组件</h1><h2 id="well组件"><a href="#well组件" class="headerlink" title="well组件"></a>well组件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;well well-sm&quot;&gt;</div><div class="line">	Well组件</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;div class=&quot;well well-lg&quot;&gt;</div><div class="line">	Well组件</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<h2 id="进度条组件"><a href="#进度条组件" class="headerlink" title="进度条组件"></a>进度条组件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;progress&quot;&gt;</div><div class="line">	&lt;div class=&quot;progress-bar&quot; style=&quot;width: 30%;&quot;&gt;30%&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<p><img src="http://onm9xh80o.bkt.clouddn.com/%E8%BF%9B%E5%BA%A6%E6%9D%A1.PNG" alt="普通进度条"></p>
+<p><em>最小值</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;progress&quot;&gt;</div><div class="line">	&lt;div class=&quot;progress-bar&quot; style=&quot;min-width:20px&quot;&gt;0%&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p><img src="http://onm9xh80o.bkt.clouddn.com/%E6%9C%80%E5%B0%8F%E5%80%BC%E8%BF%9B%E5%BA%A6%E6%9D%A1.PNG" alt="最小值进度条"></p>
+<p><em>进度条情景</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;progress&quot;&gt;</div><div class="line">	&lt;div class=&quot;progress-bar progress-bar-success&quot; style=&quot;min-width:20px;width:60%&quot;&gt;60%</div><div class="line">	&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p><img src="http://onm9xh80o.bkt.clouddn.com/%E8%BF%9B%E5%BA%A6%E6%9D%A1%E6%83%85%E6%99%AF.PNG" alt="进度条情景"></p>
+<p><em>条纹装进度条（IE10+）</em></p>
+<p><font style="background: pink;">动画效果class加上“active”</font><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;progress&quot;&gt;</div><div class="line">	&lt;div class=&quot;progress-bar progress-bar-success</div><div class="line"> progress-bar-striped&quot; style=&quot;min-width:20px;width:60%&quot;&gt;60%</div><div class="line"> 	 &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p><img src="http://onm9xh80o.bkt.clouddn.com/%E6%9D%A1%E7%BA%B9%E8%BF%9B%E5%BA%A6%E6%9D%A1.PNG" alt="条纹进度条"></p>
+<p><em>进度条堆叠</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;progress&quot;&gt;</div><div class="line">	&lt;div class=&quot;progress-bar progress-bar-success&quot; style=&quot;min-width:20px;width:35%&quot;&gt;35%</div><div class="line"> 	&lt;/div&gt;</div><div class="line">	&lt;div class=&quot;progress-bar progress-bar-warning&quot; style=&quot;min-width:20px;width:20%&quot;&gt;20%&lt;/div&gt;</div><div class="line">	&lt;div class=&quot;progress-bar progress-bar-danger&quot; style=&quot;min-width:20px;width:10%&quot;&gt;10%</div><div class="line">	&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p><img src="http://onm9xh80o.bkt.clouddn.com/%E8%BF%9B%E5%BA%A6%E6%9D%A1%E5%A0%86%E5%8F%A0.PNG" alt="进度条堆叠"></p>
+<h2 id="媒体对象组件"><a href="#媒体对象组件" class="headerlink" title="媒体对象组件"></a>媒体对象组件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;media&quot;&gt;</div><div class="line">	&lt;div class=&quot;media-left&quot;&gt;</div><div class="line">		&lt;img src=&quot;img.jpg&quot; class=&quot;media-object img-circle&quot;&gt;</div><div class="line">	&lt;/div&gt;</div><div class="line">	&lt;div class=&quot;media-body&quot;&gt;</div><div class="line">		&lt;h3 class=&quot;media-head&quot;&gt;阿加西&lt;/h3&gt;</div><div class="line">		&lt;p&gt;这里是内容，这里是内容，这里是内容，这里是内容。。。。。。&lt;/p&gt;</div><div class="line">	&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<p><img src="http://onm9xh80o.bkt.clouddn.com/%E5%AA%92%E4%BD%93%E5%AF%B9%E8%B1%A1%E7%BB%84%E4%BB%B6.PNG" alt="媒体对象组件"></p>
+<p><em>媒体对象列表</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">&lt;ul class=&quot;media-list&quot;&gt;</div><div class="line">	&lt;li class=&quot;media&quot;&gt;</div><div class="line">		&lt;div class=&quot;media-left&quot;&gt;</div><div class="line">			&lt;img src=&quot;img.jpg&quot; class=&quot;media-object img-circle&quot;&gt;</div><div class="line">		&lt;/div&gt;</div><div class="line">		&lt;div class=&quot;media-body&quot;&gt;</div><div class="line">			&lt;h3 class=&quot;media-head&quot;&gt;阿加西&lt;/h3&gt;</div><div class="line">			&lt;p&gt;这里是内容，这里是内容，这里是内容，这里是内容。。。。。。&lt;/p&gt;</div><div class="line">			&lt;div class=&quot;media&quot;&gt;</div><div class="line">				&lt;div class=&quot;media-left&quot;&gt;</div><div class="line">					&lt;img src=&quot;img.jpg&quot; class=&quot;media-object img-circle&quot;&gt;</div><div class="line">				&lt;/div&gt;</div><div class="line">				&lt;div class=&quot;media-body&quot;&gt;</div><div class="line">					&lt;h3 class=&quot;media-head&quot;&gt;阿加西&lt;/h3&gt;</div><div class="line">					&lt;p&gt;这里是内容，这里是内容，这里是内容，这里是内容。。。。。。&lt;/p&gt;</div><div class="line">					&lt;div class=&quot;media&quot;&gt;</div><div class="line">						&lt;div class=&quot;media-left&quot;&gt;</div><div class="line">							&lt;img src=&quot;img.jpg&quot; class=&quot;media-object img-circle&quot;&gt;</div><div class="line">						&lt;/div&gt;</div><div class="line">						&lt;div class=&quot;media-body&quot;&gt;</div><div class="line">							&lt;h3 class=&quot;media-head&quot;&gt;阿加西&lt;/h3&gt;</div><div class="line">							&lt;p&gt;这里是内容，这里是内容，这里是内容，这里是内容。。。。。。&lt;/p&gt;</div><div class="line">						&lt;/div&gt;</div><div class="line">					&lt;/div&gt;</div><div class="line">				&lt;/div&gt;</div><div class="line">			&lt;/div&gt;</div><div class="line">		&lt;/div&gt;</div><div class="line">	&lt;/li&gt;	</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure></p>
+<p><img src="http://onm9xh80o.bkt.clouddn.com/%E5%AA%92%E4%BD%93%E8%AF%84%E8%AE%BA%E5%88%97%E8%A1%A8.PNG" alt="媒体评论列表"></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Bootstrap/">Bootstrap</a><a href="/tags/移动端/">移动端</a><a href="/tags/框架/">框架</a>
+  </div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/CSS框架/">CSS框架</a>
+</div>
+
+
+
+<div class="article-share" id="share">
+
+  
+<div class="jiathis_style">
+    <span class="jiathis_txt">分享到：</span>
+    <a class="jiathis_button_tsina">新浪微博</a>
+    <a class="jiathis_button_weixin">微信</a>
+    <a class="jiathis_button_twitter">Twitter</a>
+    <a class="jiathis_button_evernote">EverNote</a>
+    <a href="http://www.jiathis.com/share?uid=1501277" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+</div>
+<script type="text/javascript" >
+    var jiathis_config={
+    data_track_clickback:true,
+    sm:"copy,renren,cqq",
+    pic:"",
+    summary:"",
+     ralateuid:{"tsina":"5205287645"},hideMore:false}
+    
+  </script> 
+<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=
+2127280" charset="utf-8"></script>      
+
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2017/04/20/Bootstrap （五）/"  title="Bootstrap(五)">
+ <strong>NEXT:</strong><br/> 
+ <span>Bootstrap(五)
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section class="comment">
+	<div class="ds-thread"></div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#进度条媒体对象和Well组件"><span class="toc-number">1.</span> <span class="toc-text">进度条媒体对象和Well组件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#well组件"><span class="toc-number">1.1.</span> <span class="toc-text">well组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#进度条组件"><span class="toc-number">1.2.</span> <span class="toc-text">进度条组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#媒体对象组件"><span class="toc-number">1.3.</span> <span class="toc-text">媒体对象组件</span></a></li></ol></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+			<li><a href="/categories/CSS框架/" title="CSS框架">CSS框架<sup>6</sup></a></li>
+		
+			<li><a href="/categories/Git命令/" title="Git命令">Git命令<sup>1</sup></a></li>
+		
+			<li><a href="/categories/代码/" title="代码">代码<sup>8</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/Bootstrap/" title="Bootstrap">Bootstrap<sup>6</sup></a></li>
+		
+			<li><a href="/tags/CSS/" title="CSS">CSS<sup>1</sup></a></li>
+		
+			<li><a href="/tags/CSS3/" title="CSS3">CSS3<sup>7</sup></a></li>
+		
+			<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
+		
+			<li><a href="/tags/HTML5/" title="HTML5">HTML5<sup>5</sup></a></li>
+		
+			<li><a href="/tags/命令/" title="命令">命令<sup>1</sup></a></li>
+		
+			<li><a href="/tags/框架/" title="框架">框架<sup>3</sup></a></li>
+		
+			<li><a href="/tags/移动端/" title="移动端">移动端<sup>3</sup></a></li>
+		
+			<li><a href="/tags/移动端，框架/" title="移动端，框架">移动端，框架<sup>2</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <iframe width="100%" height="550" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=2&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=1&isFans=1&uid=5205287645&verifier=fea7d72c&dpc=1"></iframe>
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+      <li><a href="http://www.yuanyang-miemie.win" target="_blank" title="袁咩咩的博客">Husband's Blog</a></li>
+      <li><a href="http://hexo.io" target="_blank" title="Hexo">Hexo</a></li>
+    </ul>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m Gu in Cqupt. <br/>
+			我自是年少，韶华倾负。</p>
+	</section>
+	 
+	<div class="social-font clearfix">
+		
+		<a href="http://weibo.com/5205287645" target="_blank" title="weibo"></a>
+		
+		
+		
+		<a href="https://github.com/sweethhh" target="_blank" title="github"></a>
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2017 
+		
+		<a href="http://houhonggu.top" target="_blank" title="Hou honggu">Hou honggu</a>
+		
+		 
+	<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1261489775'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1261489775%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+ 
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"sweethhh"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+ 
+
+  </body>
+</html>
