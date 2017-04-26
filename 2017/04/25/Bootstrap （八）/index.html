@@ -1,0 +1,373 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Bootstrap （八） | 你家谷谷</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Hou honggu">
+    
+    <meta name="description" content="附加导航注
+
+data-spy=”affix” 导航随着屏幕滚动
+data-offset-top=”150” 起到初始状态固定导航条的作用
+在body中设置data-spy=”scroll” 并且指定目标 ，以达到滚动效果123456789101112131415161718192021222324">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="你家谷谷" title="你家谷谷"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="你家谷谷">你家谷谷</a></h1>
+				<h2 class="blog-motto">And I know it&#39;s long gone and there was nothing else I could do.</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">主页 | Index</a></li>
+					
+						<li><a href="/archives">归档 | Archives</a></li>
+					
+						<li><a href="/about">关于 | About</a></li>
+					
+						<li><a href="/resume">简历 | Resume</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:houhonggu.top">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/04/25/Bootstrap （八）/" title="Bootstrap （八）" itemprop="url">Bootstrap （八）</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://houhonggu.top" title="Hou honggu">Hou honggu</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2017-04-25T07:33:55.933Z" itemprop="datePublished">2017-04-25</time>
+    更新日期:<time datetime="2017-04-26T12:45:27.875Z" itemprop="dateModified">2017-04-26</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#附加导航"><span class="toc-number">1.</span> <span class="toc-text">附加导航</span></a></li></ol>
+		</div>
+		
+		<h1 id="附加导航"><a href="#附加导航" class="headerlink" title="附加导航"></a>附加导航</h1><p><strong>注</strong></p>
+<ul>
+<li>data-spy=”affix” 导航随着屏幕滚动</li>
+<li>data-offset-top=”150” 起到初始状态固定导航条的作用</li>
+<li>在body中设置data-spy=”scroll” 并且指定目标 ，以达到滚动效果<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">&lt;body data-spy=&quot;scroll&quot; data-target=&quot;#myScrollspy&quot;&gt;</div><div class="line">&lt;div class=&quot;container&quot; id=&quot;myScrollspy&quot;&gt;</div><div class="line">	&lt;div class=&quot;jumbotron&quot; style=&quot;height: 150px;&quot;&gt;</div><div class="line">		&lt;h2&gt;Bootstrap&lt;/h2&gt;</div><div class="line">	&lt;/div&gt;</div><div class="line">	&lt;div class=&quot;row&quot;&gt;</div><div class="line">		&lt;div class=&quot;col-xs-3&quot;&gt;</div><div class="line">			&lt;ul class=&quot;nav nav-pills nav-stacked&quot; data-spy=&quot;affix&quot; data-offset-top=&quot;150&quot; style=&quot;width: 150px; top: 30px&quot;&gt;</div><div class="line">				&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#section-1&quot; &gt;First&lt;/a&gt;&lt;/li&gt;</div><div class="line">				&lt;li&gt;&lt;a href=&quot;#section-2&quot;&gt;Second&lt;/a&gt;&lt;/li&gt;</div><div class="line">				&lt;li&gt;&lt;a href=&quot;#section-3&quot;&gt;Third&lt;/a&gt;&lt;/li&gt;</div><div class="line">				&lt;li&gt;&lt;a href=&quot;#section-4&quot;&gt;forth&lt;/a&gt;&lt;/li&gt;</div><div class="line">			&lt;/ul&gt;</div><div class="line">		&lt;/div&gt;</div><div class="line">		&lt;div class=&quot;col-xs-9&quot;&gt;</div><div class="line">			&lt;h2 id=&quot;section-1&quot;&gt;First&lt;/h2&gt;</div><div class="line">			&lt;p&gt;大部分水母都有三个主要部位：圆伞状或是钟状的身体﹐触器和口腕。 水母钟状身体下面有一些特殊的肌肉能扩张然后迅速收缩，把身体内的水排出体外，通过喷水推进的方法，水母便能向相反的方向游动。一些水母有一层能够收缩钟状体的皮层，使水母能够快速移动。水母并不擅长游泳，它们常常要借助风、浪和水流来移动。水母体内百分之九十五是水，百分之三是盐，百分之二是蛋白质。水母的伞状体内有一种特别的腺，可以发出一氧化碳，使伞状体膨胀。它们没有心脏﹑血液﹑鳃和脑。它们简单的感应器官，使它们能分辨气味、味道并帮助它们在水里保持平衡。钟状体的边缘有一排圆形的小囊，当水母向一方过度倾斜的时候，这些囊就会刺激神经末梢来收缩肌肉，并把水母转到正确的方向上去。位于钟状体边缘的光感器官能使它们分辨光亮与黑暗。 通过化学感受器水母可感觉到气味和味道。通过触手和口腕上的感受器，水母还可以感到物体的运动，帮助它们寻找食物。有一种水母，它们有一个或更多的口沟。里面有口腕，功能就像嘴巴。它们的触手里面有一个小小的器官，也就是水母们的“耳朵”，能够预报海洋风暴的来临，当海浪和空气磨擦而产生的次声波冲击它，便会刺激周围的神经感受器。所以，在风暴来临之前的十几个小时，它们就会接到信息从海面一下子全部消失了。水母没有肺或鳃，他们通过外层的组织来呼吸，整个外层的组织都可以和海水交换氧气和二氧化碳。钟状体上有闪光的白色线条，称为径向水管，用来输送养分至水母的身体各部分。水母的触手和身体上都布满刺丝囊。这些丝囊可以在几毫秒内迅速螫伤、捕捉或征服猎物。有些水母是无毒。&lt;/p&gt;</div><div class="line">			&lt;h2 id=&quot;section-2&quot;&gt;Second&lt;/h2&gt;</div><div class="line">			&lt;p&gt;大部分水母都有三个主要部位：圆伞状或是钟状的身体﹐触器和口腕。 水母钟状身体下面有一些特殊的肌肉能扩张然后迅速收缩，把身体内的水排出体外，通过喷水推进的方法，水母便能向相反的方向游动。一些水母有一层能够收缩钟状体的皮层，使水母能够快速移动。水母并不擅长游泳，它们常常要借助风、浪和水流来移动。水母体内百分之九十五是水，百分之三是盐，百分之二是蛋白质。水母的伞状体内有一种特别的腺，可以发出一氧化碳，使伞状体膨胀。它们没有心脏﹑血液﹑鳃和脑。它们简单的感应器官，使它们能分辨气味、味道并帮助它们在水里保持平衡。钟状体的边缘有一排圆形的小囊，当水母向一方过度倾斜的时候，这些囊就会刺激神经末梢来收缩肌肉，并把水母转到正确的方向上去。位于钟状体边缘的光感器官能使它们分辨光亮与黑暗。 通过化学感受器水母可感觉到气味和味道。通过触手和口腕上的感受器，水母还可以感到物体的运动，帮助它们寻找食物。有一种水母，它们有一个或更多的口沟。里面有口腕，功能就像嘴巴。它们的触手里面有一个小小的器官，也就是水母们的“耳朵”，能够预报海洋风暴的来临，当海浪和空气磨擦而产生的次声波冲击它，便会刺激周围的神经感受器。所以，在风暴来临之前的十几个小时，它们就会接到信息从海面一下子全部消失了。水母没有肺或鳃，他们通过外层的组织来呼吸，整个外层的组织都可以和海水交换氧气和二氧化碳。钟状体上有闪光的白色线条，称为径向水管，用来输送养分至水母的身体各部分。水母的触手和身体上都布满刺丝囊。这些丝囊可以在几毫秒内迅速螫伤、捕捉或征服猎物。有些水母是无毒。&lt;/p&gt;</div><div class="line">			&lt;h2 id=&quot;section-3&quot;&gt;Third&lt;/h2&gt;</div><div class="line">			&lt;p&gt;大部分水母都有三个主要部位：圆伞状或是钟状的身体﹐触器和口腕。 水母钟状身体下面有一些特殊的肌肉能扩张然后迅速收缩，把身体内的水排出体外，通过喷水推进的方法，水母便能向相反的方向游动。一些水母有一层能够收缩钟状体的皮层，使水母能够快速移动。水母并不擅长游泳，它们常常要借助风、浪和水流来移动。水母体内百分之九十五是水，百分之三是盐，百分之二是蛋白质。水母的伞状体内有一种特别的腺，可以发出一氧化碳，使伞状体膨胀。它们没有心脏﹑血液﹑鳃和脑。它们简单的感应器官，使它们能分辨气味、味道并帮助它们在水里保持平衡。钟状体的边缘有一排圆形的小囊，当水母向一方过度倾斜的时候，这些囊就会刺激神经末梢来收缩肌肉，并把水母转到正确的方向上去。位于钟状体边缘的光感器官能使它们分辨光亮与黑暗。 通过化学感受器水母可感觉到气味和味道。通过触手和口腕上的感受器，水母还可以感到物体的运动，帮助它们寻找食物。有一种水母，它们有一个或更多的口沟。里面有口腕，功能就像嘴巴。它们的触手里面有一个小小的器官，也就是水母们的“耳朵”，能够预报海洋风暴的来临，当海浪和空气磨擦而产生的次声波冲击它，便会刺激周围的神经感受器。所以，在风暴来临之前的十几个小时，它们就会接到信息从海面一下子全部消失了。水母没有肺或鳃，他们通过外层的组织来呼吸，整个外层的组织都可以和海水交换氧气和二氧化碳。钟状体上有闪光的白色线条，称为径向水管，用来输送养分至水母的身体各部分。水母的触手和身体上都布满刺丝囊。这些丝囊可以在几毫秒内迅速螫伤、捕捉或征服猎物。有些水母是无毒。&lt;/p&gt;</div><div class="line">			&lt;h2 id=&quot;section-4&quot;&gt;Forth&lt;/h2&gt;</div><div class="line">			&lt;p&gt;大部分水母都有三个主要部位：圆伞状或是钟状的身体﹐触器和口腕。 水母钟状身体下面有一些特殊的肌肉能扩张然后迅速收缩，把身体内的水排出体外，通过喷水推进的方法，水母便能向相反的方向游动。一些水母有一层能够收缩钟状体的皮层，使水母能够快速移动。水母并不擅长游泳，它们常常要借助风、浪和水流来移动。水母体内百分之九十五是水，百分之三是盐，百分之二是蛋白质。水母的伞状体内有一种特别的腺，可以发出一氧化碳，使伞状体膨胀。它们没有心脏﹑血液﹑鳃和脑。它们简单的感应器官，使它们能分辨气味、味道并帮助它们在水里保持平衡。钟状体的边缘有一排圆形的小囊，当水母向一方过度倾斜的时候，这些囊就会刺激神经末梢来收缩肌肉，并把水母转到正确的方向上去。位于钟状体边缘的光感器官能使它们分辨光亮与黑暗。 通过化学感受器水母可感觉到气味和味道。通过触手和口腕上的感受器，水母还可以感到物体的运动，帮助它们寻找食物。有一种水母，它们有一个或更多的口沟。里面有口腕，功能就像嘴巴。它们的触手里面有一个小小的器官，也就是水母们的“耳朵”，能够预报海洋风暴的来临，当海浪和空气磨擦而产生的次声波冲击它，便会刺激周围的神经感受器。所以，在风暴来临之前的十几个小时，它们就会接到信息从海面一下子全部消失了。水母没有肺或鳃，他们通过外层的组织来呼吸，整个外层的组织都可以和海水交换氧气和二氧化碳。钟状体上有闪光的白色线条，称为径向水管，用来输送养分至水母的身体各部分。水母的触手和身体上都布满刺丝囊。这些丝囊可以在几毫秒内迅速螫伤、捕捉或征服猎物。有些水母是无毒。&lt;/p&gt;</div><div class="line">		&lt;/div&gt;</div><div class="line">	&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="http://onm9xh80o.bkt.clouddn.com/%E9%99%84%E5%8A%A0%E5%AF%BC%E8%88%AA.PNG" alt="附加导航"></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Bootstrap/">Bootstrap</a><a href="/tags/移动端/">移动端</a><a href="/tags/框架/">框架</a>
+  </div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/CSS框架/">CSS框架</a>
+</div>
+
+
+
+<div class="article-share" id="share">
+
+  
+<div class="jiathis_style">
+    <span class="jiathis_txt">分享到：</span>
+    <a class="jiathis_button_tsina">新浪微博</a>
+    <a class="jiathis_button_weixin">微信</a>
+    <a class="jiathis_button_twitter">Twitter</a>
+    <a class="jiathis_button_evernote">EverNote</a>
+    <a href="http://www.jiathis.com/share?uid=1501277" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+</div>
+<script type="text/javascript" >
+    var jiathis_config={
+    data_track_clickback:true,
+    sm:"copy,renren,cqq",
+    pic:"",
+    summary:"",
+     ralateuid:{"tsina":"5205287645"},hideMore:false}
+    
+  </script> 
+<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=
+2127280" charset="utf-8"></script>      
+
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2017/04/25/Bootstrap 轮播/"  title="Bootstrap 轮播">
+ <strong>NEXT:</strong><br/> 
+ <span>Bootstrap 轮播
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section class="comment">
+	<div class="ds-thread"></div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#附加导航"><span class="toc-number">1.</span> <span class="toc-text">附加导航</span></a></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+			<li><a href="/categories/CSS框架/" title="CSS框架">CSS框架<sup>9</sup></a></li>
+		
+			<li><a href="/categories/Git命令/" title="Git命令">Git命令<sup>1</sup></a></li>
+		
+			<li><a href="/categories/代码/" title="代码">代码<sup>8</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/Bootstrap/" title="Bootstrap">Bootstrap<sup>9</sup></a></li>
+		
+			<li><a href="/tags/CSS/" title="CSS">CSS<sup>1</sup></a></li>
+		
+			<li><a href="/tags/CSS3/" title="CSS3">CSS3<sup>7</sup></a></li>
+		
+			<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
+		
+			<li><a href="/tags/HTML5/" title="HTML5">HTML5<sup>5</sup></a></li>
+		
+			<li><a href="/tags/命令/" title="命令">命令<sup>1</sup></a></li>
+		
+			<li><a href="/tags/框架/" title="框架">框架<sup>6</sup></a></li>
+		
+			<li><a href="/tags/移动端/" title="移动端">移动端<sup>6</sup></a></li>
+		
+			<li><a href="/tags/移动端，框架/" title="移动端，框架">移动端，框架<sup>2</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <iframe width="100%" height="550" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=2&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=1&isFans=1&uid=5205287645&verifier=fea7d72c&dpc=1"></iframe>
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+      <li><a href="http://www.yuanyang-miemie.win" target="_blank" title="袁咩咩的博客">Husband's Blog</a></li>
+      <li><a href="http://hexo.io" target="_blank" title="Hexo">Hexo</a></li>
+    </ul>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m Gu in Cqupt. <br/>
+			我自是年少，韶华倾负。</p>
+	</section>
+	 
+	<div class="social-font clearfix">
+		
+		<a href="http://weibo.com/5205287645" target="_blank" title="weibo"></a>
+		
+		
+		
+		<a href="https://github.com/sweethhh" target="_blank" title="github"></a>
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2017 
+		
+		<a href="http://houhonggu.top" target="_blank" title="Hou honggu">Hou honggu</a>
+		
+		 
+	<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1261489775'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1261489775%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+ 
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"sweethhh"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+ 
+
+  </body>
+</html>
