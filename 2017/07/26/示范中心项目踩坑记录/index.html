@@ -78,7 +78,7 @@
     </p>
   <p class="article-time">
     <time datetime="2017-07-26T05:31:05.642Z" itemprop="datePublished">2017-07-26</time>
-    更新日期:<time datetime="2017-07-26T08:47:31.724Z" itemprop="dateModified">2017-07-26</time>
+    更新日期:<time datetime="2017-07-26T08:52:38.971Z" itemprop="dateModified">2017-07-26</time>
     
   </p>
 </header>
@@ -93,18 +93,21 @@
 		<h1 id="1-jquery-中-append-后的元素无法添加事件"><a href="#1-jquery-中-append-后的元素无法添加事件" class="headerlink" title="1. jquery 中 append() 后的元素无法添加事件"></a>1. jquery 中 append() 后的元素无法添加事件</h1><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(&quot;父元素名&quot;).on(&quot;click&quot;,&quot;需要操作的元素名&quot;,function()&#123;</div><div class="line">	//TO DO...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h1 id="2-设置input元素不可编辑"><a href="#2-设置input元素不可编辑" class="headerlink" title="2.设置input元素不可编辑"></a>2.设置input元素不可编辑</h1><h2 id="解决方法-1"><a href="#解决方法-1" class="headerlink" title="解决方法"></a>解决方法</h2><h3 id="lt-input-type-quot-text-quot-readonly-quot-readonly-quot-name-quot-id-quot-gt"><a href="#lt-input-type-quot-text-quot-readonly-quot-readonly-quot-name-quot-id-quot-gt" class="headerlink" title="&lt;input type=&quot;text&quot;  readonly=&quot;readonly&quot; name=&quot;id&quot;&gt;"></a><code>&lt;input type=&quot;text&quot;  readonly=&quot;readonly&quot; name=&quot;id&quot;&gt;</code></h3><p>此时文字不可编辑，但可以通过value获取。</p>
 <h3 id="lt-input-type-quot-text-quot-disabled-quot-disabled-quot-name-quot-id-quot-gt"><a href="#lt-input-type-quot-text-quot-disabled-quot-disabled-quot-name-quot-id-quot-gt" class="headerlink" title="&lt;input type=&quot;text&quot;  disabled=&quot;disabled&quot; name=&quot;id&quot;&gt;"></a><code>&lt;input type=&quot;text&quot;  disabled=&quot;disabled&quot; name=&quot;id&quot;&gt;</code></h3><p>此时文字不可编辑，不可获取</p>
-<h1 id="3-formData-用法"><a href="#3-formData-用法" class="headerlink" title="3.formData()用法"></a>3.formData()用法</h1><h2 id="解决方法-2"><a href="#解决方法-2" class="headerlink" title="解决方法"></a>解决方法</h2><h3 id="formData-可以通过打包表单数据传给后台"><a href="#formData-可以通过打包表单数据传给后台" class="headerlink" title="formData()可以通过打包表单数据传给后台"></a>formData()可以通过打包表单数据传给后台</h3><h3 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h3><pre><code>- 在form表单里添加如下属性
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;form id=&quot;changeManager&quot; enctype=&quot;multipart/form-data&quot;&gt;</div><div class="line">&lt;!-- 添加id名和enctype=&quot;multipart/form-data&quot; --&gt;</div></pre></td></tr></table></figure>
-
-- 在js代码里添加
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var data=new FormData($(&quot;#addManager&quot;)[0]);</div></pre></td></tr></table></figure>
-
-- 向后台传输数据时
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">$.ajax(&#123;</div><div class="line">       type: &quot;&quot;,</div><div class="line">       url: &quot;&quot;,</div><div class="line">       data:data,</div><div class="line">       async:false,</div><div class="line">       cache:false,</div><div class="line">       contentType:false,</div><div class="line">       processData:false,</div><div class="line">       success: function (data) &#123;</div><div class="line">       &#125;,</div><div class="line">       error: function(XMLHttpRequest, textStatus, errorThrown) &#123;</div><div class="line">       &#125;</div><div class="line">   &#125;);</div></pre></td></tr></table></figure>
-
-- 前端想要获取data中的数据
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">data.get(&quot;loginName&quot;)</div></pre></td></tr></table></figure>
-</code></pre><h1 id="4-textarea固定大小，不可修改"><a href="#4-textarea固定大小，不可修改" class="headerlink" title="4.textarea固定大小，不可修改"></a>4.textarea固定大小，不可修改</h1><h2 id="解决方法-3"><a href="#解决方法-3" class="headerlink" title="解决方法"></a>解决方法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;textarea cols=&quot;10&quot; rows=&quot;10&quot; resize=&quot;none&quot;&gt;&lt;/textarea&gt;</div></pre></td></tr></table></figure>  
+<h1 id="3-formData-用法"><a href="#3-formData-用法" class="headerlink" title="3.formData()用法"></a>3.formData()用法</h1><h2 id="解决方法-2"><a href="#解决方法-2" class="headerlink" title="解决方法"></a>解决方法</h2><h3 id="formData-可以通过打包表单数据传给后台"><a href="#formData-可以通过打包表单数据传给后台" class="headerlink" title="formData()可以通过打包表单数据传给后台"></a>formData()可以通过打包表单数据传给后台</h3><h3 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h3><ul>
+<li><p>在form表单里添加如下属性</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;form id=&quot;changeManager&quot; enctype=&quot;multipart/form-data&quot;&gt;</div><div class="line">&lt;!-- 添加id名和enctype=&quot;multipart/form-data&quot; --&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>在js代码里添加</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var data=new FormData($(&quot;#addManager&quot;)[0]);</div></pre></td></tr></table></figure>
+</li>
+<li><p>向后台传输数据时</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">$.ajax(&#123;</div><div class="line">       type: &quot;&quot;,</div><div class="line">       url: &quot;&quot;,</div><div class="line">       data:data,</div><div class="line">       async:false,</div><div class="line">       cache:false,</div><div class="line">       contentType:false,</div><div class="line">       processData:false,</div><div class="line">       success: function (data) &#123;</div><div class="line">       &#125;,</div><div class="line">       error: function(XMLHttpRequest, textStatus, errorThrown) &#123;</div><div class="line">       &#125;</div><div class="line">   &#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>前端想要获取data中的数据</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">data.get(&quot;loginName&quot;)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="4-textarea固定大小，不可修改"><a href="#4-textarea固定大小，不可修改" class="headerlink" title="4.textarea固定大小，不可修改"></a>4.textarea固定大小，不可修改</h1><h2 id="解决方法-3"><a href="#解决方法-3" class="headerlink" title="解决方法"></a>解决方法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;textarea cols=&quot;10&quot; rows=&quot;10&quot; resize=&quot;none&quot;&gt;&lt;/textarea&gt;</div></pre></td></tr></table></figure>  
 	</div>
 		<footer class="article-footer clearfix">
 
