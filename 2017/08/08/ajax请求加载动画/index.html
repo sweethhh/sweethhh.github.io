@@ -4,12 +4,14 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Hello World | 你家谷谷</title>
+    <title>ajax请求加载动画 | 你家谷谷</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="Hou honggu">
     
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in ">
+    <meta name="description" content="加载动画示例
+实现加载效果过程1.准备一张loading.gif
+2.在ajax代码中添加 beforeSend123456beforeSend:function()&amp;#123;       	var str1=&amp;quot;&amp;lt;tr&amp;gt;&amp;quot;+       			&amp;quot;&amp;lt;t">
     
     
     
@@ -69,15 +71,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/01/13/hello-world/" title="Hello World" itemprop="url">Hello World</a>
+      <a href="/2017/08/08/ajax请求加载动画/" title="ajax请求加载动画" itemprop="url">ajax请求加载动画</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://houhonggu.top" title="Hou honggu">Hou honggu</a>
     </p>
   <p class="article-time">
-    <time datetime="2017-01-13T08:01:44.706Z" itemprop="datePublished">2017-01-13</time>
-    更新日期:<time datetime="2017-01-13T08:01:44.708Z" itemprop="dateModified">2017-01-13</time>
+    <time datetime="2017-08-08T12:18:32.913Z" itemprop="datePublished">2017-08-08</time>
+    更新日期:<time datetime="2017-08-09T04:08:19.957Z" itemprop="dateModified">2017-08-09</time>
     
   </p>
 </header>
@@ -86,22 +88,27 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#加载动画示例"><span class="toc-number">1.</span> <span class="toc-text">加载动画示例</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实现加载效果过程"><span class="toc-number">2.</span> <span class="toc-text">实现加载效果过程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-准备一张loading-gif"><span class="toc-number">2.1.</span> <span class="toc-text">1.准备一张loading.gif</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-在ajax代码中添加-beforeSend"><span class="toc-number">2.2.</span> <span class="toc-text">2.在ajax代码中添加 beforeSend</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#完整ajax示例"><span class="toc-number">2.2.1.</span> <span class="toc-text">完整ajax示例</span></a></li></ol></li></ol></li></ol>
 		</div>
 		
-		<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-  
+		<h1 id="加载动画示例"><a href="#加载动画示例" class="headerlink" title="加载动画示例"></a>加载动画示例</h1><p><img src="http://onm9xh80o.bkt.clouddn.com/loading.PNG" alt="加载效果"></p>
+<h1 id="实现加载效果过程"><a href="#实现加载效果过程" class="headerlink" title="实现加载效果过程"></a>实现加载效果过程</h1><h2 id="1-准备一张loading-gif"><a href="#1-准备一张loading-gif" class="headerlink" title="1.准备一张loading.gif"></a>1.准备一张loading.gif</h2><p><img src="http://onm9xh80o.bkt.clouddn.com/loading.gif" alt="loading.gif"></p>
+<h2 id="2-在ajax代码中添加-beforeSend"><a href="#2-在ajax代码中添加-beforeSend" class="headerlink" title="2.在ajax代码中添加 beforeSend"></a>2.在ajax代码中添加 beforeSend</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">beforeSend:function()&#123;</div><div class="line">       	var str1=&quot;&lt;tr&gt;&quot;+</div><div class="line">       			&quot;&lt;td colspan=&apos;5&apos; width=&apos;100%&apos;&gt;&quot;+&quot;&lt;img src=&apos;img/loading.gif&apos; width=&apos;30px&apos; height=&apos;30px&apos; style=&apos;margin-left:40%;display:inline-block;&apos;&gt;&quot;+&quot;&lt;/td&gt;&quot;</div><div class="line">       			&quot;&lt;/tr&gt;&quot;;</div><div class="line">       	$(&quot;.tbody&quot;).append(str1);</div><div class="line">       &#125;</div></pre></td></tr></table></figure>
+<p><code>在加载完成之前显示加载图片</code></p>
+<h3 id="完整ajax示例"><a href="#完整ajax示例" class="headerlink" title="完整ajax示例"></a>完整ajax示例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">$.ajax(&#123;</div><div class="line">        type: &quot;GET&quot;,</div><div class="line">        url: &quot;http://172.22.4.202:8080/united/selectAllPerson&quot;,</div><div class="line">        beforeSend:function()&#123;</div><div class="line">        	var str1=&quot;&lt;tr&gt;&quot;+</div><div class="line">        			&quot;&lt;td colspan=&apos;5&apos; width=&apos;100%&apos;&gt;&quot;+&quot;&lt;img src=&apos;img/loading.gif&apos; width=&apos;30px&apos; height=&apos;30px&apos; style=&apos;margin-left:40%;display:inline-block;&apos;&gt;&quot;+&quot;&lt;/td&gt;&quot;</div><div class="line">        			&quot;&lt;/tr&gt;&quot;;</div><div class="line">        	$(&quot;.tbody&quot;).append(str1);</div><div class="line">        &#125;,</div><div class="line">        success: function (data) &#123;</div><div class="line">        	$(&quot;.tbody&quot;).html(&quot;&quot;);//加载完成后清除加载图片</div><div class="line">            if(data.status==1)&#123;</div><div class="line">            	for(var i=0;i&lt;data.data.length;i++)&#123;</div><div class="line">            		var sex;</div><div class="line">            		if(data.data[i].sex==0)&#123;</div><div class="line">            			sex=&quot;女&quot;;</div><div class="line">            		&#125;else&#123;</div><div class="line">            			sex=&quot;男&quot;;</div><div class="line">            		&#125;</div><div class="line">	                var str=&quot;&lt;tr&gt;&quot;+</div><div class="line">							&quot;&lt;td&gt;&quot;+data.data[i].name+&quot;&lt;/td&gt;&quot;+</div><div class="line">							&quot;&lt;td&gt;&quot;+sex+&quot;&lt;/td&gt;&quot;+</div><div class="line">							&quot;&lt;td&gt;&quot;+data.data[i].phone+&quot;&lt;/td&gt;&quot;+</div><div class="line">							&quot;&lt;td&gt;&lt;a href=&apos;javascript:;&apos; alt=&quot;+data.data[i].id+&quot; class=&apos;viewMain&apos; id=&apos;change&apos;&gt;修改&lt;/a&gt;&lt;/td&gt;&quot;+</div><div class="line">							&quot;&lt;td&gt;&lt;input type=&apos;radio&apos; alt=&quot;+data.data[i].id+&quot; name=&apos;delete&apos;&gt;&lt;/td&gt;&quot;+</div><div class="line">						&quot;&lt;/tr&gt;&quot;;</div><div class="line">	            	$(&quot;.tbody&quot;).append(str);</div><div class="line">            	&#125;</div><div class="line">            &#125;else&#123;</div><div class="line">                alert(data.message);</div><div class="line">                // window.location.reload();</div><div class="line">            &#125;</div><div class="line">        &#125;,</div><div class="line">        error: function(XMLHttpRequest, textStatus, errorThrown) &#123;</div><div class="line">             alert(&quot;获取失败，错误代码：&quot;+XMLHttpRequest.status);</div><div class="line">            window.location.reload();</div><div class="line">        &#125;</div><div class="line">    &#125;);</div></pre></td></tr></table></figure>  
 	</div>
 		<footer class="article-footer clearfix">
 
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/ajax/">ajax</a><a href="/tags/交互/">交互</a>
+  </div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/代码/">代码</a>
+</div>
 
 
 
@@ -135,14 +142,14 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2017/01/13/我的第一篇文章/" title="我的第一篇文章">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  我的第一篇文章</span>
+
+<div class="next">
+<a href="/2017/07/26/示范中心项目踩坑记录/"  title="示范中心项目踩坑记录">
+ <strong>NEXT:</strong><br/> 
+ <span>示范中心项目踩坑记录
+</span>
 </a>
 </div>
-
 
 </nav>
 
@@ -156,7 +163,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#加载动画示例"><span class="toc-number">1.</span> <span class="toc-text">加载动画示例</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实现加载效果过程"><span class="toc-number">2.</span> <span class="toc-text">实现加载效果过程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-准备一张loading-gif"><span class="toc-number">2.1.</span> <span class="toc-text">1.准备一张loading.gif</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-在ajax代码中添加-beforeSend"><span class="toc-number">2.2.</span> <span class="toc-text">2.在ajax代码中添加 beforeSend</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#完整ajax示例"><span class="toc-number">2.2.1.</span> <span class="toc-text">完整ajax示例</span></a></li></ol></li></ol></li></ol>
   </div>
 
 <div id="asidepart">
