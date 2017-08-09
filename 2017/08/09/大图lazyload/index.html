@@ -4,13 +4,14 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>html5css3笔记系列 | 一 | 你家谷谷</title>
+    <title>lazyload.js | 你家谷谷</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="Hou honggu">
     
-    <meta name="description" content="基本标签1.progress进度条12&amp;lt;progress value=&amp;quot;20&amp;quot; max=&amp;quot;100&amp;quot;&amp;gt;&amp;lt;/progress&amp;gt;
-2.details摘要1234&amp;lt;details&amp;gt;	&amp;lt;summary&amp;gt;lalalalla&amp;">
+    <meta name="description" content="图片加载完成前显示一个小图，加载完成后才显示真实图片
+1.准备jquery.lazyload.js点击下载jquery.lazyload.js
+2.引入123&amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;jquery.js&amp;quot;&amp;g">
     
     
     
@@ -70,15 +71,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/03/06/html5css3笔记 一回目/" title="html5css3笔记系列 | 一" itemprop="url">html5css3笔记系列 | 一</a>
+      <a href="/2017/08/09/大图lazyload/" title="lazyload.js" itemprop="url">lazyload.js</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://houhonggu.top" title="Hou honggu">Hou honggu</a>
     </p>
   <p class="article-time">
-    <time datetime="2017-03-06T11:55:39.363Z" itemprop="datePublished">2017-03-06</time>
-    更新日期:<time datetime="2017-03-15T09:13:42.809Z" itemprop="dateModified">2017-03-15</time>
+    <time datetime="2017-08-09T08:12:32.115Z" itemprop="datePublished">2017-08-09</time>
+    更新日期:<time datetime="2017-08-09T08:25:47.955Z" itemprop="dateModified">2017-08-09</time>
     
   </p>
 </header>
@@ -87,22 +88,23 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#基本标签"><span class="toc-number">1.</span> <span class="toc-text">基本标签</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-progress进度条"><span class="toc-number">1.1.</span> <span class="toc-text">1.progress进度条</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-details摘要"><span class="toc-number">1.2.</span> <span class="toc-text">2.details摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-datalist下拉输入框"><span class="toc-number">1.3.</span> <span class="toc-text">3.datalist下拉输入框</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#input输入类型"><span class="toc-number">2.</span> <span class="toc-text">input输入类型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#新增属性"><span class="toc-number">3.</span> <span class="toc-text">新增属性</span></a></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-准备"><span class="toc-number">1.</span> <span class="toc-text">1.准备</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#jquery-lazyload-js"><span class="toc-number">1.1.</span> <span class="toc-text">jquery.lazyload.js</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-引入"><span class="toc-number">2.</span> <span class="toc-text">2.引入</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-操作"><span class="toc-number">3.</span> <span class="toc-text">3.操作</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-调用"><span class="toc-number">4.</span> <span class="toc-text">4.调用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-说明"><span class="toc-number">5.</span> <span class="toc-text">5.说明</span></a></li></ol>
 		</div>
 		
-		<h1 id="基本标签"><a href="#基本标签" class="headerlink" title="基本标签"></a>基本标签</h1><h2 id="1-progress进度条"><a href="#1-progress进度条" class="headerlink" title="1.progress进度条"></a>1.progress进度条</h2><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;progress value=&quot;20&quot; max=&quot;100&quot;&gt;</div><div class="line">&lt;/progress&gt;</div></pre></td></tr></table></figure>
-</code></pre><h2 id="2-details摘要"><a href="#2-details摘要" class="headerlink" title="2.details摘要"></a>2.details摘要</h2><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;details&gt;</div><div class="line">	&lt;summary&gt;lalalalla&lt;/summary&gt;</div><div class="line">	&lt;p&gt;lalalalalaalalalalalal&lt;/p&gt;</div><div class="line">&lt;/details&gt;</div></pre></td></tr></table></figure>
-</code></pre><p> 若要一开始就打开摘要 添加属性open=“open”</p>
-<h2 id="3-datalist下拉输入框"><a href="#3-datalist下拉输入框" class="headerlink" title="3.datalist下拉输入框"></a>3.datalist下拉输入框</h2><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;input list=&quot;data&quot;&gt;</div><div class="line">&lt;datalist id=&quot;data&quot;&gt;</div><div class="line">	&lt;option value=&quot;dataOne&quot;&gt;</div><div class="line">	&lt;option value=&quot;dataTwo&quot;&gt;</div><div class="line">	&lt;option value=&quot;dataThree&quot;&gt;</div><div class="line">&lt;/datalist&gt;</div></pre></td></tr></table></figure>
-</code></pre><h1 id="input输入类型"><a href="#input输入类型" class="headerlink" title="input输入类型"></a>input输入类型</h1><p>(type)<br>1.email 定义email地址字段<br>2.url 定义输入URL字段<br>3.number 定义数字字段<br>4.range 定义用于精确值不重要的输入数字控件 (max min属性可设置数值范围)<br>5.color 定义拾色器<br>6.data 定义日期<br>7.tel 电话</p>
-<h1 id="新增属性"><a href="#新增属性" class="headerlink" title="新增属性"></a>新增属性</h1><p>1.autocomplete 自动完成功能<br>2.autofocus 自动获得焦点<br>3.form 在表单外部定义input (用id定义)<br>4.pattern 正则表达式</p>
+		<p>图片加载完成前显示一个小图，加载完成后才显示真实图片</p>
+<h1 id="1-准备"><a href="#1-准备" class="headerlink" title="1.准备"></a>1.准备</h1><h2 id="jquery-lazyload-js"><a href="#jquery-lazyload-js" class="headerlink" title="jquery.lazyload.js"></a><code>jquery.lazyload.js</code></h2><p><a href="http://code.ciaoca.com/jquery/lazyload/version/jQuery.lazyload-1.7.2.zip" target="_blank" rel="external">点击下载jquery.lazyload.js</a></p>
+<h1 id="2-引入"><a href="#2-引入" class="headerlink" title="2.引入"></a>2.引入</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;jquery.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;bootstrap.min.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;jquery.lazyload.js&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+<h1 id="3-操作"><a href="#3-操作" class="headerlink" title="3.操作"></a>3.操作</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;img class=&quot;lazy&quot; src=&quot;grey.gif&quot; data-original=&quot;出塞曲1.jpg&quot; width=&quot;640&quot; heigh=&quot;480&quot;&gt;</div><div class="line">&lt;img class=&quot;lazy&quot; src=&quot;grey.gif&quot; data-original=&quot;出塞曲2.jpg&quot; width=&quot;640&quot; heigh=&quot;480&quot;&gt;</div><div class="line">&lt;img class=&quot;lazy&quot; src=&quot;grey.gif&quot; data-original=&quot;出塞曲3.jpg&quot; width=&quot;640&quot; heigh=&quot;480&quot;&gt;</div><div class="line">&lt;img class=&quot;lazy&quot; src=&quot;grey.gif&quot; data-original=&quot;出塞曲4.jpg&quot; width=&quot;640&quot; heigh=&quot;480&quot;&gt;</div><div class="line">&lt;img class=&quot;lazy&quot; src=&quot;grey.gif&quot; data-original=&quot;出塞曲5.jpg&quot; width=&quot;640&quot; heigh=&quot;480&quot;&gt;</div><div class="line">&lt;img class=&quot;lazy&quot; src=&quot;grey.gif&quot; data-original=&quot;出塞曲6.jpg&quot; width=&quot;640&quot; heigh=&quot;480&quot;&gt;</div><div class="line">&lt;img class=&quot;lazy&quot; src=&quot;grey.gif&quot; data-original=&quot;出塞曲7.jpg&quot; width=&quot;640&quot; heigh=&quot;480&quot;&gt;</div><div class="line">&lt;img class=&quot;lazy&quot; src=&quot;grey.gif&quot; data-original=&quot;出塞曲8.jpg&quot; width=&quot;640&quot; heigh=&quot;480&quot;&gt;</div><div class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;jquery.js&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p><code>data-original</code>为真实显示图片<br><code>src</code>为加载前显示</p>
+<h1 id="4-调用"><a href="#4-调用" class="headerlink" title="4.调用"></a>4.调用</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&apos;img.lazy&apos;).lazyload();</div></pre></td></tr></table></figure>
+<h1 id="5-说明"><a href="#5-说明" class="headerlink" title="5.说明"></a>5.说明</h1><p><img src="http://onm9xh80o.bkt.clouddn.com/lazyload.PNG" alt="lazyload说明"></p>
   
 	</div>
 		<footer class="article-footer clearfix">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/CSS3/">CSS3</a><a href="/tags/HTML5/">HTML5</a>
+  <span></span> <a href="/tags/jquery/">jquery</a><a href="/tags/图片加载/">图片加载</a>
   </div>
 
 
@@ -143,19 +145,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2017/03/09/html5css3笔记 旋转特效/" title="html5css3笔记系列 | 旋转特效">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  html5css3笔记系列 | 旋转特效</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2017/01/13/我的第一篇文章/"  title="我的第一篇文章">
+<a href="/2017/08/08/ajax请求加载动画/"  title="ajax请求加载动画">
  <strong>NEXT:</strong><br/> 
- <span>我的第一篇文章
+ <span>ajax请求加载动画
 </span>
 </a>
 </div>
@@ -172,7 +166,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#基本标签"><span class="toc-number">1.</span> <span class="toc-text">基本标签</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-progress进度条"><span class="toc-number">1.1.</span> <span class="toc-text">1.progress进度条</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-details摘要"><span class="toc-number">1.2.</span> <span class="toc-text">2.details摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-datalist下拉输入框"><span class="toc-number">1.3.</span> <span class="toc-text">3.datalist下拉输入框</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#input输入类型"><span class="toc-number">2.</span> <span class="toc-text">input输入类型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#新增属性"><span class="toc-number">3.</span> <span class="toc-text">新增属性</span></a></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-准备"><span class="toc-number">1.</span> <span class="toc-text">1.准备</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#jquery-lazyload-js"><span class="toc-number">1.1.</span> <span class="toc-text">jquery.lazyload.js</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-引入"><span class="toc-number">2.</span> <span class="toc-text">2.引入</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-操作"><span class="toc-number">3.</span> <span class="toc-text">3.操作</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-调用"><span class="toc-number">4.</span> <span class="toc-text">4.调用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-说明"><span class="toc-number">5.</span> <span class="toc-text">5.说明</span></a></li></ol>
   </div>
 
 <div id="asidepart">
