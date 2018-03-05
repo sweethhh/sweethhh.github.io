@@ -79,7 +79,7 @@
     </p>
   <p class="article-time">
     <time datetime="2018-03-02T07:58:39.275Z" itemprop="datePublished">2018-03-02</time>
-    更新日期:<time datetime="2018-03-05T07:10:52.915Z" itemprop="dateModified">2018-03-05</time>
+    更新日期:<time datetime="2018-03-05T08:29:03.568Z" itemprop="dateModified">2018-03-05</time>
     
   </p>
 </header>
@@ -88,7 +88,7 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#表达式"><span class="toc-number">1.</span> <span class="toc-text">表达式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#指令"><span class="toc-number">2.</span> <span class="toc-text">指令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#模型"><span class="toc-number">3.</span> <span class="toc-text">模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#控制器"><span class="toc-number">4.</span> <span class="toc-text">控制器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#过滤器"><span class="toc-number">5.</span> <span class="toc-text">过滤器</span></a></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#表达式"><span class="toc-number">1.</span> <span class="toc-text">表达式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#指令"><span class="toc-number">2.</span> <span class="toc-text">指令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#模型"><span class="toc-number">3.</span> <span class="toc-text">模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#控制器"><span class="toc-number">4.</span> <span class="toc-text">控制器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#过滤器"><span class="toc-number">5.</span> <span class="toc-text">过滤器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#currency"><span class="toc-number">5.1.</span> <span class="toc-text">currency</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#filter"><span class="toc-number">5.2.</span> <span class="toc-text">filter</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lowercase-uppercase"><span class="toc-number">5.3.</span> <span class="toc-text">lowercase/uppercase</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#orderBy"><span class="toc-number">5.4.</span> <span class="toc-text">orderBy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#number"><span class="toc-number">5.5.</span> <span class="toc-text">number</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#limitTo"><span class="toc-number">5.6.</span> <span class="toc-text">limitTo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#date"><span class="toc-number">5.7.</span> <span class="toc-text">date</span></a></li></ol></li></ol>
 		</div>
 		
 		<h1 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a>表达式</h1><ul>
@@ -114,7 +114,36 @@
 <li>ng-model 指令用于绑定应用程序数据到 HTML 控制器(input, select, textarea)的值。</li>
 </ul>
 <h1 id="控制器"><a href="#控制器" class="headerlink" title="控制器"></a>控制器</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-app=&quot;myApp&quot; ng-controller=&quot;myCtrl&quot;&gt;</div><div class="line"></div><div class="line">名: &lt;input type=&quot;text&quot; ng-model=&quot;firstName&quot;&gt;&lt;br&gt;</div><div class="line">姓: &lt;input type=&quot;text&quot; ng-model=&quot;lastName&quot;&gt;&lt;br&gt;</div><div class="line">&lt;br&gt;</div><div class="line">姓名: &#123;&#123;firstName + &quot; &quot; + lastName&#125;&#125;</div><div class="line"></div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">var app = angular.module(&apos;myApp&apos;, []);</div><div class="line">app.controller(&apos;myCtrl&apos;, function($scope) &#123;</div><div class="line">    $scope.firstName = &quot;John&quot;;</div><div class="line">    $scope.lastName = &quot;Doe&quot;;</div><div class="line">&#125;);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-<h1 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h1>  
+<h1 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h1><h2 id="currency"><a href="#currency" class="headerlink" title="currency"></a>currency</h2><ul>
+<li>格式化数字为货币格式。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-app=&quot;myApp&quot; ng-controller=&quot;costCtrl&quot;&gt;</div><div class="line"></div><div class="line">	&lt;input type=&quot;number&quot; ng-model=&quot;quantity&quot;&gt;</div><div class="line">	&lt;input type=&quot;number&quot; ng-model=&quot;price&quot;&gt;</div><div class="line"></div><div class="line">	&lt;p&gt;总价 = &#123;&#123; (quantity * price) | currency &#125;&#125;&lt;/p&gt;</div><div class="line"></div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">定义符号：&#123;&#123;num | currency : &apos;￥&apos;&#125;&#125;</div></pre></td></tr></table></figure>
+<h2 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h2><ul>
+<li>从数组项中选择一个子集。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">$scope.childrenArray = [</div><div class="line">&#123;name:&apos;kimi&apos;,age:3&#125;,</div><div class="line">&#123;name:&apos;cindy&apos;,age:4&#125;,</div><div class="line">&#123;name:&apos;anglar&apos;,age:4&#125;,</div><div class="line">&#123;name:&apos;shitou&apos;,age:6&#125;,</div><div class="line">&#123;name:&apos;tiantian&apos;,age:5&#125;</div><div class="line">];$scope.func = function(e)&#123;return e.age&gt;4;&#125;</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">&#123;&#123; childrenArray | filter : &apos;a&apos; &#125;&#125; //匹配属性值中含有a的</div><div class="line">&#123;&#123; childrenArray | filter : 4 &#125;&#125; //匹配属性值中含有4的</div><div class="line">&#123;&#123; childrenArray | filter : &#123;name : &apos;i&apos;&#125; &#125;&#125; //参数是对象，匹配name属性中含有i的</div><div class="line">&#123;&#123;childrenArray | filter : func &#125;&#125; //参数是函数，指定返回age&gt;4的</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="lowercase-uppercase"><a href="#lowercase-uppercase" class="headerlink" title="lowercase/uppercase"></a>lowercase/uppercase</h2><ul>
+<li>格式化字符串为小/大写。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&#123;&#123; &quot;lower cap string&quot; | uppercase &#125;&#125;   // 结果：LOWER CAP STRING</div><div class="line">&#123;&#123; &quot;TANK is GOOD&quot; | lowercase &#125;&#125;      // 结果：tank is good</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="orderBy"><a href="#orderBy" class="headerlink" title="orderBy"></a>orderBy</h2><ul>
+<li>根据某个表达式排列数组。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;&#123;&#123; childrenArray | orderBy : &apos;age&apos; &#125;&#125;&lt;/div&gt; //按age属性值进行排序，若是-age，则倒序</div><div class="line">&lt;div&gt;&#123;&#123; childrenArray | orderBy : orderFunc &#125;&#125;&lt;/div&gt; //按照函数的返回值进行排序</div><div class="line">&lt;div&gt;&#123;&#123; childrenArray | orderBy : [&apos;age&apos;,&apos;name&apos;] &#125;&#125;&lt;/div&gt; //如果age相同，按照name进行排序</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="number"><a href="#number" class="headerlink" title="number"></a>number</h2><ul>
+<li>格式化数字，对数字进行千位分割，或定义保留小数位数<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;&#123; num | number : 2 &#125;&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="limitTo"><a href="#limitTo" class="headerlink" title="limitTo"></a>limitTo</h2><ul>
+<li>限制字符或数组长度<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&#123;&#123;&quot;1234567890&quot; | limitTo :6&#125;&#125; // 从前面开始截取6位</div><div class="line">&#123;&#123;&quot;1234567890&quot; | limitTo:-4&#125;&#125; // 从后面开始截取4位</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="date"><a href="#date" class="headerlink" title="date"></a>date</h2><ul>
+<li>格式化日期<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;&#123;date | date : &apos;yyyy-MM-dd hh:mm:ss EEEE&apos;&#125;&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+  
 	</div>
 		<footer class="article-footer clearfix">
 
@@ -182,7 +211,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#表达式"><span class="toc-number">1.</span> <span class="toc-text">表达式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#指令"><span class="toc-number">2.</span> <span class="toc-text">指令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#模型"><span class="toc-number">3.</span> <span class="toc-text">模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#控制器"><span class="toc-number">4.</span> <span class="toc-text">控制器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#过滤器"><span class="toc-number">5.</span> <span class="toc-text">过滤器</span></a></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#表达式"><span class="toc-number">1.</span> <span class="toc-text">表达式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#指令"><span class="toc-number">2.</span> <span class="toc-text">指令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#模型"><span class="toc-number">3.</span> <span class="toc-text">模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#控制器"><span class="toc-number">4.</span> <span class="toc-text">控制器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#过滤器"><span class="toc-number">5.</span> <span class="toc-text">过滤器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#currency"><span class="toc-number">5.1.</span> <span class="toc-text">currency</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#filter"><span class="toc-number">5.2.</span> <span class="toc-text">filter</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lowercase-uppercase"><span class="toc-number">5.3.</span> <span class="toc-text">lowercase/uppercase</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#orderBy"><span class="toc-number">5.4.</span> <span class="toc-text">orderBy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#number"><span class="toc-number">5.5.</span> <span class="toc-text">number</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#limitTo"><span class="toc-number">5.6.</span> <span class="toc-text">limitTo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#date"><span class="toc-number">5.7.</span> <span class="toc-text">date</span></a></li></ol></li></ol>
   </div>
 
 <div id="asidepart">
