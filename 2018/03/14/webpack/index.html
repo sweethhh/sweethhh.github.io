@@ -4,10 +4,19 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>ES6学习笔记 | 你家谷谷</title>
+    <title>webpack | 你家谷谷</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="Hou honggu">
+    
+    <meta name="description" content="webpack作用
+打包具有复杂依赖关系的文件
+
+安装
+全局安装1npm install webpack -g
+
+
+使用1.创建项目文件cd 文件路径2.npm init3.设置入口文件 如：webpack app.js4.监听变化webpack app.js --watch5.在入口文件中引入1r">
     
     
     
@@ -67,15 +76,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/07/12/ES6学习笔记（1）/" title="ES6学习笔记" itemprop="url">ES6学习笔记</a>
+      <a href="/2018/03/14/webpack/" title="webpack" itemprop="url">webpack</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://houhonggu.top" title="Hou honggu">Hou honggu</a>
     </p>
   <p class="article-time">
-    <time datetime="2017-07-12T08:55:46.236Z" itemprop="datePublished">2017-07-12</time>
-    更新日期:<time datetime="2017-07-13T06:57:38.501Z" itemprop="dateModified">2017-07-13</time>
+    <time datetime="2018-03-14T06:16:26.878Z" itemprop="datePublished">2018-03-14</time>
+    更新日期:<time datetime="2018-03-14T09:04:01.355Z" itemprop="dateModified">2018-03-14</time>
     
   </p>
 </header>
@@ -84,22 +93,31 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#webpack作用"><span class="toc-number">1.</span> <span class="toc-text">webpack作用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">1.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用"><span class="toc-number">1.2.</span> <span class="toc-text">使用</span></a></li></ol></li></ol>
 		</div>
 		
-		  
+		<h1 id="webpack作用"><a href="#webpack作用" class="headerlink" title="webpack作用"></a>webpack作用</h1><ul>
+<li>打包具有复杂依赖关系的文件</li>
+</ul>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ul>
+<li>全局安装<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install webpack -g</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>1.创建项目文件<br><code>cd 文件路径</code><br>2.<code>npm init</code><br>3.设置入口文件 如：<br><code>webpack app.js</code><br>4.监听变化<br><code>webpack app.js --watch</code><br>5.在入口文件中引入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">require(&quot;./xxx&quot;)</div></pre></td></tr></table></figure></p>
+<p>6.在文件中传递，如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">module.exports = &quot;hello l&quot;;</div></pre></td></tr></table></figure></p>
+  
 	</div>
 		<footer class="article-footer clearfix">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/ES6/">ES6</a><a href="/tags/JavaScript/">JavaScript</a>
+  <span></span> <a href="/tags/webpack/">webpack</a>
   </div>
 
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/代码/">代码</a>
+  <a class="article-category-link" href="/categories/工具/">工具</a>
 </div>
 
 
@@ -134,19 +152,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2017/07/26/示范中心项目踩坑记录/" title="示范中心项目踩坑记录">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  示范中心项目踩坑记录</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2017/05/25/js定时器/"  title="setInterval()和setTimeout()有什么区别？">
+<a href="/2018/03/02/Angular/"  title="Angular笔记">
  <strong>NEXT:</strong><br/> 
- <span>setInterval()和setTimeout()有什么区别？
+ <span>Angular笔记
 </span>
 </a>
 </div>
@@ -163,7 +173,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#webpack作用"><span class="toc-number">1.</span> <span class="toc-text">webpack作用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">1.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用"><span class="toc-number">1.2.</span> <span class="toc-text">使用</span></a></li></ol></li></ol>
   </div>
 
 <div id="asidepart">
