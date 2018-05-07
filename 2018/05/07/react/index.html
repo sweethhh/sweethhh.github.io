@@ -4,10 +4,16 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>React笔记 | 你家谷谷</title>
+    <title>《深入React技术栈》笔记 | 你家谷谷</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="Hou honggu">
+    
+    <meta name="description" content="1 React基本概念特点
+React不是一个MVC框架，它是构建易于可重复调用的web组件，侧重于UI, 也就是view层
+其次React是单向的从数据到视图的渲染，非双向数据绑定
+不直接操作DOM对象，而是通过虚拟DOM通过diff算法以最小的步骤作用到真实的DOM上。
+不便于直接操作DOM，大">
     
     
     
@@ -67,7 +73,7 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2018/05/07/react/" title="React笔记" itemprop="url">React笔记</a>
+      <a href="/2018/05/07/react/" title="《深入React技术栈》笔记" itemprop="url">《深入React技术栈》笔记</a>
   </h1>
   <p class="article-author">By
     
@@ -75,7 +81,7 @@
     </p>
   <p class="article-time">
     <time datetime="2018-05-07T05:16:09.658Z" itemprop="datePublished">2018-05-07</time>
-    更新日期:<time datetime="2018-05-07T05:23:09.948Z" itemprop="dateModified">2018-05-07</time>
+    更新日期:<time datetime="2018-05-07T08:52:17.788Z" itemprop="dateModified">2018-05-07</time>
     
   </p>
 </header>
@@ -84,10 +90,43 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-React基本概念"><span class="toc-number">1.</span> <span class="toc-text">1 React基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#特点"><span class="toc-number">1.1.</span> <span class="toc-text">特点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jsx基本语法"><span class="toc-number">1.2.</span> <span class="toc-text">jsx基本语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#jsx是什么"><span class="toc-number">1.2.1.</span> <span class="toc-text">jsx是什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#xml"><span class="toc-number">1.2.2.</span> <span class="toc-text">xml</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Javascript属性表达式"><span class="toc-number">1.2.3.</span> <span class="toc-text">Javascript属性表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML转义"><span class="toc-number">1.2.4.</span> <span class="toc-text">HTML转义</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#React-组件"><span class="toc-number">1.3.</span> <span class="toc-text">React 组件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#React组件的构建方法"><span class="toc-number">1.3.1.</span> <span class="toc-text">React组件的构建方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#React数据流"><span class="toc-number">1.4.</span> <span class="toc-text">React数据流</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#state"><span class="toc-number">1.4.1.</span> <span class="toc-text">state</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#props"><span class="toc-number">1.4.2.</span> <span class="toc-text">props</span></a></li></ol></li></ol></li></ol>
 		</div>
 		
-		  
+		<h1 id="1-React基本概念"><a href="#1-React基本概念" class="headerlink" title="1 React基本概念"></a>1 React基本概念</h1><h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ul>
+<li>React不是一个MVC框架，它是构建易于可重复调用的web组件，侧重于UI, 也就是view层</li>
+<li>其次React是单向的从数据到视图的渲染，非双向数据绑定</li>
+<li>不直接操作DOM对象，而是通过虚拟DOM通过diff算法以最小的步骤作用到真实的DOM上。</li>
+<li>不便于直接操作DOM，大多数时间只是对 virtual DOM 进行编程</li>
+</ul>
+<h2 id="jsx基本语法"><a href="#jsx基本语法" class="headerlink" title="jsx基本语法"></a>jsx基本语法</h2><h3 id="jsx是什么"><a href="#jsx是什么" class="headerlink" title="jsx是什么"></a>jsx是什么</h3><p>jsx用于创建虚拟元素，来管理Virtual DOM。</p>
+<h3 id="xml"><a href="#xml" class="headerlink" title="xml"></a>xml</h3><p>示例代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">const List = () =&gt;(</div><div class="line">		&lt;div&gt;</div><div class="line">			&lt;title&gt;</div><div class="line">				this is a title</div><div class="line">			&lt;/title&gt;</div><div class="line">			&lt;ul&gt;</div><div class="line">				&lt;li&gt;item1&lt;/li&gt;</div><div class="line">				&lt;li&gt;item2&lt;/li&gt;</div><div class="line">				&lt;li&gt;item3&lt;/li&gt;</div><div class="line">			&lt;/ul&gt;</div><div class="line">		&lt;/div&gt;</div><div class="line">	);</div></pre></td></tr></table></figure></p>
+<p>注意：</p>
+<ul>
+<li>定义标签时，只允许被一个标签包裹</li>
+<li>标签一定要闭合</li>
+</ul>
+<h3 id="Javascript属性表达式"><a href="#Javascript属性表达式" class="headerlink" title="Javascript属性表达式"></a>Javascript属性表达式</h3><p>属性值要使用表达式，只要用{}替换””即可。</p>
+<h3 id="HTML转义"><a href="#HTML转义" class="headerlink" title="HTML转义"></a>HTML转义</h3><p>React会将所有要显示到DOM的字符串转义，防止XSS。<br>解决办法：</p>
+<ul>
+<li>直接使用UTF-8字符</li>
+<li>使用对应字符的Unicode编码查询编码</li>
+<li>使用数组组装</li>
+<li>直接插入原始HTML</li>
+<li>dangerouslySetInnerHTML属性</li>
+</ul>
+<h2 id="React-组件"><a href="#React-组件" class="headerlink" title="React 组件"></a>React 组件</h2><h3 id="React组件的构建方法"><a href="#React组件的构建方法" class="headerlink" title="React组件的构建方法"></a>React组件的构建方法</h3><ul>
+<li><p>React.createClass<br>这是React最传统，兼容性最好的方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">const Button = React.createClass(&#123;</div><div class="line">		getDefaultProps()&#123;</div><div class="line">			return&#123;</div><div class="line">				color:&quot;blue&quot;,</div><div class="line">				text:&quot;Confirm&quot;,</div><div class="line">			&#125;;</div><div class="line">		&#125;,</div><div class="line"></div><div class="line">		render()&#123;</div><div class="line">			const&#123;color,text&#125;=this.props;</div><div class="line"></div><div class="line">			return(</div><div class="line">					&lt;button className=&#123;`btn btn-$&#123;color&#125;`&#125;&gt;</div><div class="line">						&lt;em&gt;&#123;text&#125;&lt;/em&gt;</div><div class="line">					&lt;/button&gt;</div><div class="line">				)</div><div class="line">		&#125;</div><div class="line">	&#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>无状态函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function Button(&#123;color=&apos;blue&apos;,text=&apos;confirm&apos;&#125;)&#123;</div><div class="line">	return (</div><div class="line">			&lt;button className=&#123;`btn btn-$&#123;color&#125;`&#125;&gt;</div><div class="line">				&lt;em&gt;&#123;text&#125;&lt;/em&gt;</div><div class="line">			&lt;/button&gt;</div><div class="line">		)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="React数据流"><a href="#React数据流" class="headerlink" title="React数据流"></a>React数据流</h2><p>数据自顶向下单向流动</p>
+<h3 id="state"><a href="#state" class="headerlink" title="state"></a>state</h3><p>管理组件的内部状态</p>
+<h3 id="props"><a href="#props" class="headerlink" title="props"></a>props</h3><p>properties的缩写，是react用来让组件之间互相联系的一种机制。</p>
+  
 	</div>
 		<footer class="article-footer clearfix">
 
@@ -155,7 +194,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-React基本概念"><span class="toc-number">1.</span> <span class="toc-text">1 React基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#特点"><span class="toc-number">1.1.</span> <span class="toc-text">特点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jsx基本语法"><span class="toc-number">1.2.</span> <span class="toc-text">jsx基本语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#jsx是什么"><span class="toc-number">1.2.1.</span> <span class="toc-text">jsx是什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#xml"><span class="toc-number">1.2.2.</span> <span class="toc-text">xml</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Javascript属性表达式"><span class="toc-number">1.2.3.</span> <span class="toc-text">Javascript属性表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML转义"><span class="toc-number">1.2.4.</span> <span class="toc-text">HTML转义</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#React-组件"><span class="toc-number">1.3.</span> <span class="toc-text">React 组件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#React组件的构建方法"><span class="toc-number">1.3.1.</span> <span class="toc-text">React组件的构建方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#React数据流"><span class="toc-number">1.4.</span> <span class="toc-text">React数据流</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#state"><span class="toc-number">1.4.1.</span> <span class="toc-text">state</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#props"><span class="toc-number">1.4.2.</span> <span class="toc-text">props</span></a></li></ol></li></ol></li></ol>
   </div>
 
 <div id="asidepart">
