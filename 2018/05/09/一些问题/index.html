@@ -80,7 +80,7 @@
     </p>
   <p class="article-time">
     <time datetime="2018-05-09T06:59:01.876Z" itemprop="datePublished">2018-05-09</time>
-    更新日期:<time datetime="2018-05-09T07:24:00.491Z" itemprop="dateModified">2018-05-09</time>
+    更新日期:<time datetime="2018-05-09T08:23:59.865Z" itemprop="dateModified">2018-05-09</time>
     
   </p>
 </header>
@@ -89,7 +89,7 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#如何加快页面首屏显示速度？"><span class="toc-number">1.</span> <span class="toc-text">如何加快页面首屏显示速度？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#png和-jpg的区别？"><span class="toc-number">2.</span> <span class="toc-text">.png和.jpg的区别？</span></a></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#如何加快页面首屏显示速度？"><span class="toc-number">1.</span> <span class="toc-text">如何加快页面首屏显示速度？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#png和-jpg的区别？"><span class="toc-number">2.</span> <span class="toc-text">.png和.jpg的区别？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#什么是事件委托？"><span class="toc-number">3.</span> <span class="toc-text">什么是事件委托？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#px和rem和em区别"><span class="toc-number">4.</span> <span class="toc-text">px和rem和em区别?</span></a></li></ol>
 		</div>
 		
 		<h1 id="如何加快页面首屏显示速度？"><a href="#如何加快页面首屏显示速度？" class="headerlink" title="如何加快页面首屏显示速度？"></a>如何加快页面首屏显示速度？</h1><ol>
@@ -103,6 +103,10 @@
 <li>减少DOM Elements的数量。</li>
 </ol>
 <h1 id="png和-jpg的区别？"><a href="#png和-jpg的区别？" class="headerlink" title=".png和.jpg的区别？"></a>.png和.jpg的区别？</h1><p><code>.png</code>支持透明，无损保存，多次保存都不会影响图片质量。但png较大。<br><code>.jpg</code>不支持透明、动画，JPEG的压缩方式通常是破坏性资料压缩（lossy compression）,意即在压缩过程中图像的品质会遭受到可见的破坏。一张图片多次上传下载后，图片逐渐会失真。jpg一般较小。</p>
+<h1 id="什么是事件委托？"><a href="#什么是事件委托？" class="headerlink" title="什么是事件委托？"></a>什么是事件委托？</h1><p>主要用于给大量重复的标签添加事件。<br>事件委托大致思想是给父元素添加一个监听事件，利用冒泡机制，再点击元素时判断是否是我们需要的元素。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">// 给ul添加监听器</div><div class="line">2 document.getElementById(&quot;ul&quot;).addEventListener(&quot;click&quot;,function(e) &#123;</div><div class="line">3     // e.target是被点击的元素!</div><div class="line">4     // 筛选触发事件的子元素如果是li执行的事件</div><div class="line">5     if(e.target &amp;&amp; e.target.nodeName == &quot;LI&quot;) &#123;</div><div class="line">6         // 获取到具体事件触发的li，输出其id</div><div class="line">7         console.log(&quot;List item &quot;,e.target.id.replace(&quot;post-&quot;),&quot; was clicked!&quot;);</div><div class="line">8     &#125;</div><div class="line">9 &#125;);</div></pre></td></tr></table></figure></p>
+<p>可以通过一系列方法获知被点击的元素。<br><code>e.target</code>是被点击的元素。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">event.target</div><div class="line"></div><div class="line">event.target.nodeName  　　//获取事件触发元素标签name（li,p...）</div><div class="line"></div><div class="line">event.target.id　　　　　　　//获取事件触发元素id</div><div class="line"></div><div class="line">event.target.className　　//获取事件触发元素classname</div><div class="line"></div><div class="line">event.target.innerHTML　　//获取事件触发元素的内容（li）</div></pre></td></tr></table></figure></p>
+<p>在jquery中，可以通过on()方法，给被选元素及子元素上添加一个或多个事件处理程序。<br><code>$(selector).on(event,childSelector,data,function)</code></p>
+<h1 id="px和rem和em区别"><a href="#px和rem和em区别" class="headerlink" title="px和rem和em区别?"></a>px和rem和em区别?</h1><p><code>px</code>是相对于显示器屏幕分辨率而言的。<br><code>em</code>是相对长度单位。相对于当前对象内文本的字体尺寸。子元素字体大小的em是相对于父元素字体大小。如当前对行内文本的字体尺寸未被人为设置，则相对于浏览器的默认字体尺寸。任意浏览器的默认字体高都是16px。<br><code>rem</code>是CSS3新增的一个相对单位（root em，根em）,通过它既可以做到只修改根元素就成比例地调整所有字体大小，又可以避免字体大小逐层复合的连锁反应。需要给html标签设置一个font-size。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -171,7 +175,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#如何加快页面首屏显示速度？"><span class="toc-number">1.</span> <span class="toc-text">如何加快页面首屏显示速度？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#png和-jpg的区别？"><span class="toc-number">2.</span> <span class="toc-text">.png和.jpg的区别？</span></a></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#如何加快页面首屏显示速度？"><span class="toc-number">1.</span> <span class="toc-text">如何加快页面首屏显示速度？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#png和-jpg的区别？"><span class="toc-number">2.</span> <span class="toc-text">.png和.jpg的区别？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#什么是事件委托？"><span class="toc-number">3.</span> <span class="toc-text">什么是事件委托？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#px和rem和em区别"><span class="toc-number">4.</span> <span class="toc-text">px和rem和em区别?</span></a></li></ol>
   </div>
 
 <div id="asidepart">
