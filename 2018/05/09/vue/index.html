@@ -9,6 +9,10 @@
     
     <meta name="author" content="Hou honggu">
     
+    <meta name="description" content="安装1234# 最新稳定版本$ npm install vue# 最新稳定 CSP 兼容版本$ npm install vue@csp
+起步
+hello world引入：12345&amp;lt;!-- 开发环境版本，包含了用帮助的命令行警告 --&amp;gt;&amp;lt;script src=&amp;quot;https">
+    
     
     
     
@@ -75,7 +79,7 @@
     </p>
   <p class="article-time">
     <time datetime="2018-05-09T05:14:03.864Z" itemprop="datePublished">2018-05-09</time>
-    更新日期:<time datetime="2018-05-09T05:17:04.317Z" itemprop="dateModified">2018-05-09</time>
+    更新日期:<time datetime="2018-05-09T09:47:58.432Z" itemprop="dateModified">2018-05-09</time>
     
   </p>
 </header>
@@ -84,10 +88,53 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安装"><span class="toc-number">1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#起步"><span class="toc-number">2.</span> <span class="toc-text">起步</span></a></li></ol>
 		</div>
 		
-		  
+		<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># 最新稳定版本</div><div class="line">$ npm install vue</div><div class="line"># 最新稳定 CSP 兼容版本</div><div class="line">$ npm install vue@csp</div></pre></td></tr></table></figure>
+<h1 id="起步"><a href="#起步" class="headerlink" title="起步"></a>起步</h1><ol>
+<li>hello world<br>引入：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 开发环境版本，包含了用帮助的命令行警告 --&gt;</div><div class="line">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&quot;&gt;&lt;/script&gt;</div><div class="line"></div><div class="line">&lt;!-- 生产环境版本，优化了尺寸和速度 --&gt;</div><div class="line">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>html:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;app&quot;&gt;</div><div class="line">  &#123;&#123; message &#125;&#125;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>js:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var app = new Vue(&#123;</div><div class="line">  el: &apos;#app&apos;,</div><div class="line">  data: &#123;</div><div class="line">    message: &apos;Hello Vue!&apos;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>这样就会在屏幕上输出了’hello vue!’<br>可以通过在console中修改<code>app.message</code>的值来修改输出。</p>
+</blockquote>
+<ol>
+<li>绑定指令示例<br><code>v-bind</code><br>html：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;app-2&quot;&gt;</div><div class="line">  &lt;span v-bind:title=&quot;message&quot;&gt;</div><div class="line">    鼠标悬停几秒钟查看此处动态绑定的提示信息！</div><div class="line">  &lt;/span&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>js:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var app2 = new Vue(&#123;</div><div class="line">  el: &apos;#app-2&apos;,</div><div class="line">  data: &#123;</div><div class="line">    message: &apos;页面加载于 &apos; + new Date().toLocaleString()</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>表示app2的title内容与app2.message内容绑定了。</p>
+<p>同样可以用app2.message来更新。</p>
+<ol>
+<li>条件与循环</li>
+</ol>
+<p>控制一个元素是否显示<br><code>v-if</code><br>html:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;app&quot;&gt;</div><div class="line">  &lt;p v-if=&quot;screen&quot;&gt;lalalalalaal&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>js:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var app = new Vue(&#123;</div><div class="line">  el: &apos;#app&apos;,</div><div class="line">  data: &#123;</div><div class="line">    screen: false</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>通过screen的值设置是否可见</p>
+<p>同样可以通过app.screen来改变其值</p>
+<p><code>v-for</code> 指令可以绑定数组的数据来渲染一个项目列表：<br>html:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;app-4&quot;&gt;</div><div class="line">  &lt;ol&gt;</div><div class="line">    &lt;li v-for=&quot;todo in todos&quot;&gt;</div><div class="line">      &#123;&#123; todo.text &#125;&#125;</div><div class="line">    &lt;/li&gt;</div><div class="line">  &lt;/ol&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>js:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var app4 = new Vue(&#123;</div><div class="line">  el: &apos;#app-4&apos;,</div><div class="line">  data: &#123;</div><div class="line">    todos: [</div><div class="line">      &#123; text: &apos;学习 JavaScript&apos; &#125;,</div><div class="line">      &#123; text: &apos;学习 Vue&apos; &#125;,</div><div class="line">      &#123; text: &apos;整个牛项目&apos; &#125;</div><div class="line">    ]</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>会输出一个list列表。<br>通过<code>app4.todos.push({ text: &#39;新项目&#39; })</code>添加新项目。</p>
+<ol>
+<li>处理用户输入<br><code>v-on</code>指令添加一个事件监听器<br>html:<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;app-5&quot;&gt;</div><div class="line">  &lt;p&gt;&#123;&#123; message &#125;&#125;&lt;/p&gt;</div><div class="line">  &lt;button v-on:click=&quot;reverseMessage&quot;&gt;逆转消息&lt;/button&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>js:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var app5 = new Vue(&#123;</div><div class="line">  el: &apos;#app-5&apos;,</div><div class="line">  data: &#123;</div><div class="line">    message: &apos;Hello Vue.js!&apos;</div><div class="line">  &#125;,</div><div class="line">  methods: &#123;</div><div class="line">    reverseMessage: function () &#123;</div><div class="line">      this.message = this.message.split(&apos;&apos;).reverse().join(&apos;&apos;)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>只更新了应用的状态，而没有动DOM，DOM操作由vue处理。</p>
+<p><code>v-molel</code>实现双向绑定<br>html:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;app&quot;&gt;</div><div class="line">	&lt;p&gt;&#123;&#123;message&#125;&#125;&lt;/p&gt;</div><div class="line">  	&lt;input type=&quot;text&quot; v-model=&quot;message&quot; name=&quot;&quot;&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>js:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var app = new Vue(&#123;</div><div class="line">	  el: &apos;#app&apos;,</div><div class="line">	  data: &#123;</div><div class="line">	    message:&quot;hello vue&quot;</div><div class="line">	  &#125;</div><div class="line">	&#125;)</div></pre></td></tr></table></figure></p>
+<p>通过双向数据绑定同步更新message的值。</p>
+<ol>
+<li>组件化应用构建</li>
+</ol>
+<blockquote>
+<p>组件是 vue 中一个重要的概念，可以通过独立的可复用的组件构建大型项目。</p>
+</blockquote>
+<p>构建组件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// 定义名为 todo-item 的新组件</div><div class="line">Vue.component(&apos;todo-item&apos;, &#123;</div><div class="line">  template: &apos;&lt;li&gt;这是个待办项&lt;/li&gt;&apos;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+  
 	</div>
 		<footer class="article-footer clearfix">
 
@@ -163,7 +210,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安装"><span class="toc-number">1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#起步"><span class="toc-number">2.</span> <span class="toc-text">起步</span></a></li></ol>
   </div>
 
 <div id="asidepart">
