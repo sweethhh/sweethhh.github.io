@@ -1,0 +1,434 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>flex布局 | 你家谷谷</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Hou honggu">
+    
+    <meta name="description" content="flex布局定义
+弹性布局，任何容器都可以指定为flex
+
+webkit内核必须加上-webkit-前缀
+基本概念
+设置为flex的父级元素称为容器，其内容板块称为项目。其中有两根轴线，一条横向，一条纵向。分别设有开始位置和结束位置。
+
+容器的属性flex-direction决定项目排列方向，横向（">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="你家谷谷" title="你家谷谷"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="你家谷谷">你家谷谷</a></h1>
+				<h2 class="blog-motto">And I know it&#39;s long gone and there was nothing else I could do.</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">主页 | Index</a></li>
+					
+						<li><a href="/archives">归档 | Archives</a></li>
+					
+						<li><a href="/about">关于 | About</a></li>
+					
+						<li><a href="/resume">简历 | Resume</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:houhonggu.top">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2018/05/10/flex布局/" title="flex布局" itemprop="url">flex布局</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://houhonggu.top" title="Hou honggu">Hou honggu</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2018-05-10T05:49:59.730Z" itemprop="datePublished">2018-05-10</time>
+    更新日期:<time datetime="2018-05-10T06:32:12.183Z" itemprop="dateModified">2018-05-10</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#flex布局定义"><span class="toc-number">1.</span> <span class="toc-text">flex布局定义</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#基本概念"><span class="toc-number">2.</span> <span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#容器的属性"><span class="toc-number">3.</span> <span class="toc-text">容器的属性</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#flex-direction"><span class="toc-number">3.1.</span> <span class="toc-text">flex-direction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#flex-wrap"><span class="toc-number">3.2.</span> <span class="toc-text">flex-wrap</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#flex-flow"><span class="toc-number">3.3.</span> <span class="toc-text">flex-flow</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#justify-content属性"><span class="toc-number">3.4.</span> <span class="toc-text">justify-content属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#align-items属性"><span class="toc-number">3.5.</span> <span class="toc-text">align-items属性</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#项目的属性"><span class="toc-number">4.</span> <span class="toc-text">项目的属性</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#order"><span class="toc-number">4.1.</span> <span class="toc-text">order</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#flex-grow"><span class="toc-number">4.2.</span> <span class="toc-text">flex-grow</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#flex-shrink属性"><span class="toc-number">4.3.</span> <span class="toc-text">flex-shrink属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#flex-basis属性"><span class="toc-number">4.4.</span> <span class="toc-text">flex-basis属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#align-self属性"><span class="toc-number">4.5.</span> <span class="toc-text">align-self属性</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实例"><span class="toc-number">5.</span> <span class="toc-text">实例</span></a></li></ol>
+		</div>
+		
+		<h1 id="flex布局定义"><a href="#flex布局定义" class="headerlink" title="flex布局定义"></a>flex布局定义</h1><blockquote>
+<p>弹性布局，任何容器都可以指定为flex</p>
+</blockquote>
+<p>webkit内核必须加上-webkit-前缀</p>
+<h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><blockquote>
+<p>设置为flex的父级元素称为容器，其内容板块称为项目。其中有两根轴线，一条横向，一条纵向。分别设有开始位置和结束位置。</p>
+</blockquote>
+<h1 id="容器的属性"><a href="#容器的属性" class="headerlink" title="容器的属性"></a>容器的属性</h1><h2 id="flex-direction"><a href="#flex-direction" class="headerlink" title="flex-direction"></a>flex-direction</h2><p>决定项目排列方向，横向（向下、向上），纵向（向下、向上）</p>
+<p>属性值：</p>
+<blockquote>
+<p>row（默认值）：主轴为水平方向，起点在左端。<br>row-reverse：主轴为水平方向，起点在右端。<br>column：主轴为垂直方向，起点在上沿。<br>column-reverse：主轴为垂直方向，起点在下沿。 </p>
+</blockquote>
+<h2 id="flex-wrap"><a href="#flex-wrap" class="headerlink" title="flex-wrap"></a>flex-wrap</h2><p>flex-wrap属性定义，如果一条轴线排不下，如何换行</p>
+<p>属性值：</p>
+<blockquote>
+<p>nowrap（默认）：不换行。<br>wrap：换行，第一行在上方。<br>wrap-reverse：换行，第一行在下方。</p>
+</blockquote>
+<h2 id="flex-flow"><a href="#flex-flow" class="headerlink" title="flex-flow"></a>flex-flow</h2><p>flex-flow属性是flex-direction属性和flex-wrap属性的简写形式，默认值为row nowrap。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.box &#123;</div><div class="line">  flex-flow: &lt;flex-direction&gt; || &lt;flex-wrap&gt;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="justify-content属性"><a href="#justify-content属性" class="headerlink" title="justify-content属性"></a>justify-content属性</h2><p>justify-content属性定义了项目在主轴上的对齐方式。</p>
+<blockquote>
+<p>flex-start（默认值）：左对齐<br>flex-end：右对齐<br>center： 居中<br>space-between：两端对齐，项目之间的间隔都相等。<br>space-around：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。</p>
+</blockquote>
+<h2 id="align-items属性"><a href="#align-items属性" class="headerlink" title="align-items属性"></a>align-items属性</h2><p>align-items属性定义项目在交叉轴上如何对齐。</p>
+<blockquote>
+<p>flex-start：交叉轴的起点对齐。<br>flex-end：交叉轴的终点对齐。<br>center：交叉轴的中点对齐。<br>baseline: 项目的第一行文字的基线对齐。<br>stretch（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。</p>
+</blockquote>
+<h1 id="项目的属性"><a href="#项目的属性" class="headerlink" title="项目的属性"></a>项目的属性</h1><h2 id="order"><a href="#order" class="headerlink" title="order"></a>order</h2><p>order属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。</p>
+<h2 id="flex-grow"><a href="#flex-grow" class="headerlink" title="flex-grow"></a>flex-grow</h2><p>lex-grow属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。</p>
+<h2 id="flex-shrink属性"><a href="#flex-shrink属性" class="headerlink" title="flex-shrink属性"></a>flex-shrink属性</h2><p>flex-shrink属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。</p>
+<h2 id="flex-basis属性"><a href="#flex-basis属性" class="headerlink" title="flex-basis属性"></a>flex-basis属性</h2><p>flex-basis属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。</p>
+<h2 id="align-self属性"><a href="#align-self属性" class="headerlink" title="align-self属性"></a>align-self属性</h2><p>align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。</p>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;style type=&quot;text/css&quot;&gt;</div><div class="line">	.father&#123;</div><div class="line">		display: flex;</div><div class="line">		background-color: pink;</div><div class="line">		flex-direction: row;</div><div class="line">		flex-wrap:nowrap; </div><div class="line">		justify-content:space-between;</div><div class="line">		align-items:center;</div><div class="line">	&#125;</div><div class="line">	.son&#123;</div><div class="line">		text-align: center;</div><div class="line">		line-height: 100px;</div><div class="line">		width: 100px;</div><div class="line">		height: 100px;</div><div class="line">		margin: 10px;</div><div class="line">		background-color: orange;</div><div class="line">		font-size: 30px;</div><div class="line">		color: white;</div><div class="line">	&#125;</div><div class="line">&lt;/style&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;title&gt;flex&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;div class=&quot;father&quot;&gt;</div><div class="line">	&lt;div class=&quot;son&quot;&gt;son1&lt;/div&gt;</div><div class="line">	&lt;div class=&quot;son&quot;&gt;son2&lt;/div&gt;</div><div class="line">	&lt;div class=&quot;son&quot;&gt;son3&lt;/div&gt;</div><div class="line">	&lt;div class=&quot;son&quot;&gt;son4&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<p><img src="http://onm9xh80o.bkt.clouddn.com/flex.PNG" alt="flex"></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/css3/">css3</a>
+  </div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/css/">css</a>
+</div>
+
+
+
+<div class="article-share" id="share">
+
+  
+<div class="jiathis_style">
+    <span class="jiathis_txt">分享到：</span>
+    <a class="jiathis_button_tsina">新浪微博</a>
+    <a class="jiathis_button_weixin">微信</a>
+    <a class="jiathis_button_twitter">Twitter</a>
+    <a class="jiathis_button_evernote">EverNote</a>
+    <a href="http://www.jiathis.com/share?uid=1501277" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+</div>
+<script type="text/javascript" >
+    var jiathis_config={
+    data_track_clickback:true,
+    sm:"copy,renren,cqq",
+    pic:"",
+    summary:"",
+     ralateuid:{"tsina":"5205287645"},hideMore:false}
+    
+  </script> 
+<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=
+2127280" charset="utf-8"></script>      
+
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2018/05/09/一些问题/"  title="一些问题">
+ <strong>NEXT:</strong><br/> 
+ <span>一些问题
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section class="comment">
+	<div class="ds-thread"></div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#flex布局定义"><span class="toc-number">1.</span> <span class="toc-text">flex布局定义</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#基本概念"><span class="toc-number">2.</span> <span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#容器的属性"><span class="toc-number">3.</span> <span class="toc-text">容器的属性</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#flex-direction"><span class="toc-number">3.1.</span> <span class="toc-text">flex-direction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#flex-wrap"><span class="toc-number">3.2.</span> <span class="toc-text">flex-wrap</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#flex-flow"><span class="toc-number">3.3.</span> <span class="toc-text">flex-flow</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#justify-content属性"><span class="toc-number">3.4.</span> <span class="toc-text">justify-content属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#align-items属性"><span class="toc-number">3.5.</span> <span class="toc-text">align-items属性</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#项目的属性"><span class="toc-number">4.</span> <span class="toc-text">项目的属性</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#order"><span class="toc-number">4.1.</span> <span class="toc-text">order</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#flex-grow"><span class="toc-number">4.2.</span> <span class="toc-text">flex-grow</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#flex-shrink属性"><span class="toc-number">4.3.</span> <span class="toc-text">flex-shrink属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#flex-basis属性"><span class="toc-number">4.4.</span> <span class="toc-text">flex-basis属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#align-self属性"><span class="toc-number">4.5.</span> <span class="toc-text">align-self属性</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实例"><span class="toc-number">5.</span> <span class="toc-text">实例</span></a></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+			<li><a href="/categories/CSS框架/" title="CSS框架">CSS框架<sup>10</sup></a></li>
+		
+			<li><a href="/categories/Git命令/" title="Git命令">Git命令<sup>1</sup></a></li>
+		
+			<li><a href="/categories/Javascript/" title="Javascript">Javascript<sup>2</sup></a></li>
+		
+			<li><a href="/categories/React/" title="React">React<sup>2</sup></a></li>
+		
+			<li><a href="/categories/Vue-js/" title="Vue.js">Vue.js<sup>1</sup></a></li>
+		
+			<li><a href="/categories/css/" title="css">css<sup>1</sup></a></li>
+		
+			<li><a href="/categories/代码/" title="代码">代码<sup>15</sup></a></li>
+		
+			<li><a href="/categories/工具/" title="工具">工具<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/Angular/" title="Angular">Angular<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Bootstrap/" title="Bootstrap">Bootstrap<sup>10</sup></a></li>
+		
+			<li><a href="/tags/CSS/" title="CSS">CSS<sup>1</sup></a></li>
+		
+			<li><a href="/tags/CSS3/" title="CSS3">CSS3<sup>7</sup></a></li>
+		
+			<li><a href="/tags/ES6/" title="ES6">ES6<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
+		
+			<li><a href="/tags/HTML5/" title="HTML5">HTML5<sup>5</sup></a></li>
+		
+			<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>2</sup></a></li>
+		
+			<li><a href="/tags/ajax/" title="ajax">ajax<sup>1</sup></a></li>
+		
+			<li><a href="/tags/css3/" title="css3">css3<sup>1</sup></a></li>
+		
+			<li><a href="/tags/javascript/" title="javascript">javascript<sup>1</sup></a></li>
+		
+			<li><a href="/tags/jquery/" title="jquery">jquery<sup>1</sup></a></li>
+		
+			<li><a href="/tags/webpack/" title="webpack">webpack<sup>1</sup></a></li>
+		
+			<li><a href="/tags/交互/" title="交互">交互<sup>1</sup></a></li>
+		
+			<li><a href="/tags/命令/" title="命令">命令<sup>1</sup></a></li>
+		
+			<li><a href="/tags/图片加载/" title="图片加载">图片加载<sup>1</sup></a></li>
+		
+			<li><a href="/tags/坑/" title="坑">坑<sup>1</sup></a></li>
+		
+			<li><a href="/tags/字体图标/" title="字体图标">字体图标<sup>1</sup></a></li>
+		
+			<li><a href="/tags/定时器/" title="定时器">定时器<sup>1</sup></a></li>
+		
+			<li><a href="/tags/常见问题/" title="常见问题">常见问题<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <iframe width="100%" height="550" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=2&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=1&isFans=1&uid=5205287645&verifier=fea7d72c&dpc=1"></iframe>
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+      <li><a href="http://www.yuanyang-miemie.win" target="_blank" title="袁咩咩的博客">Husband's Blog</a></li>
+      <li><a href="http://hexo.io" target="_blank" title="Hexo">Hexo</a></li>
+    </ul>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m Gu in Cqupt. <br/>
+			我自是年少，韶华倾负。</p>
+	</section>
+	 
+	<div class="social-font clearfix">
+		
+		<a href="http://weibo.com/5205287645" target="_blank" title="weibo"></a>
+		
+		
+		
+		<a href="https://github.com/sweethhh" target="_blank" title="github"></a>
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2018 
+		
+		<a href="http://houhonggu.top" target="_blank" title="Hou honggu">Hou honggu</a>
+		
+		 
+	<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1261489775'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1261489775%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+ 
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"sweethhh"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+ 
+
+  </body>
+</html>
