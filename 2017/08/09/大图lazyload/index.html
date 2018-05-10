@@ -10,8 +10,11 @@
     <meta name="author" content="Hou honggu">
     
     <meta name="description" content="图片加载完成前显示一个小图，加载完成后才显示真实图片
+
+jQuery图片延迟加载插件jQuery.lazyload,使用延迟加载在可提高网页下载速度。在某些情况下，它也能帮助减轻服务器负载。
+
 1.准备jquery.lazyload.js点击下载jquery.lazyload.js
-2.引入123&amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;jquery.js&amp;quot;&amp;g">
+2.引入123&amp;">
     
     
     
@@ -79,7 +82,7 @@
     </p>
   <p class="article-time">
     <time datetime="2017-08-09T08:12:32.116Z" itemprop="datePublished">2017-08-09</time>
-    更新日期:<time datetime="2017-08-09T08:38:38.387Z" itemprop="dateModified">2017-08-09</time>
+    更新日期:<time datetime="2018-05-10T02:36:41.175Z" itemprop="dateModified">2018-05-10</time>
     
   </p>
 </header>
@@ -88,16 +91,26 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-准备"><span class="toc-number">1.</span> <span class="toc-text">1.准备</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#jquery-lazyload-js"><span class="toc-number">1.1.</span> <span class="toc-text">jquery.lazyload.js</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-引入"><span class="toc-number">2.</span> <span class="toc-text">2.引入</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-操作"><span class="toc-number">3.</span> <span class="toc-text">3.操作</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-调用"><span class="toc-number">4.</span> <span class="toc-text">4.调用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-说明"><span class="toc-number">5.</span> <span class="toc-text">5.说明</span></a></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-准备"><span class="toc-number">1.</span> <span class="toc-text">1.准备</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#jquery-lazyload-js"><span class="toc-number">1.1.</span> <span class="toc-text">jquery.lazyload.js</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-引入"><span class="toc-number">2.</span> <span class="toc-text">2.引入</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-操作"><span class="toc-number">3.</span> <span class="toc-text">3.操作</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-调用"><span class="toc-number">4.</span> <span class="toc-text">4.调用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-说明"><span class="toc-number">5.</span> <span class="toc-text">5.说明</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-原理"><span class="toc-number">6.</span> <span class="toc-text">6.原理</span></a></li></ol>
 		</div>
 		
 		<p>图片加载完成前显示一个小图，加载完成后才显示真实图片</p>
+<blockquote>
+<p>jQuery图片延迟加载插件jQuery.lazyload,使用延迟加载在可提高网页下载速度。在某些情况下，它也能帮助减轻服务器负载。</p>
+</blockquote>
 <h1 id="1-准备"><a href="#1-准备" class="headerlink" title="1.准备"></a>1.准备</h1><h2 id="jquery-lazyload-js"><a href="#jquery-lazyload-js" class="headerlink" title="jquery.lazyload.js"></a><code>jquery.lazyload.js</code></h2><p><a href="http://code.ciaoca.com/jquery/lazyload/version/jQuery.lazyload-1.7.2.zip" target="_blank" rel="external">点击下载jquery.lazyload.js</a></p>
 <h1 id="2-引入"><a href="#2-引入" class="headerlink" title="2.引入"></a>2.引入</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;jquery.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;bootstrap.min.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;jquery.lazyload.js&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
 <h1 id="3-操作"><a href="#3-操作" class="headerlink" title="3.操作"></a>3.操作</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;img class=&quot;lazy&quot; src=&quot;grey.gif&quot; data-original=&quot;出塞曲1.jpg&quot; width=&quot;640&quot; heigh=&quot;480&quot;&gt;</div><div class="line">&lt;img class=&quot;lazy&quot; src=&quot;grey.gif&quot; data-original=&quot;出塞曲2.jpg&quot; width=&quot;640&quot; heigh=&quot;480&quot;&gt;</div><div class="line">&lt;img class=&quot;lazy&quot; src=&quot;grey.gif&quot; data-original=&quot;出塞曲3.jpg&quot; width=&quot;640&quot; heigh=&quot;480&quot;&gt;</div><div class="line">&lt;img class=&quot;lazy&quot; src=&quot;grey.gif&quot; data-original=&quot;出塞曲4.jpg&quot; width=&quot;640&quot; heigh=&quot;480&quot;&gt;</div><div class="line">&lt;img class=&quot;lazy&quot; src=&quot;grey.gif&quot; data-original=&quot;出塞曲5.jpg&quot; width=&quot;640&quot; heigh=&quot;480&quot;&gt;</div><div class="line">&lt;img class=&quot;lazy&quot; src=&quot;grey.gif&quot; data-original=&quot;出塞曲6.jpg&quot; width=&quot;640&quot; heigh=&quot;480&quot;&gt;</div><div class="line">&lt;img class=&quot;lazy&quot; src=&quot;grey.gif&quot; data-original=&quot;出塞曲7.jpg&quot; width=&quot;640&quot; heigh=&quot;480&quot;&gt;</div><div class="line">&lt;img class=&quot;lazy&quot; src=&quot;grey.gif&quot; data-original=&quot;出塞曲8.jpg&quot; width=&quot;640&quot; heigh=&quot;480&quot;&gt;</div><div class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;jquery.js&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
 <p><code>data-original</code>为真实显示图片<br><code>src</code>为加载前显示</p>
 <h1 id="4-调用"><a href="#4-调用" class="headerlink" title="4.调用"></a>4.调用</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&apos;img.lazy&apos;).lazyload();</div></pre></td></tr></table></figure>
 <h1 id="5-说明"><a href="#5-说明" class="headerlink" title="5.说明"></a>5.说明</h1><p><img src="http://onm9xh80o.bkt.clouddn.com/lazyload.PNG" alt="lazyload说明"></p>
+<h1 id="6-原理"><a href="#6-原理" class="headerlink" title="6.原理"></a>6.原理</h1><blockquote>
+<p>核心原理是：</p>
+<ol>
+<li>设置一个定时器，计算每张图片是否会随着滚动条的滚动，而出现在视口（也就是浏览器中的展现网站的空白部分）中；</li>
+<li>为<code>&lt;img&gt;</code>标签设置一个暂存图片URL的自定义属性（例如loadpic），当图片出现在视口时，再将loadpic的值赋给图片的src属性；</li>
+</ol>
+</blockquote>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -174,7 +187,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-准备"><span class="toc-number">1.</span> <span class="toc-text">1.准备</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#jquery-lazyload-js"><span class="toc-number">1.1.</span> <span class="toc-text">jquery.lazyload.js</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-引入"><span class="toc-number">2.</span> <span class="toc-text">2.引入</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-操作"><span class="toc-number">3.</span> <span class="toc-text">3.操作</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-调用"><span class="toc-number">4.</span> <span class="toc-text">4.调用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-说明"><span class="toc-number">5.</span> <span class="toc-text">5.说明</span></a></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-准备"><span class="toc-number">1.</span> <span class="toc-text">1.准备</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#jquery-lazyload-js"><span class="toc-number">1.1.</span> <span class="toc-text">jquery.lazyload.js</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-引入"><span class="toc-number">2.</span> <span class="toc-text">2.引入</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-操作"><span class="toc-number">3.</span> <span class="toc-text">3.操作</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-调用"><span class="toc-number">4.</span> <span class="toc-text">4.调用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-说明"><span class="toc-number">5.</span> <span class="toc-text">5.说明</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-原理"><span class="toc-number">6.</span> <span class="toc-text">6.原理</span></a></li></ol>
   </div>
 
 <div id="asidepart">
