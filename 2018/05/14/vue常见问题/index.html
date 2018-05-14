@@ -1,0 +1,436 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Vue常见问题 | 你家谷谷</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Hou honggu">
+    
+    <meta name="description" content="vue生命周期vue双向数据绑定，以及其优点缺点v-if和v-show的区别v-if 是“真正”的条件渲染，因为它会确保在切换过程中条件块内的事件监听器和子组件适当地被销毁和重建。v-if 也是惰性的：如果在初始渲染时条件为假，则什么也不做——直到条件第一次变为真时，才会开始渲染条件块。v-show">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="你家谷谷" title="你家谷谷"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="你家谷谷">你家谷谷</a></h1>
+				<h2 class="blog-motto">And I know it&#39;s long gone and there was nothing else I could do.</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">主页 | Index</a></li>
+					
+						<li><a href="/archives">归档 | Archives</a></li>
+					
+						<li><a href="/about">关于 | About</a></li>
+					
+						<li><a href="/resume">简历 | Resume</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:houhonggu.top">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2018/05/14/vue常见问题/" title="Vue常见问题" itemprop="url">Vue常见问题</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://houhonggu.top" title="Hou honggu">Hou honggu</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2018-05-14T07:24:36.526Z" itemprop="datePublished">2018-05-14</time>
+    更新日期:<time datetime="2018-05-14T09:23:52.489Z" itemprop="dateModified">2018-05-14</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#vue生命周期"><span class="toc-number">1.</span> <span class="toc-text">vue生命周期</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#vue双向数据绑定，以及其优点缺点"><span class="toc-number">2.</span> <span class="toc-text">vue双向数据绑定，以及其优点缺点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#v-if和v-show的区别"><span class="toc-number">3.</span> <span class="toc-text">v-if和v-show的区别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#v-for"><span class="toc-number">4.</span> <span class="toc-text">v-for</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#组件之间的通信"><span class="toc-number">5.</span> <span class="toc-text">组件之间的通信</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Computed-计算属性的用法？跟-Methods-的区别"><span class="toc-number">6.</span> <span class="toc-text">Computed 计算属性的用法？跟 Methods 的区别</span></a></li></ol>
+		</div>
+		
+		<h1 id="vue生命周期"><a href="#vue生命周期" class="headerlink" title="vue生命周期"></a>vue生命周期</h1><h1 id="vue双向数据绑定，以及其优点缺点"><a href="#vue双向数据绑定，以及其优点缺点" class="headerlink" title="vue双向数据绑定，以及其优点缺点"></a>vue双向数据绑定，以及其优点缺点</h1><h1 id="v-if和v-show的区别"><a href="#v-if和v-show的区别" class="headerlink" title="v-if和v-show的区别"></a>v-if和v-show的区别</h1><p><code>v-if</code> 是“真正”的条件渲染，因为它会确保在切换过程中条件块内的事件监听器和子组件适当地被销毁和重建。<br><code>v-if</code> 也是惰性的：如果在初始渲染时条件为假，则什么也不做——直到条件第一次变为真时，才会开始渲染条件块。<br><code>v-show</code> 就简单得多——不管初始条件是什么，元素总是会被渲染，并且只是简单地基于 CSS 进行切换。<br><code>v-if</code> 有更高的切换开销，而 <code>v-show</code> 有更高的初始渲染开销。<br>因此，如果需要非常频繁地切换，则使用 <code>v-show</code> 较好；如果在运行时条件很少改变，则使用 <code>v-if</code> 较好。</p>
+<h1 id="v-for"><a href="#v-for" class="headerlink" title="v-for"></a>v-for</h1><p><code>v-for</code>遍历数据，可以遍历数据，<code>v-for</code>优先于<code>v-if</code>。有参数<code>index</code>,用法v-for=”(item, index) in items”。在遍历对象时，有三种参数：。(value, key, index) in object可以遍历数组、对象。可以通过计算属性来过滤遍历的数据。</p>
+<h1 id="组件之间的通信"><a href="#组件之间的通信" class="headerlink" title="组件之间的通信"></a>组件之间的通信</h1><p><code>prop</code>，父组件传值给自组件。使之每次调用数据有所不同。</p>
+<ol>
+<li><p>创建组件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Vue.component(&#123;</div><div class="line">  templete:&quot;#my_div&quot;,</div><div class="line">  prop:&#123;&quot;message&quot;,&quot;imgsrc&quot;&#125;</div><div class="line">  &#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>修改模板</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;templete id=&quot;my_div&quot;&gt;</div><div class="line">  &lt;div&gt;</div><div class="line">    &lt;h1&gt;&#123;&#123;message&#125;&#125;&lt;/h1&gt;</div><div class="line">    &lt;img :src=&quot;imgsrc&quot; width=&quot;200px&quot;&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/templete&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>修改html调用模板</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;app&quot;&gt;</div><div class="line">  &lt;my_div message=&quot;yeah!&quot; imgsrc=&quot;img1.jpg&quot;&gt;&lt;/my_div&gt;</div><div class="line">  &lt;my_div message=&quot;no!&quot; imgsrc=&quot;img2.jpg&quot;&gt;&lt;/my_div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>多组件之间的通信</p>
+<ol>
+<li><p>创建组件模板</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;templete id=&apos;title&apos;&gt;</div><div class="line">  &lt;h1&gt;&#123;&#123;title&#125;&#125;&lt;/h1&gt;</div><div class="line">&lt;/templete&gt;// 子组件1</div><div class="line">&lt;templete id=&apos;imgsrc&apos;&gt;</div><div class="line">  &lt;img :src=&quot;imgsrc&quot;&gt;</div><div class="line">&lt;/templete&gt;// 子组件2</div><div class="line"></div><div class="line">&lt;templete id=&quot;my_parent&quot;&gt;</div><div class="line">  &lt;div&gt;</div><div class="line">    &lt;child1 :title=&quot;title&quot; &gt;&lt;/child1&gt;</div><div class="line">    &lt;child2 :imgsrc=&quot;imgsrc&quot; &gt;&lt;/child2&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/templete&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>子组件实例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">let child1=Vue.extend(&#123;</div><div class="line">  templete:&quot;#title&quot;,</div><div class="line">  props : [&quot;title&quot;]</div><div class="line">  &#125;);</div><div class="line">let child2=Vue.extend(&#123;</div><div class="line">  templete:&quot;#imgsrc&quot;,</div><div class="line">  props : [&quot;imgsrc&quot;]</div><div class="line">  &#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>父组件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Vue.component(&quot;my-parent&quot;,&#123;</div><div class="line">    props : [&quot;title&quot;,&quot;imgsrc&quot;],</div><div class="line">    component :&#123;</div><div class="line">      child1 : child1,</div><div class="line">      child2 : child2,</div><div class="line">    &#125;,</div><div class="line">    templete : &quot;#my_parent&quot;</div><div class="line">  &#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>new Vue()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">new Vue(&#123;</div><div class="line">  el : &quot;app&quot;,</div><div class="line">  data : &#123;</div><div class="line">  title : &quot;lalalala&quot;,</div><div class="line">  imgsrc : &quot;img.jpg&quot;</div><div class="line">&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>Html</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;app&quot;&gt;</div><div class="line">  &lt;my-parent :title=&quot;title&quot; :imgsrc=&quot;imgsrc&quot;&gt;&lt;/my-parent&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<blockquote>
+<p>通过props一层一层的传递数据，多层数据的传递必须通过动态绑定（<code>:</code>）。</p>
+</blockquote>
+<h1 id="Computed-计算属性的用法？跟-Methods-的区别"><a href="#Computed-计算属性的用法？跟-Methods-的区别" class="headerlink" title="Computed 计算属性的用法？跟 Methods 的区别"></a>Computed 计算属性的用法？跟 Methods 的区别</h1><p>计算属性（<code>computed</code>）<br>html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;p&gt;&#123;&#123;reverse&#125;&#125;&lt;/p&gt; // 计算属性方法名称(不能加括号，只能调用属性)</div></pre></td></tr></table></figure></p>
+<p>js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var app = new Vue(&#123;</div><div class="line">  el : &apos;#app&apos;,</div><div class="line">  data :&#123;</div><div class="line">    str: &quot;hello vue&quot;</div><div class="line">  &#125;</div><div class="line">  computed:&#123;</div><div class="line">    reverse : function()&#123;</div><div class="line">      return (this.str.split(&quot;&quot;).reverse().join(&quot;&quot;)); </div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  &#125;);</div></pre></td></tr></table></figure></p>
+<p><code>Methods</code></p>
+<p>html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;p&gt;&#123;&#123;reverse（）&#125;&#125;&lt;/p&gt;//  调用方法</div></pre></td></tr></table></figure></p>
+<p>js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var app = new Vue(&#123;</div><div class="line">  el : &apos;#app&apos;,</div><div class="line">  data :&#123;</div><div class="line">    str: &quot;hello vue&quot;</div><div class="line">  &#125;</div><div class="line">  methods:&#123;</div><div class="line">    reverse()&#123;</div><div class="line">      return (this.str.split(&quot;&quot;).reverse().join(&quot;&quot;)); </div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  &#125;);</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>计算属性默认有getter方法。两者区别在页面重新渲染中计算属性在页面重新渲染时，不会重新计算而是直接调用缓存，适用于在一开始需要大量计算而在后期基本不变的数据。Method方法会在每次调用时重复计算，适用于改变频率高的数据。</p>
+</blockquote>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Vue，框架/">Vue，框架</a>
+  </div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/代码/">代码</a>
+</div>
+
+
+
+<div class="article-share" id="share">
+
+  
+<div class="jiathis_style">
+    <span class="jiathis_txt">分享到：</span>
+    <a class="jiathis_button_tsina">新浪微博</a>
+    <a class="jiathis_button_weixin">微信</a>
+    <a class="jiathis_button_twitter">Twitter</a>
+    <a class="jiathis_button_evernote">EverNote</a>
+    <a href="http://www.jiathis.com/share?uid=1501277" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+</div>
+<script type="text/javascript" >
+    var jiathis_config={
+    data_track_clickback:true,
+    sm:"copy,renren,cqq",
+    pic:"",
+    summary:"",
+     ralateuid:{"tsina":"5205287645"},hideMore:false}
+    
+  </script> 
+<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=
+2127280" charset="utf-8"></script>      
+
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2018/05/14/vue-router/"  title="Vue-router">
+ <strong>NEXT:</strong><br/> 
+ <span>Vue-router
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section class="comment">
+	<div class="ds-thread"></div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#vue生命周期"><span class="toc-number">1.</span> <span class="toc-text">vue生命周期</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#vue双向数据绑定，以及其优点缺点"><span class="toc-number">2.</span> <span class="toc-text">vue双向数据绑定，以及其优点缺点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#v-if和v-show的区别"><span class="toc-number">3.</span> <span class="toc-text">v-if和v-show的区别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#v-for"><span class="toc-number">4.</span> <span class="toc-text">v-for</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#组件之间的通信"><span class="toc-number">5.</span> <span class="toc-text">组件之间的通信</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Computed-计算属性的用法？跟-Methods-的区别"><span class="toc-number">6.</span> <span class="toc-text">Computed 计算属性的用法？跟 Methods 的区别</span></a></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+			<li><a href="/categories/CSS框架/" title="CSS框架">CSS框架<sup>10</sup></a></li>
+		
+			<li><a href="/categories/Git命令/" title="Git命令">Git命令<sup>1</sup></a></li>
+		
+			<li><a href="/categories/Javascript/" title="Javascript">Javascript<sup>2</sup></a></li>
+		
+			<li><a href="/categories/React/" title="React">React<sup>2</sup></a></li>
+		
+			<li><a href="/categories/Vue-js/" title="Vue.js">Vue.js<sup>1</sup></a></li>
+		
+			<li><a href="/categories/css/" title="css">css<sup>1</sup></a></li>
+		
+			<li><a href="/categories/代码/" title="代码">代码<sup>17</sup></a></li>
+		
+			<li><a href="/categories/工具/" title="工具">工具<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/Angular/" title="Angular">Angular<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Bootstrap/" title="Bootstrap">Bootstrap<sup>10</sup></a></li>
+		
+			<li><a href="/tags/CSS/" title="CSS">CSS<sup>1</sup></a></li>
+		
+			<li><a href="/tags/CSS3/" title="CSS3">CSS3<sup>7</sup></a></li>
+		
+			<li><a href="/tags/ES6/" title="ES6">ES6<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
+		
+			<li><a href="/tags/HTML5/" title="HTML5">HTML5<sup>5</sup></a></li>
+		
+			<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>2</sup></a></li>
+		
+			<li><a href="/tags/Vue，框架/" title="Vue，框架">Vue，框架<sup>2</sup></a></li>
+		
+			<li><a href="/tags/ajax/" title="ajax">ajax<sup>1</sup></a></li>
+		
+			<li><a href="/tags/css3/" title="css3">css3<sup>1</sup></a></li>
+		
+			<li><a href="/tags/javascript/" title="javascript">javascript<sup>1</sup></a></li>
+		
+			<li><a href="/tags/jquery/" title="jquery">jquery<sup>1</sup></a></li>
+		
+			<li><a href="/tags/webpack/" title="webpack">webpack<sup>1</sup></a></li>
+		
+			<li><a href="/tags/交互/" title="交互">交互<sup>1</sup></a></li>
+		
+			<li><a href="/tags/命令/" title="命令">命令<sup>1</sup></a></li>
+		
+			<li><a href="/tags/图片加载/" title="图片加载">图片加载<sup>1</sup></a></li>
+		
+			<li><a href="/tags/坑/" title="坑">坑<sup>1</sup></a></li>
+		
+			<li><a href="/tags/字体图标/" title="字体图标">字体图标<sup>1</sup></a></li>
+		
+			<li><a href="/tags/定时器/" title="定时器">定时器<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <iframe width="100%" height="550" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=2&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=1&isFans=1&uid=5205287645&verifier=fea7d72c&dpc=1"></iframe>
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+      <li><a href="http://www.yuanyang-miemie.win" target="_blank" title="袁咩咩的博客">Husband's Blog</a></li>
+      <li><a href="http://hexo.io" target="_blank" title="Hexo">Hexo</a></li>
+    </ul>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m Gu in Cqupt. <br/>
+			我自是年少，韶华倾负。</p>
+	</section>
+	 
+	<div class="social-font clearfix">
+		
+		<a href="http://weibo.com/5205287645" target="_blank" title="weibo"></a>
+		
+		
+		
+		<a href="https://github.com/sweethhh" target="_blank" title="github"></a>
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2018 
+		
+		<a href="http://houhonggu.top" target="_blank" title="Hou honggu">Hou honggu</a>
+		
+		 
+	<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1261489775'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1261489775%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+ 
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"sweethhh"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+ 
+
+  </body>
+</html>

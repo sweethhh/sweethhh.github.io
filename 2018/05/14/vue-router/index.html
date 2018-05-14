@@ -4,12 +4,15 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>我的第一篇文章 | 你家谷谷</title>
+    <title>Vue-router | 你家谷谷</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="Hou honggu">
     
-    <meta name="description" content="Git操作1.cd 文件夹名字2.git init3.git add 文件名字（git add -A 添加当前目录全部文件）4.git commit -m “操作名”5.在github上创建同名仓库6.git remote add origin git@github.com:sweethhh/文件夹">
+    <meta name="description" content="Vue-router
+页面导航，将不同板块放到不同路由。配置好路由访问相应版块。
+
+一、安装与引用在 Vue 后面加载 vue-router，它会自动安装的:12&amp;lt;script src=&amp;quot;/path/to/vue.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;&amp;lt;scri">
     
     
     
@@ -69,15 +72,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/01/13/我的第一篇文章/" title="我的第一篇文章" itemprop="url">我的第一篇文章</a>
+      <a href="/2018/05/14/vue-router/" title="Vue-router" itemprop="url">Vue-router</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://houhonggu.top" title="Hou honggu">Hou honggu</a>
     </p>
   <p class="article-time">
-    <time datetime="2017-01-13T08:22:29.667Z" itemprop="datePublished">2017-01-13</time>
-    更新日期:<time datetime="2018-03-05T07:17:15.602Z" itemprop="dateModified">2018-03-05</time>
+    <time datetime="2018-05-14T06:01:04.308Z" itemprop="datePublished">2018-05-14</time>
+    更新日期:<time datetime="2018-05-14T07:24:09.134Z" itemprop="dateModified">2018-05-14</time>
     
   </p>
 </header>
@@ -86,25 +89,62 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Git操作"><span class="toc-number">1.</span> <span class="toc-text">Git操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#发布博客"><span class="toc-number">2.</span> <span class="toc-text">发布博客</span></a></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Vue-router"><span class="toc-number">1.</span> <span class="toc-text">Vue-router</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、安装与引用"><span class="toc-number">1.1.</span> <span class="toc-text">一、安装与引用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二-、-多层路由"><span class="toc-number">1.2.</span> <span class="toc-text">二 、 多层路由</span></a></li></ol></li></ol>
 		</div>
 		
-		<h2 id="Git操作"><a href="#Git操作" class="headerlink" title="Git操作"></a>Git操作</h2><p>1.cd 文件夹名字<br>2.git init<br>3.git add 文件名字（git add -A 添加当前目录全部文件）<br>4.git commit -m “操作名”<br>5.在github上创建同名仓库<br>6.git remote add origin git@github.com:sweethhh/文件夹名字.git(仅第一次需要此步骤，之后更新不需要)<br>7.git push -u origin master</p>
-<p>预览项目<br><a href="http://htmlpreview.github.io/" target="_blank" rel="external">http://htmlpreview.github.io/</a></p>
-<h2 id="发布博客"><a href="#发布博客" class="headerlink" title="发布博客"></a>发布博客</h2><p>1.hexo g<br>2.hexo deploy<br>3.hexo restart 重启服务器<br>4.hexo n page “pageName” 新建一个Tab标签文件<br>5.hexo s 打开本地服务器</p>
+		<h1 id="Vue-router"><a href="#Vue-router" class="headerlink" title="Vue-router"></a>Vue-router</h1><blockquote>
+<p>页面导航，将不同板块放到不同路由。配置好路由访问相应版块。</p>
+</blockquote>
+<h2 id="一、安装与引用"><a href="#一、安装与引用" class="headerlink" title="一、安装与引用"></a>一、安装与引用</h2><p>在 Vue 后面加载 vue-router，它会自动安装的:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;script src=&quot;/path/to/vue.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script src=&quot;/path/to/vue-router.js&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p><a href="https://unpkg.com/vue-router/dist/vue-router.js" target="_blank" rel="external">https://unpkg.com/vue-router/dist/vue-router.js</a> </p>
+<ol>
+<li><p>html 的引用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;script src=&quot;https://unpkg.com/vue/dist/vue.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script src=&quot;https://unpkg.com/vue-router/dist/vue-router.js&quot;&gt;&lt;/script&gt;</div><div class="line"></div><div class="line">&lt;div id=&quot;app&quot;&gt;</div><div class="line">  &lt;h1&gt;Hello App!&lt;/h1&gt;</div><div class="line">  &lt;p&gt;</div><div class="line">    &lt;!-- 使用 router-link 组件来导航. --&gt;</div><div class="line">    &lt;!-- 通过传入 `to` 属性指定链接. --&gt;</div><div class="line">    &lt;!-- &lt;router-link&gt; 默认会被渲染成一个 `&lt;a&gt;` 标签 --&gt;</div><div class="line">    &lt;router-link to=&quot;/foo&quot;&gt;Go to Foo&lt;/router-link&gt;</div><div class="line">    &lt;router-link to=&quot;/bar&quot;&gt;Go to Bar&lt;/router-link&gt;</div><div class="line">  &lt;/p&gt;</div><div class="line">  &lt;!-- 路由出口 --&gt;</div><div class="line">  &lt;!-- 路由匹配到的组件将渲染在这里 --&gt;</div><div class="line">  &lt;router-view&gt;&lt;/router-view&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>js的使用</p>
+</li>
+</ol>
+<ul>
+<li><p>创建组件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">const Foo = &#123; template: &apos;&lt;div&gt;foo&lt;/div&gt;&apos; &#125;</div><div class="line">const Bar = &#123; template: &apos;&lt;div&gt;bar&lt;/div&gt;&apos; &#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>定义路由</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">const routes = [</div><div class="line">  &#123; path: &apos;/foo&apos;, component: Foo &#125;,</div><div class="line">  &#123; path: &apos;/bar&apos;, component: Bar &#125;</div><div class="line">]</div></pre></td></tr></table></figure>
+</li>
+<li><p>创建 router 实例，然后传 <code>routes</code> 配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">const router = new VueRouter(&#123;</div><div class="line">  routes // （缩写）相当于 routes: routes</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+<li><p>创建和挂载根实例。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">const app = new Vue(&#123;</div><div class="line">  router</div><div class="line">&#125;).$mount(&apos;#app&apos;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>设置跟路由</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;path : &apos;/&apos; ,redirect:&apos;/h5&apos; &#125;,//根路由</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="二-、-多层路由"><a href="#二-、-多层路由" class="headerlink" title="二 、 多层路由"></a>二 、 多层路由</h2><ol>
+<li>创建组件</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">const basic=Vue.extend(&#123;</div><div class="line">    template :&quot;#basic&quot;</div><div class="line">  &#125;);</div><div class="line">  const big=Vue.extend(&#123;</div><div class="line">    template :&quot;#big&quot;</div><div class="line">  &#125;);</div></pre></td></tr></table></figure>
+<ol>
+<li>定义路由</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">// 定义路由</div><div class="line">  const routes = [</div><div class="line">    &#123;path : &apos;/&apos; ,redirect:&apos;/h5&apos; &#125;,//根路由</div><div class="line">    &#123;</div><div class="line">      path : &apos;/h5&apos; ,</div><div class="line">      component : h5 ,</div><div class="line">      children : [</div><div class="line">      &#123;path : &apos;basic&apos; ,component : basic &#125;,</div><div class="line">      &#123;path : &apos;big&apos; ,component : big &#125;,</div><div class="line">      &#123;path : &apos;/&apos; ,redirect:&apos;basic&apos; &#125;,//根路由</div><div class="line">      ]</div><div class="line">    &#125;,</div><div class="line">    &#123;path : &apos;/java&apos; ,component : java &#125;,</div><div class="line">    &#123;path : &apos;/python&apos; ,component : python &#125;</div><div class="line">  ];</div></pre></td></tr></table></figure>
+<ol>
+<li>在一级界面上如下配置<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;template id=&quot;h5&quot;&gt;</div><div class="line">  &lt;div&gt;</div><div class="line">    &lt;h2&gt;衣服&lt;/h2&gt;</div><div class="line">    &lt;p&gt;lallallala&lt;/p&gt;</div><div class="line">    &lt;img src=&quot;img/clothes.PNG&quot; width=&quot;250px&quot;&gt;</div><div class="line">    &lt;div&gt;</div><div class="line">      &lt;ul class=&quot;nav nav-tabs&quot;&gt;</div><div class="line">        &lt;router-link to=&quot;/h5/basic&quot;&gt;basic&lt;/router-link&gt;</div><div class="line">        &lt;router-link to=&quot;/h5/big&quot;&gt;big&lt;/router-link&gt;</div><div class="line">      &lt;/ul&gt;</div><div class="line">      &lt;div class=&quot;tab-content&quot;&gt;</div><div class="line">        &lt;router-view&gt;&lt;/router-view&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/template&gt;</div></pre></td></tr></table></figure></li>
+</ol>
   
 	</div>
 		<footer class="article-footer clearfix">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Git/">Git</a><a href="/tags/命令/">命令</a>
+  <span></span> <a href="/tags/Vue，框架/">Vue，框架</a>
   </div>
 
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/Git命令/">Git命令</a>
+  <a class="article-category-link" href="/categories/代码/">代码</a>
 </div>
 
 
@@ -140,18 +180,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2017/03/06/html5css3笔记 一回目/" title="html5css3笔记系列 | 一">
+ <a href="/2018/05/14/vue常见问题/" title="Vue常见问题">
   <strong>PREVIOUS:</strong><br/>
   <span>
-  html5css3笔记系列 | 一</span>
+  Vue常见问题</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2017/01/13/hello-world/"  title="Hello World">
+<a href="/2018/05/10/flex布局/"  title="flex布局">
  <strong>NEXT:</strong><br/> 
- <span>Hello World
+ <span>flex布局
 </span>
 </a>
 </div>
@@ -168,7 +208,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Git操作"><span class="toc-number">1.</span> <span class="toc-text">Git操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#发布博客"><span class="toc-number">2.</span> <span class="toc-text">发布博客</span></a></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Vue-router"><span class="toc-number">1.</span> <span class="toc-text">Vue-router</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、安装与引用"><span class="toc-number">1.1.</span> <span class="toc-text">一、安装与引用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二-、-多层路由"><span class="toc-number">1.2.</span> <span class="toc-text">二 、 多层路由</span></a></li></ol></li></ol>
   </div>
 
 <div id="asidepart">
