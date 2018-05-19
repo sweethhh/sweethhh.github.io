@@ -4,24 +4,16 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>过渡和2D变换 | 你家谷谷</title>
+    <title>对模块化的理解 | 你家谷谷</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="Hou honggu">
     
-    <meta name="description" content="transition过渡transition: property duration timing-function
-property:表示对哪个属性进行平滑过渡(all/attr)duration:过渡时间timing-function:平滑过渡的方法
-
-
-
-名称
-说明
-
-
-
-
-ease
-逐渐变慢（">
+    <meta name="description" content="原文地址：模块化
+模块化首先要将方法分成各个独立的js文件。
+一、内嵌脚本使用内嵌脚本会缺乏代码的可复用性，在使用方法之前必须保证添加了依赖，还会导致全局命名空间污染。
+二、通过src引入缺乏依赖解析，引入顺序依然重要，还是会造成全局命令空间污染。
+三、IIFE模式IIFE模块模式是首先向全局公开一">
     
     
     
@@ -81,15 +73,15 @@ ease
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/04/06/2D变换/" title="过渡和2D变换" itemprop="url">过渡和2D变换</a>
+      <a href="/2018/05/19/对模块化的理解/" title="对模块化的理解" itemprop="url">对模块化的理解</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://houhonggu.top" title="Hou honggu">Hou honggu</a>
     </p>
   <p class="article-time">
-    <time datetime="2017-04-06T06:58:20.616Z" itemprop="datePublished">2017-04-06</time>
-    更新日期:<time datetime="2017-04-06T09:32:58.568Z" itemprop="dateModified">2017-04-06</time>
+    <time datetime="2018-05-19T06:59:39.365Z" itemprop="datePublished">2018-05-19</time>
+    更新日期:<time datetime="2018-05-19T07:24:50.088Z" itemprop="dateModified">2018-05-19</time>
     
   </p>
 </header>
@@ -98,90 +90,42 @@ ease
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#transition过渡"><span class="toc-number">1.</span> <span class="toc-text">transition过渡</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#transitionend"><span class="toc-number">2.</span> <span class="toc-text">transitionend</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2D变换"><span class="toc-number">3.</span> <span class="toc-text">2D变换</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#transform"><span class="toc-number">3.1.</span> <span class="toc-text">transform</span></a></li></ol></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、内嵌脚本"><span class="toc-number">1.</span> <span class="toc-text">一、内嵌脚本</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、通过src引入"><span class="toc-number">2.</span> <span class="toc-text">二、通过src引入</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、IIFE模式"><span class="toc-number">3.</span> <span class="toc-text">三、IIFE模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、CommonJs"><span class="toc-number">4.</span> <span class="toc-text">四、CommonJs</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五、异步模块定义（AMD）"><span class="toc-number">5.</span> <span class="toc-text">五、异步模块定义（AMD）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六、RequireJs"><span class="toc-number">6.</span> <span class="toc-text">六、RequireJs</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#七、Browserify"><span class="toc-number">7.</span> <span class="toc-text">七、Browserify</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#八、ES6模块语法"><span class="toc-number">8.</span> <span class="toc-text">八、ES6模块语法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#九、Webpack"><span class="toc-number">9.</span> <span class="toc-text">九、Webpack</span></a></li></ol>
 		</div>
 		
-		<h1 id="transition过渡"><a href="#transition过渡" class="headerlink" title="transition过渡"></a>transition过渡</h1><p><code>transition: property duration timing-function</code></p>
-<p><code>property</code>:表示对哪个属性进行平滑过渡(all/attr)<br><code>duration</code>:过渡时间<br><code>timing-function</code>:平滑过渡的方法</p>
-<table>
-<thead>
-<tr>
-<th>名称</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>ease</td>
-<td>逐渐变慢（默认）</td>
-</tr>
-<tr>
-<td>linear</td>
-<td>匀速</td>
-</tr>
-<tr>
-<td>ease-in</td>
-<td>加速</td>
-</tr>
-<tr>
-<td>ease-out</td>
-<td>减速</td>
-</tr>
-<tr>
-<td>ease-in-out</td>
-<td>先加速后减速</td>
-</tr>
-<tr>
-<td>cubic-bezier</td>
-<td>贝赛尔曲线</td>
-</tr>
-</tbody>
-</table>
-<p>示例代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">.transition&#123;</div><div class="line">		width: 100px;</div><div class="line">		height: 100px;</div><div class="line">		background: pink;</div><div class="line">		transition: width 1s,height 2s;//多样式变换，逗号隔开</div><div class="line">	&#125;</div><div class="line">	.transition:hover&#123;</div><div class="line">		width: 1000px;</div><div class="line">		height: 1000px;</div><div class="line">		background: red;</div><div class="line">	&#125;</div></pre></td></tr></table></figure></p>
-<h1 id="transitionend"><a href="#transitionend" class="headerlink" title="transitionend"></a>transitionend</h1><p><code>transitionend</code>过渡完成后执行的函数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">.box&#123;width:100px;height:100px;background:red; transition:1s width;&#125;</div><div class="line">&lt;/style&gt;</div><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">oBox.onclick=function()</div><div class="line">&#123;</div><div class="line">	this.style.width=this.offsetWidth+100+&quot;px&quot;;</div><div class="line">&#125;;</div><div class="line">addEnd(oBox,function()&#123;</div><div class="line">	alert(&quot;end&quot;);	</div><div class="line">&#125;);</div><div class="line">function addEnd(obj,fn)</div><div class="line">&#123;</div><div class="line">	obj.addEventListener(&apos;WebkitTransitionEnd&apos;,fn,false);</div><div class="line">	obj.addEventListener(&apos;transitionend&apos;,fn,false);</div><div class="line">&#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-<h1 id="2D变换"><a href="#2D变换" class="headerlink" title="2D变换"></a>2D变换</h1><h2 id="transform"><a href="#transform" class="headerlink" title="transform"></a>transform</h2><p><code>rotate()</code> 旋转函数</p>
-<ul>
-<li>deg 度数</li>
-<li><p>transform-origin 旋转基点<br>  <code>示例代码</code></p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">.rotate&#123;</div><div class="line">	transition: 1s all;</div><div class="line">	width: 100px;</div><div class="line">	height: 100px;</div><div class="line">	background: red;</div><div class="line">&#125;</div><div class="line">.rotate:hover&#123;</div><div class="line">	transform: rotate(150deg);</div><div class="line">	transform-origin: 10px 10px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><code>skew()</code>倾斜函数</p>
-<ul>
-<li>skewX()</li>
-<li><p>skewY()<br>  <code>示例代码</code></p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">.skew&#123;</div><div class="line">	width: 100px;</div><div class="line">	height: 100px;</div><div class="line">	background: pink;</div><div class="line">	transition: 1s all;</div><div class="line">&#125;</div><div class="line">.skew:hover&#123;</div><div class="line">	transform: skew(10deg,20deg);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><code>scale()</code> 缩放函数 值为正数、负数、小数</p>
-<ul>
-<li>scaleY()</li>
-<li><p>scaleX()</p>
-<p>  <code>示例代码</code></p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">.scale&#123;</div><div class="line">	width: 200px;</div><div class="line">	height: 300px;</div><div class="line">	background: purple;</div><div class="line">	transition: 1s all;</div><div class="line">&#125;</div><div class="line">.scale:hover&#123;</div><div class="line">	transform: scale(0.5);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><code>translate()</code> 位移函数</p>
-<ul>
-<li>translateX()</li>
-<li><p>translateY()</p>
-<p>  <code>示例代码</code></p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">.translate&#123;</div><div class="line">	width: 100px;</div><div class="line">	height: 300px;</div><div class="line">	background: black;</div><div class="line">	transition: 1s all;</div><div class="line">&#125;</div><div class="line">.translate:hover&#123;</div><div class="line">	transform: translate(100px,0px);</div><div class="line">&#125;</div></pre></td></tr></table></figure></li>
-</ul>
+		<p>原文地址：<br><a href="http://www.css88.com/archives/7628" target="_blank" rel="external">模块化</a></p>
+<p>模块化首先要将方法分成各个独立的js文件。</p>
+<h1 id="一、内嵌脚本"><a href="#一、内嵌脚本" class="headerlink" title="一、内嵌脚本"></a>一、内嵌脚本</h1><p>使用内嵌脚本会缺乏代码的可复用性，在使用方法之前必须保证添加了依赖，还会导致全局命名空间污染。</p>
+<h1 id="二、通过src引入"><a href="#二、通过src引入" class="headerlink" title="二、通过src引入"></a>二、通过src引入</h1><p>缺乏依赖解析，引入顺序依然重要，还是会造成全局命令空间污染。</p>
+<h1 id="三、IIFE模式"><a href="#三、IIFE模式" class="headerlink" title="三、IIFE模式"></a>三、IIFE模式</h1><p>IIFE模块模式是首先向全局公开一个对象，如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var myApp=&#123;&#125;;</div></pre></td></tr></table></figure></p>
+<p>然后通过立即执行函数的方式将方法包裹起来。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">(function()&#123;</div><div class="line">	myApp.add=function(a,b)&#123;</div><div class="line">		return a+b;</div><div class="line">	&#125;</div><div class="line">	&#125;)();</div></pre></td></tr></table></figure>
+<p>这种方式一定程度上避免了全局污染作用域，可以用myApp来访问这些函数。但是依然有一个全局变量，而且文件顺序依然重要。</p>
+<h1 id="四、CommonJs"><a href="#四、CommonJs" class="headerlink" title="四、CommonJs"></a>四、CommonJs</h1><p>CommonJs本是为WEB服务器、桌面和命令行应用程序定义的一套通用API</p>
+<p>导出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">module.exports=function add(a,b)&#123;</div><div class="line">	return a+b;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>导入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var add=require(&apos;./add&apos;);</div></pre></td></tr></table></figure></p>
+<p>但是CommonJs是同步的，当require一个模块时，系统将暂停，直到加载完毕。</p>
+<h1 id="五、异步模块定义（AMD）"><a href="#五、异步模块定义（AMD）" class="headerlink" title="五、异步模块定义（AMD）"></a>五、异步模块定义（AMD）</h1><p>由于CommonJs的同步问题，出现了AMD。</p>
+<p>AMD语法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">define([&apos;add&apos;,&apos;reduce&apos;],function(add,reduce)&#123;</div><div class="line">		return function()&#123;</div><div class="line">			//....</div><div class="line">		&#125;;</div><div class="line">	&#125;);</div></pre></td></tr></table></figure></p>
+<h1 id="六、RequireJs"><a href="#六、RequireJs" class="headerlink" title="六、RequireJs"></a>六、RequireJs</h1><p>RequireJs是一个模块加载器，需要引入RequireJs。可以根据需求异步加载AMD。</p>
+<p>他会通过引入的main.js递归寻找其他依赖。</p>
+<h1 id="七、Browserify"><a href="#七、Browserify" class="headerlink" title="七、Browserify"></a>七、Browserify</h1><p>模块打包器，可使用CommonJs语法，他遍历代码的依赖树，生成一个文件。</p>
+<h1 id="八、ES6模块语法"><a href="#八、ES6模块语法" class="headerlink" title="八、ES6模块语法"></a>八、ES6模块语法</h1><p>导入：import 导出： export</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">import add from &apos;./add&apos;;</div><div class="line">import reduce from &apos;./reduce&apos;;</div><div class="line"></div><div class="line">export default finction sum(arr)&#123;</div><div class="line">	return reduce(arr,add);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="九、Webpack"><a href="#九、Webpack" class="headerlink" title="九、Webpack"></a>九、Webpack</h1><p>Webpack基于CommonJs和AMD语法。<br>代码分离、自定义加载器，可打包非js文件，插件。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/CSS3/">CSS3</a>
+  <span></span> <a href="/tags/思想/">思想</a>
   </div>
 
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/代码/">代码</a>
+  <a class="article-category-link" href="/categories/模块化/">模块化</a>
 </div>
 
 
@@ -216,19 +160,11 @@ ease
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2017/04/08/3D变换/" title="3D变换">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  3D变换</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2017/03/29/html5css3新增UI属性/"  title="HTML5CSS3新增UI">
+<a href="/2018/05/19/异步请求/"  title="异步请求">
  <strong>NEXT:</strong><br/> 
- <span>HTML5CSS3新增UI
+ <span>异步请求
 </span>
 </a>
 </div>
@@ -245,7 +181,7 @@ ease
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#transition过渡"><span class="toc-number">1.</span> <span class="toc-text">transition过渡</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#transitionend"><span class="toc-number">2.</span> <span class="toc-text">transitionend</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2D变换"><span class="toc-number">3.</span> <span class="toc-text">2D变换</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#transform"><span class="toc-number">3.1.</span> <span class="toc-text">transform</span></a></li></ol></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、内嵌脚本"><span class="toc-number">1.</span> <span class="toc-text">一、内嵌脚本</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、通过src引入"><span class="toc-number">2.</span> <span class="toc-text">二、通过src引入</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、IIFE模式"><span class="toc-number">3.</span> <span class="toc-text">三、IIFE模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、CommonJs"><span class="toc-number">4.</span> <span class="toc-text">四、CommonJs</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五、异步模块定义（AMD）"><span class="toc-number">5.</span> <span class="toc-text">五、异步模块定义（AMD）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六、RequireJs"><span class="toc-number">6.</span> <span class="toc-text">六、RequireJs</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#七、Browserify"><span class="toc-number">7.</span> <span class="toc-text">七、Browserify</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#八、ES6模块语法"><span class="toc-number">8.</span> <span class="toc-text">八、ES6模块语法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#九、Webpack"><span class="toc-number">9.</span> <span class="toc-text">九、Webpack</span></a></li></ol>
   </div>
 
 <div id="asidepart">
