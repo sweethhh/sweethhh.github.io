@@ -1,0 +1,503 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>异步请求 | 你家谷谷</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Hou honggu">
+    
+    <meta name="description" content="Ajax工作原理
+XMLHttpRequest 是 AJAX 的基础。
+
+一、 创建XMLHttpRequest 对象1xmlhttp=new XMLHttpRequest();
+二、向服务器发送请求
+open()方法open(method,url,async)
+
+
+method：请求的类型；GET">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="你家谷谷" title="你家谷谷"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="你家谷谷">你家谷谷</a></h1>
+				<h2 class="blog-motto">And I know it&#39;s long gone and there was nothing else I could do.</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">主页 | Index</a></li>
+					
+						<li><a href="/archives">归档 | Archives</a></li>
+					
+						<li><a href="/about">关于 | About</a></li>
+					
+						<li><a href="/resume">简历 | Resume</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:houhonggu.top">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2018/05/19/异步请求/" title="异步请求" itemprop="url">异步请求</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://houhonggu.top" title="Hou honggu">Hou honggu</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2018-05-19T05:48:36.226Z" itemprop="datePublished">2018-05-19</time>
+    更新日期:<time datetime="2018-05-19T06:52:00.446Z" itemprop="dateModified">2018-05-19</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Ajax工作原理"><span class="toc-number">1.</span> <span class="toc-text">Ajax工作原理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、-创建XMLHttpRequest-对象"><span class="toc-number">1.1.</span> <span class="toc-text">一、 创建XMLHttpRequest 对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、向服务器发送请求"><span class="toc-number">1.2.</span> <span class="toc-text">二、向服务器发送请求</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实际用法"><span class="toc-number">1.2.1.</span> <span class="toc-text">实际用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#处于异步状态-onreadystatechange-事件中的就绪状态时执行的函数"><span class="toc-number">1.2.2.</span> <span class="toc-text">处于异步状态 onreadystatechange 事件中的就绪状态时执行的函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、服务器响应"><span class="toc-number">1.3.</span> <span class="toc-text">三、服务器响应</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、onreadystatechange-事件"><span class="toc-number">1.4.</span> <span class="toc-text">四、onreadystatechange 事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">1.5.</span> <span class="toc-text">总结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ajax运行流程"><span class="toc-number">1.5.1.</span> <span class="toc-text">ajax运行流程</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Fetch"><span class="toc-number">2.</span> <span class="toc-text">Fetch</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Promise"><span class="toc-number">2.1.</span> <span class="toc-text">Promise</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fetch用法"><span class="toc-number">2.2.</span> <span class="toc-text">fetch用法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#fetch总结"><span class="toc-number">2.2.1.</span> <span class="toc-text">fetch总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fetch（post）"><span class="toc-number">2.2.2.</span> <span class="toc-text">fetch（post）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#图片处理"><span class="toc-number">2.2.3.</span> <span class="toc-text">图片处理</span></a></li></ol></li></ol></li></ol>
+		</div>
+		
+		<h1 id="Ajax工作原理"><a href="#Ajax工作原理" class="headerlink" title="Ajax工作原理"></a>Ajax工作原理</h1><ul>
+<li>XMLHttpRequest 是 AJAX 的基础。</li>
+</ul>
+<h2 id="一、-创建XMLHttpRequest-对象"><a href="#一、-创建XMLHttpRequest-对象" class="headerlink" title="一、 创建XMLHttpRequest 对象"></a>一、 创建XMLHttpRequest 对象</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">xmlhttp=new XMLHttpRequest();</div></pre></td></tr></table></figure>
+<h2 id="二、向服务器发送请求"><a href="#二、向服务器发送请求" class="headerlink" title="二、向服务器发送请求"></a>二、向服务器发送请求</h2><ul>
+<li>open()方法<br><code>open(method,url,async)</code></li>
+</ul>
+<ol>
+<li>method：请求的类型；GET 或 POST</li>
+<li>url：文件在服务器上的位置</li>
+<li>async：true（异步）或 false（同步）</li>
+</ol>
+<ul>
+<li>send()方法<br><code>send(string)</code></li>
+</ul>
+<ol>
+<li>string：仅用于 POST 请求</li>
+</ol>
+<h3 id="实际用法"><a href="#实际用法" class="headerlink" title="实际用法"></a>实际用法</h3><ol>
+<li>如果您希望通过 GET 方法发送信息，请向 URL 添加信息：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">xmlhttp.open(&quot;GET&quot;,&quot;demo_get2.asp?fname=Bill&amp;lname=Gates&quot;,true);</div><div class="line">xmlhttp.send();</div></pre></td></tr></table></figure>
+<ol>
+<li>POST<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">xmlhttp.open(&quot;POST&quot;,&quot;/ajax/demo_post.asp&quot;,true);</div><div class="line">xmlhttp.send();</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>如果需要像 HTML 表单那样 POST 数据，请使用 setRequestHeader() 来添加 HTTP 头。然后在 send() 方法中规定您希望发送的数据：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">xmlhttp.open(&quot;POST&quot;,&quot;ajax_test.asp&quot;,true);</div><div class="line">xmlhttp.setRequestHeader(&quot;Content-type&quot;,&quot;application/x-www-form-urlencoded&quot;);</div><div class="line">xmlhttp.send(&quot;fname=Bill&amp;lname=Gates&quot;);</div></pre></td></tr></table></figure></p>
+<p><code>setRequestHeader(header,value)</code>添加HTTP头</p>
+<ol>
+<li>header: 规定头的名称</li>
+<li>value: 规定头的值</li>
+</ol>
+<blockquote>
+<p>XMLHttpRequest 对象如果要用于 AJAX 的话，其 open() 方法的 async 参数必须设置为 true(异步)</p>
+</blockquote>
+<h3 id="处于异步状态-onreadystatechange-事件中的就绪状态时执行的函数"><a href="#处于异步状态-onreadystatechange-事件中的就绪状态时执行的函数" class="headerlink" title="处于异步状态 onreadystatechange 事件中的就绪状态时执行的函数"></a>处于异步状态 onreadystatechange 事件中的就绪状态时执行的函数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">xmlhttp.onreadystatechange=function()</div><div class="line">  &#123;</div><div class="line">  if (xmlhttp.readyState==4 &amp;&amp; xmlhttp.status==200)</div><div class="line">    &#123;</div><div class="line">    document.getElementById(&quot;myDiv&quot;).innerHTML=xmlhttp.responseText;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">xmlhttp.open(&quot;GET&quot;,&quot;test1.txt&quot;,true);</div><div class="line">xmlhttp.send();</div></pre></td></tr></table></figure>
+<ul>
+<li>注释：当您使用 async=false 时，请不要编写 onreadystatechange 函数 ， 把代码放到 send() 语句后面即可：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">xmlhttp.open(&quot;GET&quot;,&quot;test1.txt&quot;,false);</div><div class="line">xmlhttp.send();</div><div class="line">document.getElementById(&quot;myDiv&quot;).innerHTML=xmlhttp.responseText;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="三、服务器响应"><a href="#三、服务器响应" class="headerlink" title="三、服务器响应"></a>三、服务器响应</h2><ul>
+<li>如需获得来自服务器的响应，请使用 XMLHttpRequest 对象的 responseText 或 responseXML 属性。<br><code>responseText</code> 获得字符串形式的响应数据。<br><code>responseXML</code> 获得 XML 形式的响应数据。</li>
+</ul>
+<h2 id="四、onreadystatechange-事件"><a href="#四、onreadystatechange-事件" class="headerlink" title="四、onreadystatechange 事件"></a>四、onreadystatechange 事件</h2><p>当请求被发送到服务器时，我们需要执行一些基于响应的任务。<br>每当 readyState 改变时，就会触发 onreadystatechange 事件。<br>readyState 属性存有 XMLHttpRequest 的状态信息。</p>
+<p><code>readyState</code>：</p>
+<p>存有 XMLHttpRequest 的状态。从 0 到 4 发生变化。<br>0: 请求未初始化<br>1: 服务器连接已建立<br>2: 请求已接收<br>3: 请求处理中<br>4: 请求已完成，且响应已就绪</p>
+<p><code>status</code>:</p>
+<p>200: “OK”</p>
+<p>404: 未找到页面</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><blockquote>
+<p>Ajax是告诉浏览器给我要发送一个HTTP请求，你给我新开个线程去执行下，完事后告诉我一声，我在其他function中执行后续操作（回调）。在线程返回结果前，我可以继续做其他事情。（异步）</p>
+</blockquote>
+<h3 id="ajax运行流程"><a href="#ajax运行流程" class="headerlink" title="ajax运行流程"></a>ajax运行流程</h3><ol>
+<li>创建一个 XMLHttpRequest 对象。</li>
+<li>使用open()方法创建一个请求，并准备向服务器发送。</li>
+<li>通过绑定 onreadystatechange 事件，根据服务器返回的不同状态码做不同处理，主要请求成功后根据响应的数据通过js对数据进行进一步处理。</li>
+<li>使用send()方法向服务器发送请求。</li>
+</ol>
+<h1 id="Fetch"><a href="#Fetch" class="headerlink" title="Fetch"></a>Fetch</h1><blockquote>
+<p>除了XMLHttpRequest之外另一种获取后台数据的异步方法。</p>
+</blockquote>
+<p>支持 ： 目前兼容性不好，但谷歌已支持。</p>
+<p>语法 ： es6的Promise语法</p>
+<h2 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h2><blockquote>
+<p>一个对象，有两个参数，<code>resolve</code>和<code>reject</code>。（成功和失败的关系）</p>
+</blockquote>
+<p>用法一：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">new Promise((resolve,reject)=&gt;&#123;</div><div class="line">    resolve(&apos;success&apos;);</div><div class="line">    // reject(&apos;fail&apos;);</div><div class="line">  &#125;).then((str)=&gt;&#123;</div><div class="line">    console.log(str);</div><div class="line">  &#125;,(str)=&gt;&#123;</div><div class="line">    console.log(str);</div><div class="line">  &#125;)</div></pre></td></tr></table></figure></p>
+<p>用法二(catch)：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">new Promise((resolve,reject)=&gt;&#123;</div><div class="line">    resolve(&apos;success&apos;);</div><div class="line">    // reject(&apos;fail&apos;);</div><div class="line">  &#125;).then((str)=&gt;&#123;</div><div class="line">    console.log(str);</div><div class="line">  &#125;).catch((str)=&gt;&#123;</div><div class="line">    console.log(str);</div><div class="line">  &#125;)</div></pre></td></tr></table></figure></p>
+<h2 id="fetch用法"><a href="#fetch用法" class="headerlink" title="fetch用法"></a>fetch用法</h2><p>登录举例：</p>
+<ol>
+<li><p>创建一个登陆表单</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;input type=&quot;text&quot; name=&quot;&quot; placeholder=&quot;用户名&quot; id=&quot;user&quot;&gt;</div><div class="line">&lt;input placeholder=&quot;密码&quot; type=&quot;text&quot; name=&quot;&quot; id=&quot;password&quot;&gt;</div><div class="line">&lt;button id=&quot;login&quot;&gt;登录&lt;/button&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>利用fetch（）方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">var login=document.getElementById(&apos;login&apos;);</div><div class="line">    login.onclick=function()&#123;</div><div class="line">    fetch(`http://localhost:2133/login?user=$&#123;user.value&#125;&amp;password=$&#123;password.value&#125;`,&#123;</div><div class="line">      method : &apos;get&apos;</div><div class="line">    &#125;).then((res)=&gt;&#123;</div><div class="line">      res.json(()=&gt;&#123;</div><div class="line"></div><div class="line">      &#125;).then((res)=&gt;&#123;</div><div class="line">        if(res.ok==1)&#123;</div><div class="line">          alert(1);</div><div class="line">        &#125;else&#123;</div><div class="line">          alert(2);</div><div class="line">        &#125;</div><div class="line">      &#125;).catch(()=&gt;&#123;</div><div class="line">        console.log(&quot;服务器错误&quot;);</div><div class="line">      &#125;);</div><div class="line">    &#125;).catch();</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>搭建一个服务器</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm i express</div></pre></td></tr></table></figure>
+<p>app.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">const express=require(&apos;express&apos;);</div><div class="line"></div><div class="line">const server = express();</div><div class="line"></div><div class="line">server.listen(2133); // 监听</div><div class="line">var user =&#123;</div><div class="line">  leo: &apos;111&apos;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">server.use(&apos;/login&apos;,(req,res)=&gt;&#123;</div><div class="line">  if (user[req.query.user]==req.query.pass)&#123;</div><div class="line">    res.send(&#123;</div><div class="line">      ok:1,</div><div class="line">      mes:&quot;登录成功&quot;</div><div class="line">    &#125;)</div><div class="line">  &#125;else&#123;</div><div class="line">    res.send(&#123;</div><div class="line">      ok:0,</div><div class="line">      mes:&quot;登录失败&quot;</div><div class="line">    &#125;)</div><div class="line">  &#125;;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"></div><div class="line">server.use(&apos;&apos;,express.static(&apos;./&apos;));</div></pre></td></tr></table></figure></p>
+<p>运行服务器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">node app</div></pre></td></tr></table></figure></p>
+<p>访问<code>http://localhost:2133/2.html</code></p>
+<h3 id="fetch总结"><a href="#fetch总结" class="headerlink" title="fetch总结"></a>fetch总结</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">fetch(url,&#123;</div><div class="line">  method</div><div class="line">  &#125;).then((response)=&gt;&#123;</div><div class="line">      response.json(()=&gt;&#123;</div><div class="line">          // json是fetch的一个方法，他会自动判断是否成功</div><div class="line">        &#125;).then(()=&gt;&#123;</div><div class="line">            // 成功</div><div class="line">          &#125;).catch(()=&gt;&#123;</div><div class="line">            //失败</div><div class="line">            &#125;);</div><div class="line">    &#125;);</div></pre></td></tr></table></figure>
+<h3 id="fetch（post）"><a href="#fetch（post）" class="headerlink" title="fetch（post）"></a>fetch（post）</h3><ul>
+<li>数据不再url中</li>
+<li>method改为post</li>
+<li>新添参数body，数据放在body中</li>
+<li>setHeader:添加一个headers属性（对象）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">fetch(`http://localhost:2133/login`,&#123;</div><div class="line">      method : &apos;post&apos;,</div><div class="line">      headers:&#123;</div><div class="line">        &apos;Content-Type&apos;: &apos;application/x-www-form-urlencoded&apos;</div><div class="line">      &#125;,</div><div class="line">      body :`user=$&#123;user.value&#125;&amp;password=$&#123;user.password&#125;`</div><div class="line">    &#125;).then((res)=&gt;&#123;</div><div class="line">      res.json(()=&gt;&#123;</div><div class="line"></div><div class="line">      &#125;).then((res)=&gt;&#123;</div><div class="line">        if(res.ok==1)&#123;</div><div class="line">          alert(1);</div><div class="line">        &#125;else&#123;</div><div class="line">          alert(2);</div><div class="line">        &#125;</div><div class="line">      &#125;).catch(()=&gt;&#123;</div><div class="line">        console.log(&quot;服务器错误&quot;);</div><div class="line">      &#125;);</div><div class="line">    &#125;).catch();</div></pre></td></tr></table></figure>
+<h3 id="图片处理"><a href="#图片处理" class="headerlink" title="图片处理"></a>图片处理</h3><ol>
+<li><p>获取图片文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fl.files[0]</div></pre></td></tr></table></figure>
+</li>
+<li><p>form-data</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var fd=new FormData();</div><div class="line">fd.append(&apos;pic&apos;,fl.files[0]);</div></pre></td></tr></table></figure>
+</li>
+<li><p>修改body传递数据</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">body :fd</div></pre></td></tr></table></figure>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/请求，异步/">请求，异步</a>
+  </div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/请求/">请求</a>
+</div>
+
+
+
+<div class="article-share" id="share">
+
+  
+<div class="jiathis_style">
+    <span class="jiathis_txt">分享到：</span>
+    <a class="jiathis_button_tsina">新浪微博</a>
+    <a class="jiathis_button_weixin">微信</a>
+    <a class="jiathis_button_twitter">Twitter</a>
+    <a class="jiathis_button_evernote">EverNote</a>
+    <a href="http://www.jiathis.com/share?uid=1501277" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+</div>
+<script type="text/javascript" >
+    var jiathis_config={
+    data_track_clickback:true,
+    sm:"copy,renren,cqq",
+    pic:"",
+    summary:"",
+     ralateuid:{"tsina":"5205287645"},hideMore:false}
+    
+  </script> 
+<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=
+2127280" charset="utf-8"></script>      
+
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2018/05/14/vue-router/"  title="Vue-router">
+ <strong>NEXT:</strong><br/> 
+ <span>Vue-router
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section class="comment">
+	<div class="ds-thread"></div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Ajax工作原理"><span class="toc-number">1.</span> <span class="toc-text">Ajax工作原理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、-创建XMLHttpRequest-对象"><span class="toc-number">1.1.</span> <span class="toc-text">一、 创建XMLHttpRequest 对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、向服务器发送请求"><span class="toc-number">1.2.</span> <span class="toc-text">二、向服务器发送请求</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实际用法"><span class="toc-number">1.2.1.</span> <span class="toc-text">实际用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#处于异步状态-onreadystatechange-事件中的就绪状态时执行的函数"><span class="toc-number">1.2.2.</span> <span class="toc-text">处于异步状态 onreadystatechange 事件中的就绪状态时执行的函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、服务器响应"><span class="toc-number">1.3.</span> <span class="toc-text">三、服务器响应</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、onreadystatechange-事件"><span class="toc-number">1.4.</span> <span class="toc-text">四、onreadystatechange 事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">1.5.</span> <span class="toc-text">总结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ajax运行流程"><span class="toc-number">1.5.1.</span> <span class="toc-text">ajax运行流程</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Fetch"><span class="toc-number">2.</span> <span class="toc-text">Fetch</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Promise"><span class="toc-number">2.1.</span> <span class="toc-text">Promise</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fetch用法"><span class="toc-number">2.2.</span> <span class="toc-text">fetch用法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#fetch总结"><span class="toc-number">2.2.1.</span> <span class="toc-text">fetch总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fetch（post）"><span class="toc-number">2.2.2.</span> <span class="toc-text">fetch（post）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#图片处理"><span class="toc-number">2.2.3.</span> <span class="toc-text">图片处理</span></a></li></ol></li></ol></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+			<li><a href="/categories/CSS框架/" title="CSS框架">CSS框架<sup>10</sup></a></li>
+		
+			<li><a href="/categories/Git命令/" title="Git命令">Git命令<sup>1</sup></a></li>
+		
+			<li><a href="/categories/React/" title="React">React<sup>2</sup></a></li>
+		
+			<li><a href="/categories/Vue-js/" title="Vue.js">Vue.js<sup>1</sup></a></li>
+		
+			<li><a href="/categories/css/" title="css">css<sup>1</sup></a></li>
+		
+			<li><a href="/categories/代码/" title="代码">代码<sup>16</sup></a></li>
+		
+			<li><a href="/categories/工具/" title="工具">工具<sup>1</sup></a></li>
+		
+			<li><a href="/categories/请求/" title="请求">请求<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/Angular/" title="Angular">Angular<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Bootstrap/" title="Bootstrap">Bootstrap<sup>10</sup></a></li>
+		
+			<li><a href="/tags/CSS/" title="CSS">CSS<sup>1</sup></a></li>
+		
+			<li><a href="/tags/CSS3/" title="CSS3">CSS3<sup>7</sup></a></li>
+		
+			<li><a href="/tags/ES6/" title="ES6">ES6<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
+		
+			<li><a href="/tags/HTML5/" title="HTML5">HTML5<sup>5</sup></a></li>
+		
+			<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>2</sup></a></li>
+		
+			<li><a href="/tags/Vue，框架/" title="Vue，框架">Vue，框架<sup>1</sup></a></li>
+		
+			<li><a href="/tags/ajax/" title="ajax">ajax<sup>1</sup></a></li>
+		
+			<li><a href="/tags/css3/" title="css3">css3<sup>1</sup></a></li>
+		
+			<li><a href="/tags/jquery/" title="jquery">jquery<sup>1</sup></a></li>
+		
+			<li><a href="/tags/webpack/" title="webpack">webpack<sup>1</sup></a></li>
+		
+			<li><a href="/tags/交互/" title="交互">交互<sup>1</sup></a></li>
+		
+			<li><a href="/tags/命令/" title="命令">命令<sup>1</sup></a></li>
+		
+			<li><a href="/tags/图片加载/" title="图片加载">图片加载<sup>1</sup></a></li>
+		
+			<li><a href="/tags/坑/" title="坑">坑<sup>1</sup></a></li>
+		
+			<li><a href="/tags/字体图标/" title="字体图标">字体图标<sup>1</sup></a></li>
+		
+			<li><a href="/tags/定时器/" title="定时器">定时器<sup>1</sup></a></li>
+		
+			<li><a href="/tags/常见问题/" title="常见问题">常见问题<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <iframe width="100%" height="550" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=2&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=1&isFans=1&uid=5205287645&verifier=fea7d72c&dpc=1"></iframe>
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+      <li><a href="http://www.yuanyang-miemie.win" target="_blank" title="袁咩咩的博客">Husband's Blog</a></li>
+      <li><a href="http://hexo.io" target="_blank" title="Hexo">Hexo</a></li>
+    </ul>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m Gu in Cqupt. <br/>
+			我自是年少，韶华倾负。</p>
+	</section>
+	 
+	<div class="social-font clearfix">
+		
+		<a href="http://weibo.com/5205287645" target="_blank" title="weibo"></a>
+		
+		
+		
+		<a href="https://github.com/sweethhh" target="_blank" title="github"></a>
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2018 
+		
+		<a href="http://houhonggu.top" target="_blank" title="Hou honggu">Hou honggu</a>
+		
+		 
+	<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1261489775'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1261489775%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+ 
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"sweethhh"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+ 
+
+  </body>
+</html>
