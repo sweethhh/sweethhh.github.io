@@ -1,0 +1,458 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>vue补充 | 你家谷谷</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Hou honggu">
+    
+    <meta name="description" content="全局api
+Vue提供给我们的API函数来定义新的功能。
+
+vue.directive示例：123Vue.directive(&amp;apos;gg&amp;apos;,function(el,binding)&amp;#123;		el.style=&amp;apos;color:&amp;apos;+binding.value;	&amp;">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="你家谷谷" title="你家谷谷"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="你家谷谷">你家谷谷</a></h1>
+				<h2 class="blog-motto">And I know it&#39;s long gone and there was nothing else I could do.</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">主页 | Index</a></li>
+					
+						<li><a href="/archives">归档 | Archives</a></li>
+					
+						<li><a href="/about">关于 | About</a></li>
+					
+						<li><a href="/resume">简历 | Resume</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:houhonggu.top">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2018/05/26/VUE补充/" title="vue补充" itemprop="url">vue补充</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://houhonggu.top" title="Hou honggu">Hou honggu</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2018-05-26T05:17:38.532Z" itemprop="datePublished">2018-05-26</time>
+    更新日期:<time datetime="2018-05-26T05:03:46.803Z" itemprop="dateModified">2018-05-26</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#全局api"><span class="toc-number">1.</span> <span class="toc-text">全局api</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#vue-directive"><span class="toc-number">1.1.</span> <span class="toc-text">vue.directive</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义指令生命周期钩子函数"><span class="toc-number">1.2.</span> <span class="toc-text">自定义指令生命周期钩子函数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Vue-extend"><span class="toc-number">2.</span> <span class="toc-text">Vue.extend</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Vue-set"><span class="toc-number">3.</span> <span class="toc-text">Vue.set</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#在外部改变数据"><span class="toc-number">3.1.</span> <span class="toc-text">在外部改变数据</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Vue生命周期钩子函数"><span class="toc-number">4.</span> <span class="toc-text">Vue生命周期钩子函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#templete模板"><span class="toc-number">5.</span> <span class="toc-text">templete模板</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#写在-lt-templete-gt-中"><span class="toc-number">5.1.</span> <span class="toc-text">写在<templete>中</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#写在-lt-script-gt-中"><span class="toc-number">5.2.</span> <span class="toc-text">写在<script>中</span></a></li></ol></li></ol>
+		</div>
+		
+		<h1 id="全局api"><a href="#全局api" class="headerlink" title="全局api"></a>全局api</h1><blockquote>
+<p>Vue提供给我们的API函数来定义新的功能。</p>
+</blockquote>
+<h2 id="vue-directive"><a href="#vue-directive" class="headerlink" title="vue.directive"></a>vue.directive</h2><p>示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Vue.directive(&apos;gg&apos;,function(el,binding)&#123;</div><div class="line">		el.style=&apos;color:&apos;+binding.value;</div><div class="line">	&#125;);</div></pre></td></tr></table></figure></p>
+<p><code>el</code>:指当前元素<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">console.log(el);//&lt;span&gt;10&lt;/span&gt;</div></pre></td></tr></table></figure></p>
+<p><code>binding</code>:是一个对象<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">console.log(binding);//&#123;name: &quot;gg&quot;, rawName: &quot;v-gg&quot;, value: &quot;red&quot;, expression: &quot;color&quot;, modifiers: &#123;…&#125;, …&#125;</div></pre></td></tr></table></figure></p>
+<p>还有一个参数是<code>vnode</code><br><code>vnode</code>:Vue编译生成的虚拟节点。</p>
+<h2 id="自定义指令生命周期钩子函数"><a href="#自定义指令生命周期钩子函数" class="headerlink" title="自定义指令生命周期钩子函数"></a>自定义指令生命周期钩子函数</h2><ol>
+<li>bind:只调用一次，指令第一次绑定到元素时调用，用这个钩子函数可以定义一个绑定时执行一次的初始化动作。</li>
+<li>inserted:被绑定元素插入父节点时调用（父节点存在即可调用，不必存在于document中）。</li>
+<li>update:被绑定于元素所在的模板更新时调用，而无论绑定值是否变化。通过比较更新前后的绑定值，可以忽略不必要的模板更新。</li>
+<li>componentUpdated:被绑定元素所在模板完成一次更新周期时调用。</li>
+<li>unbind:只调用一次，指令与元素解绑时调用。</li>
+</ol>
+<p>使用时将第二个参数变成一个对象：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">Vue.directive(&apos;gg&apos;,&#123;</div><div class="line">		bind:function()&#123;//被绑定</div><div class="line">		     console.log(&apos;1 - bind&apos;);</div><div class="line">		&#125;,</div><div class="line">		inserted:function()&#123;//绑定到节点</div><div class="line">		      console.log(&apos;2 - inserted&apos;);</div><div class="line">		&#125;,</div><div class="line">		update:function()&#123;//组件更新</div><div class="line">		      console.log(&apos;3 - update&apos;);</div><div class="line">		&#125;,</div><div class="line">		componentUpdated:function()&#123;//组件更新完成</div><div class="line">		      console.log(&apos;4 - componentUpdated&apos;);</div><div class="line">		&#125;,</div><div class="line">		unbind:function()&#123;//解绑</div><div class="line">		      console.log(&apos;5 - unbind&apos;);</div><div class="line">		&#125;</div><div class="line">	&#125;);</div></pre></td></tr></table></figure></p>
+<h1 id="Vue-extend"><a href="#Vue-extend" class="headerlink" title="Vue.extend"></a>Vue.extend</h1><blockquote>
+<p>扩展实例构造器，就是预设了部分选项的Vue实例构造器。服务于Vue.component用来生成组件。</p>
+</blockquote>
+<ol>
+<li><p>创建extend</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">// 构造器扩展</div><div class="line">	var authorExtend = Vue.extend(&#123;</div><div class="line">		templete:&quot;&lt;p&gt;&lt;a :href=&apos;authorUrl&apos;&gt;&#123;&#123; authorName &#125;&#125;&lt;/p&gt;&quot;,</div><div class="line">		date:function()&#123;</div><div class="line">			return&#123;</div><div class="line">				authorName:&apos;gg&apos;,</div><div class="line">				authorUrl:&apos;http://houhonggu.top&apos;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>绑定标签</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// 绑定</div><div class="line">	new authorExtend().$mount(&quot;author&quot;);</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<blockquote>
+<p>建议使用id进行绑定<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;author&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h1 id="Vue-set"><a href="#Vue-set" class="headerlink" title="Vue.set"></a>Vue.set</h1><blockquote>
+<p>Vue.set 的作用就是在构造器外部操作构造器内部的数据、属性或者方法。</p>
+</blockquote>
+<h2 id="在外部改变数据"><a href="#在外部改变数据" class="headerlink" title="在外部改变数据"></a>在外部改变数据</h2><ol>
+<li><p>用Vue.set改变</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function add()&#123;</div><div class="line">      Vue.set(outData,&apos;count&apos;,4);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Vue对象的方法添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">app.count++;</div></pre></td></tr></table></figure>
+</li>
+<li><p>直接操作外部数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">outData.count++;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>但由于JS的限制，Vue不能自动检测变动数组</p>
+<ol>
+<li>当你利用索引直接设置一个项时，vue不会为我们自动更新。</li>
+<li>当你修改数组的长度时，vue不会为我们自动更新。</li>
+</ol>
+<p>方法：使用<code>Vue.set</code></p>
+<h1 id="Vue生命周期钩子函数"><a href="#Vue生命周期钩子函数" class="headerlink" title="Vue生命周期钩子函数"></a>Vue生命周期钩子函数</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">beforeCreate:function()&#123;</div><div class="line">    console.log(&apos;1-beforeCreate 初始化之前&apos;);</div><div class="line">&#125;,</div><div class="line">created:function()&#123;</div><div class="line">    console.log(&apos;2-created 创建完成&apos;);</div><div class="line">&#125;,</div><div class="line">beforeMount:function()&#123;</div><div class="line">    console.log(&apos;3-beforeMount 挂载之前&apos;);</div><div class="line">&#125;,</div><div class="line">mounted:function()&#123;</div><div class="line">    console.log(&apos;4-mounted 被挂载后&apos;);</div><div class="line">&#125;,</div><div class="line">beforeUpdate:function()&#123;</div><div class="line">    console.log(&apos;5-beforeUpdate 数据更新前&apos;);</div><div class="line">&#125;,</div><div class="line">updated:function()&#123;</div><div class="line">    console.log(&apos;6-updated 被更新后&apos;);</div><div class="line"></div><div class="line">&#125;,</div><div class="line">activated:function()&#123;</div><div class="line">    console.log(&apos;7-activated&apos;);</div><div class="line">&#125;,</div><div class="line">deactivated:function()&#123;</div><div class="line">    console.log(&apos;8-deactivated&apos;);</div><div class="line">&#125;,</div><div class="line">beforeDestroy:function()&#123;</div><div class="line">    console.log(&apos;9-beforeDestroy 销毁之前&apos;);</div><div class="line">&#125;,</div><div class="line">destroyed:function()&#123;</div><div class="line">    console.log(&apos;10-destroyed 销毁之后&apos;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>常用用法：<code>loading</code></p>
+</blockquote>
+<p>初始化前<code>beforeCreate</code>,添加加载动画，挂载完成<code>mounted</code>清除加载动画。</p>
+<h1 id="templete模板"><a href="#templete模板" class="headerlink" title="templete模板"></a>templete模板</h1><blockquote>
+<p>不建议直接在构造器后面写templete（虽然理论上可以）</p>
+</blockquote>
+<h2 id="写在-lt-templete-gt-中"><a href="#写在-lt-templete-gt-中" class="headerlink" title="写在&lt;templete&gt;中"></a>写在<code>&lt;templete&gt;</code>中</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;template id=&quot;demo2&quot;&gt;</div><div class="line">             &lt;h2 style=&quot;color:red&quot;&gt;我是template标签模板&lt;/h2&gt;</div><div class="line">    &lt;/template&gt;</div><div class="line"> </div><div class="line">    &lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">        var app=new Vue(&#123;</div><div class="line">            el:&apos;#app&apos;,</div><div class="line">            data:&#123;</div><div class="line">                message:&apos;hello Vue!&apos;</div><div class="line">            &#125;,</div><div class="line">            template:&apos;#demo2&apos;</div><div class="line">        &#125;)</div><div class="line">    &lt;/script&gt;</div></pre></td></tr></table></figure>
+<h2 id="写在-lt-script-gt-中"><a href="#写在-lt-script-gt-中" class="headerlink" title="写在&lt;script&gt;中"></a>写在<code>&lt;script&gt;</code>中</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;x-template&quot; id=&quot;demo3&quot;&gt;</div><div class="line">    &lt;h2 style=&quot;color:red&quot;&gt;我是script标签模板&lt;/h2&gt;</div><div class="line">&lt;/script&gt;</div><div class="line"></div><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">    var app=new Vue(&#123;</div><div class="line">        el:&apos;#app&apos;,</div><div class="line">        data:&#123;</div><div class="line">            message:&apos;hello Vue!&apos;</div><div class="line">        &#125;,</div><div class="line">        template:&apos;#demo3&apos;</div><div class="line">    &#125;)</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>  
+	</div>
+		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/框架/">框架</a>
+  </div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/vue/">vue</a>
+</div>
+
+
+
+<div class="article-share" id="share">
+
+  
+<div class="jiathis_style">
+    <span class="jiathis_txt">分享到：</span>
+    <a class="jiathis_button_tsina">新浪微博</a>
+    <a class="jiathis_button_weixin">微信</a>
+    <a class="jiathis_button_twitter">Twitter</a>
+    <a class="jiathis_button_evernote">EverNote</a>
+    <a href="http://www.jiathis.com/share?uid=1501277" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+</div>
+<script type="text/javascript" >
+    var jiathis_config={
+    data_track_clickback:true,
+    sm:"copy,renren,cqq",
+    pic:"",
+    summary:"",
+     ralateuid:{"tsina":"5205287645"},hideMore:false}
+    
+  </script> 
+<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=
+2127280" charset="utf-8"></script>      
+
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2018/05/19/对模块化的理解/"  title="对模块化的理解">
+ <strong>NEXT:</strong><br/> 
+ <span>对模块化的理解
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section class="comment">
+	<div class="ds-thread"></div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#全局api"><span class="toc-number">1.</span> <span class="toc-text">全局api</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#vue-directive"><span class="toc-number">1.1.</span> <span class="toc-text">vue.directive</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义指令生命周期钩子函数"><span class="toc-number">1.2.</span> <span class="toc-text">自定义指令生命周期钩子函数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Vue-extend"><span class="toc-number">2.</span> <span class="toc-text">Vue.extend</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Vue-set"><span class="toc-number">3.</span> <span class="toc-text">Vue.set</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#在外部改变数据"><span class="toc-number">3.1.</span> <span class="toc-text">在外部改变数据</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Vue生命周期钩子函数"><span class="toc-number">4.</span> <span class="toc-text">Vue生命周期钩子函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#templete模板"><span class="toc-number">5.</span> <span class="toc-text">templete模板</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#写在-lt-templete-gt-中"><span class="toc-number">5.1.</span> <span class="toc-text">写在<templete>中</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#写在-lt-script-gt-中"><span class="toc-number">5.2.</span> <span class="toc-text">写在<script>中</span></a></li></ol></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+			<li><a href="/categories/CSS框架/" title="CSS框架">CSS框架<sup>10</sup></a></li>
+		
+			<li><a href="/categories/Git命令/" title="Git命令">Git命令<sup>1</sup></a></li>
+		
+			<li><a href="/categories/React/" title="React">React<sup>2</sup></a></li>
+		
+			<li><a href="/categories/Vue-js/" title="Vue.js">Vue.js<sup>1</sup></a></li>
+		
+			<li><a href="/categories/css/" title="css">css<sup>1</sup></a></li>
+		
+			<li><a href="/categories/vue/" title="vue">vue<sup>1</sup></a></li>
+		
+			<li><a href="/categories/代码/" title="代码">代码<sup>16</sup></a></li>
+		
+			<li><a href="/categories/工具/" title="工具">工具<sup>1</sup></a></li>
+		
+			<li><a href="/categories/模块化/" title="模块化">模块化<sup>1</sup></a></li>
+		
+			<li><a href="/categories/请求/" title="请求">请求<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/Angular/" title="Angular">Angular<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Bootstrap/" title="Bootstrap">Bootstrap<sup>10</sup></a></li>
+		
+			<li><a href="/tags/CSS/" title="CSS">CSS<sup>1</sup></a></li>
+		
+			<li><a href="/tags/CSS3/" title="CSS3">CSS3<sup>7</sup></a></li>
+		
+			<li><a href="/tags/ES6/" title="ES6">ES6<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
+		
+			<li><a href="/tags/HTML5/" title="HTML5">HTML5<sup>5</sup></a></li>
+		
+			<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>2</sup></a></li>
+		
+			<li><a href="/tags/Vue，框架/" title="Vue，框架">Vue，框架<sup>1</sup></a></li>
+		
+			<li><a href="/tags/ajax/" title="ajax">ajax<sup>1</sup></a></li>
+		
+			<li><a href="/tags/css3/" title="css3">css3<sup>1</sup></a></li>
+		
+			<li><a href="/tags/jquery/" title="jquery">jquery<sup>1</sup></a></li>
+		
+			<li><a href="/tags/webpack/" title="webpack">webpack<sup>1</sup></a></li>
+		
+			<li><a href="/tags/交互/" title="交互">交互<sup>1</sup></a></li>
+		
+			<li><a href="/tags/命令/" title="命令">命令<sup>1</sup></a></li>
+		
+			<li><a href="/tags/图片加载/" title="图片加载">图片加载<sup>1</sup></a></li>
+		
+			<li><a href="/tags/坑/" title="坑">坑<sup>1</sup></a></li>
+		
+			<li><a href="/tags/字体图标/" title="字体图标">字体图标<sup>1</sup></a></li>
+		
+			<li><a href="/tags/定时器/" title="定时器">定时器<sup>1</sup></a></li>
+		
+			<li><a href="/tags/常见问题/" title="常见问题">常见问题<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <iframe width="100%" height="550" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=2&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=1&isFans=1&uid=5205287645&verifier=fea7d72c&dpc=1"></iframe>
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+      <li><a href="http://www.yuanyang-miemie.win" target="_blank" title="袁咩咩的博客">Husband's Blog</a></li>
+      <li><a href="http://hexo.io" target="_blank" title="Hexo">Hexo</a></li>
+    </ul>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m Gu in Cqupt. <br/>
+			我自是年少，韶华倾负。</p>
+	</section>
+	 
+	<div class="social-font clearfix">
+		
+		<a href="http://weibo.com/5205287645" target="_blank" title="weibo"></a>
+		
+		
+		
+		<a href="https://github.com/sweethhh" target="_blank" title="github"></a>
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2018 
+		
+		<a href="http://houhonggu.top" target="_blank" title="Hou honggu">Hou honggu</a>
+		
+		 
+	<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1261489775'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1261489775%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+ 
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"sweethhh"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+ 
+
+  </body>
+</html>
