@@ -531,7 +531,7 @@ setTimeout() 只执行 code 一次。如果要多次调用，请使用 setInterv
 
     <script>
         $(document).ready(function() {
-            var backgroundnum = 1;
+            var backgroundnum = 2;
             var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
             $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
             $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
