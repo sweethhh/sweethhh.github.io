@@ -1,453 +1,1363 @@
-
- <!DOCTYPE HTML>
-<html lang="zh-CN">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="L6Lm9d5Crl"/>
   
-    <title>你家谷谷</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+  
+  
+  
+  <title>你家谷谷</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="我来不及认真地年轻，待明白过来时，只能选择认真地老去。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="你家谷谷">
+<meta property="og:url" content="http://houhonggu.top/page/4/index.html">
+<meta property="og:site_name" content="你家谷谷">
+<meta property="og:description" content="我来不及认真地年轻，待明白过来时，只能选择认真地老去。">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="你家谷谷">
+<meta name="twitter:description" content="我来不及认真地年轻，待明白过来时，只能选择认真地老去。">
+  
+    <link rel="alternative" href="/atom.xml" title="你家谷谷" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.gif">
+  
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
     
-    <meta name="author" content="Hou honggu">
     
-    <meta name="description" content="我来不及认真地年轻，待明白过来时，只能选择认真地老去。">
-    
-    
-    
-    
-    
-    <link rel="icon" href="/img/favicon.ico">
-    
-    
-    <link rel="apple-touch-icon" href="/img/pacman.jpg">
-    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
-    
-    <link rel="stylesheet" href="/css/style.css">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: true,
+          isPost: false,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
 </head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
 
-  <body>
-    <header>
-      <div>
-		
-			<div id="imglogo">
-				<a href="/"><img src="/img/logo.svg" alt="你家谷谷" title="你家谷谷"/></a>
-			</div>
-			
-			<div id="textlogo">
-				<h1 class="site-name"><a href="/" title="你家谷谷">你家谷谷</a></h1>
-				<h2 class="blog-motto">And I know it&#39;s long gone and there was nothing else I could do.</h2>
-			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
-			</a></div>
-			<nav class="animated">
-				<ul>
-					
-						<li><a href="/">主页 | Index</a></li>
-					
-						<li><a href="/archives">归档 | Archives</a></li>
-					
-						<li><a href="/about">关于 | About</a></li>
-					
-						<li><a href="/resume">简历 | Resume</a></li>
-					
-					<li>
-					
-					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
-						<label>Search</label>
-						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
-						<input type="hidden" name="q" value="site:houhonggu.top">
-					</form>
-					
-					</li>
-				</ul>
-			</nav>			
-</div>
-
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/avatar.png" class="js-avatar">
+            
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Hou honggu</a></h1>
+        </hgroup>
+        
+        <p class="header-subtitle">And I know it&#39;s long gone and there was nothing else I could do.</p>
+        
+        
+            <form>
+                <input type="text" class="st-default-search-input search" id="local-search-input" placeholder="搜索一下" autocomplete="off">
+            </form>
+            <div id="local-search-result"></div>
+        
+        
+            <script type="text/javascript">
+                (function() {
+                    'use strict';
+                    function getMatchData(keyword, data) {
+                        var matchData = [];
+                        for(var i =0;i<data.length;i++){
+                            if(data[i].title.toLowerCase().indexOf(keyword)>=0) 
+                                matchData.push(data[i])
+                        }
+                        return matchData;
+                    }
+                    var $input = $('#local-search-input');
+                    var $resultContent = $('#local-search-result');
+                    $input.keyup(function(){
+                        $.ajax({
+                            url: '/search.json',
+                            dataType: "json",
+                            success: function( json ) {
+                                var str='<ul class=\"search-result-list\">';                
+                                var keyword = $input.val().trim().toLowerCase();
+                                $resultContent.innerHTML = "";
+                                if ($input.val().trim().length <= 0) {
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                }
+                                var results = getMatchData(keyword, json);
+                                if(results.length === 0){
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                } 
+                                for(var i =0; i<results.length; i++){
+                                    str += "<li><a href='"+ results[i].url +"' class='search-result-title'>"+ results[i].title +"</a></li>";
+                                }
+                                str += "</ul>";
+                                $resultContent.empty();
+                                $resultContent.append(str);
+                                $('#switch-area').hide();
+                            }
+                        });
+                    });
+                })();
+            </script>
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a  href="/archives">归档 | Archives</a></li>
+                        
+                            <li><a  href="/about">关于 | About</a></li>
+                        
+                            <li><a  href="/resume">简历 | Resume</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github"  target="_blank" href="/xxxxx" title="github">github</a>
+                            
+                                <a class="fl weibo"  target="_blank" href="/xxxxxxxx" title="weibo">weibo</a>
+                            
+                                <a class="fl rss"  target="_blank" href="/atom.xml" title="rss">rss</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/Bootstrap/" style="font-size: 18px;">Bootstrap</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 16px;">CSS3</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/HTML5/" style="font-size: 14px;">HTML5</a> <a href="/tags/JavaScript/" style="font-size: 12px;">JavaScript</a> <a href="/tags/Node/" style="font-size: 10px;">Node</a> <a href="/tags/Vue，框架/" style="font-size: 10px;">Vue，框架</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/交互/" style="font-size: 10px;">交互</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/图片加载/" style="font-size: 10px;">图片加载</a> <a href="/tags/坑/" style="font-size: 10px;">坑</a> <a href="/tags/字体图标/" style="font-size: 10px;">字体图标</a> <a href="/tags/定时器/" style="font-size: 10px;">定时器</a> <a href="/tags/常见问题/" style="font-size: 10px;">常见问题</a> <a href="/tags/思想/" style="font-size: 10px;">思想</a> <a href="/tags/框架/" style="font-size: 20px;">框架</a> <a href="/tags/移动端/" style="font-size: 16px;">移动端</a> <a href="/tags/移动端，框架/" style="font-size: 12px;">移动端，框架</a> <a href="/tags/请求，异步/" style="font-size: 10px;">请求，异步</a> <a href="/tags/项目/" style="font-size: 10px;">项目</a>
+                    </div>
+                </section>
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="https://hexo.io/">Hexo</a>
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.moqingchen.com/">BF&#39;blog</a>
+                    
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">我自是年少，韶华倾负。</div>
+                </section>
+                
+            </div>
+        </div>
     </header>
-    <div id="container">
-      <div id="main">
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2017/04/06/2D变换/" title="过渡和2D变换" itemprop="url">
-  
-    <h1 itemprop="name">过渡和2D变换</h1>
-    
-     
-           <p itemprop="description" >transition过渡transition: property duration timing-function
-property:表示对哪个属性进行平滑过渡(all/attr)duration:过渡时间timing-function:平滑过渡的方法
-
-
-
-名称
-说明
-
-
-
-
-</p>
-        
-    
-    <time datetime="2017-04-06T06:58:20.616Z" itemprop="datePublished">2017-04-06</time>
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2017/03/29/html5css3新增UI属性/" title="HTML5CSS3新增UI" itemprop="url">
-  
-    <h1 itemprop="name">HTML5CSS3新增UI</h1>
-    
-     
-           <p itemprop="description" >线性渐变123div&amp;#123;	background-image:-webkit-linear-gradient(`left top,red,pink`);	&amp;#125;
-
-123div&amp;#123;	background-image:-webkit-linear-gradien</p>
-        
-    
-    <time datetime="2017-03-29T13:03:57.087Z" itemprop="datePublished">2017-03-29</time>
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2017/03/29/css背景定位/" title="背景定位" itemprop="url">
-  
-    <h1 itemprop="name">背景定位</h1>
-    
-     
-           <p itemprop="description" >固定背景不随滚动条滑动123456body&amp;#123;	background: url(背景地址) no-repeat;	background-size:100% ; 	background-size: cover;	background-attachment: fixed;//</p>
-        
-    
-    <time datetime="2017-03-29T05:03:19.883Z" itemprop="datePublished">2017-03-29</time>
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2017/03/27/响应式布局/" title="响应式布局" itemprop="url">
-  
-    <h1 itemprop="name">响应式布局</h1>
-    
-     
-           <p itemprop="description" >css3分栏布局（-webkit-内核）
-
-
-属性
-说明
-
-
-
-
-column-width
-栏目宽度
-
-
-column-count
-栏目列数
-
-
-column-gap
-栏目距离
-
-
-column-rule
-栏目间隔线
-
-
-
-css3响应式布局引用样式适配分辨率
-引用样式表写法
-
-</p>
-        
-    
-    <time datetime="2017-03-27T13:05:26.683Z" itemprop="datePublished">2017-03-27</time>
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2017/03/15/html5css3笔记 二回目/" title="html5css3笔记系列 | 二" itemprop="url">
-  
-    <h1 itemprop="name">html5css3笔记系列 | 二</h1>
-    
-     
-           <p itemprop="description" >属性选择器
-
-
-选择器
-说明 
-
-
-
-
-E[attr=“value”]
-指定属性名，并指定了该属性的属性值 
-
-
-E[attr~=”value”]
-指定属性名，并且具有属性值，此属性值是一个词列表，并且以空格隔开，其中词列表中包含了一个value词，而且等号前面的“~”不能不写
-</p>
-        
-    
-    <time datetime="2017-03-15T08:56:47.195Z" itemprop="datePublished">2017-03-15</time>
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2017/03/09/html5css3笔记 旋转特效/" title="html5css3笔记系列 | 旋转特效" itemprop="url">
-  
-    <h1 itemprop="name">html5css3笔记系列 | 旋转特效</h1>
-    
-     
-           <p itemprop="description" >1.transition属性用于过渡动画如：1transition:transform 0.5s;
-2.transform属性用于图形旋转如：1transform:rotate(180deg);//旋转180度
-实例：1234567891011121314151617181920</p>
-        
-    
-    <time datetime="2017-03-09T12:28:29.032Z" itemprop="datePublished">2017-03-09</time>
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2017/03/06/html5css3笔记 一回目/" title="html5css3笔记系列 | 一" itemprop="url">
-  
-    <h1 itemprop="name">html5css3笔记系列 | 一</h1>
-    
-     
-           <p itemprop="description" >基本标签1.progress进度条12&amp;lt;progress value=&amp;quot;20&amp;quot; max=&amp;quot;100&amp;quot;&amp;gt;&amp;lt;/progress&amp;gt;
-2.details摘要1234&amp;lt;details&amp;gt;	&amp;lt;summary&amp;gt;</p>
-        
-    
-    <time datetime="2017-03-06T11:55:39.363Z" itemprop="datePublished">2017-03-06</time>
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2017/01/13/我的第一篇文章/" title="我的第一篇文章" itemprop="url">
-  
-    <h1 itemprop="name">我的第一篇文章</h1>
-    
-     
-           <p itemprop="description" >Git操作1.cd 文件夹名字2.git init3.git add 文件名字（git add -A 添加当前目录全部文件）4.git commit -m “操作名”5.在github上创建同名仓库6.git remote add origin git@github.com:sw</p>
-        
-    
-    <time datetime="2017-01-13T08:22:29.667Z" itemprop="datePublished">2017-01-13</time>
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2017/01/13/hello-world/" title="Hello World" itemprop="url">
-  
-    <h1 itemprop="name">Hello World</h1>
-    
-     
-           <p itemprop="description" >Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the </p>
-        
-    
-    <time datetime="2017-01-13T08:01:44.706Z" itemprop="datePublished">2017-01-13</time>
-  </a>
-</section>
-
-
-  <nav id="page-nav" class="clearfix">
-    <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
-  </nav>
-
-</div>
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
-
-<div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
-<aside class="clearfix">
-
-  
-<div class="categorieslist">
-	<p class="asidetitle">分类</p>
-		<ul>
-		
-			<li><a href="/categories/CSS框架/" title="CSS框架">CSS框架<sup>10</sup></a></li>
-		
-			<li><a href="/categories/Git命令/" title="Git命令">Git命令<sup>1</sup></a></li>
-		
-			<li><a href="/categories/React/" title="React">React<sup>2</sup></a></li>
-		
-			<li><a href="/categories/Vue-js/" title="Vue.js">Vue.js<sup>1</sup></a></li>
-		
-			<li><a href="/categories/css/" title="css">css<sup>1</sup></a></li>
-		
-			<li><a href="/categories/nodejs/" title="nodejs">nodejs<sup>1</sup></a></li>
-		
-			<li><a href="/categories/vue/" title="vue">vue<sup>3</sup></a></li>
-		
-			<li><a href="/categories/代码/" title="代码">代码<sup>16</sup></a></li>
-		
-			<li><a href="/categories/工具/" title="工具">工具<sup>1</sup></a></li>
-		
-			<li><a href="/categories/模块化/" title="模块化">模块化<sup>1</sup></a></li>
-		
-			<li><a href="/categories/请求/" title="请求">请求<sup>1</sup></a></li>
-		
-		</ul>
 </div>
 
-
-  
-<div class="tagslist">
-	<p class="asidetitle">标签</p>
-		<ul class="clearfix">
-		
-			<li><a href="/tags/Angular/" title="Angular">Angular<sup>1</sup></a></li>
-		
-			<li><a href="/tags/Bootstrap/" title="Bootstrap">Bootstrap<sup>10</sup></a></li>
-		
-			<li><a href="/tags/CSS/" title="CSS">CSS<sup>1</sup></a></li>
-		
-			<li><a href="/tags/CSS3/" title="CSS3">CSS3<sup>7</sup></a></li>
-		
-			<li><a href="/tags/ES6/" title="ES6">ES6<sup>1</sup></a></li>
-		
-			<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
-		
-			<li><a href="/tags/HTML5/" title="HTML5">HTML5<sup>5</sup></a></li>
-		
-			<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>2</sup></a></li>
-		
-			<li><a href="/tags/Node/" title="Node">Node<sup>1</sup></a></li>
-		
-			<li><a href="/tags/Vue，框架/" title="Vue，框架">Vue，框架<sup>1</sup></a></li>
-		
-			<li><a href="/tags/ajax/" title="ajax">ajax<sup>1</sup></a></li>
-		
-			<li><a href="/tags/css3/" title="css3">css3<sup>1</sup></a></li>
-		
-			<li><a href="/tags/jquery/" title="jquery">jquery<sup>1</sup></a></li>
-		
-			<li><a href="/tags/webpack/" title="webpack">webpack<sup>1</sup></a></li>
-		
-			<li><a href="/tags/交互/" title="交互">交互<sup>1</sup></a></li>
-		
-			<li><a href="/tags/命令/" title="命令">命令<sup>1</sup></a></li>
-		
-			<li><a href="/tags/图片加载/" title="图片加载">图片加载<sup>1</sup></a></li>
-		
-			<li><a href="/tags/坑/" title="坑">坑<sup>1</sup></a></li>
-		
-			<li><a href="/tags/字体图标/" title="字体图标">字体图标<sup>1</sup></a></li>
-		
-			<li><a href="/tags/定时器/" title="定时器">定时器<sup>1</sup></a></li>
-		
-		</ul>
-</div>
-
-
-  <div class="rsspart">
-	<a href="null" target="_blank" title="rss">RSS 订阅</a>
-</div>
-
-  <iframe width="100%" height="550" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=2&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=1&isFans=1&uid=5205287645&verifier=fea7d72c&dpc=1"></iframe>
-
-  <div class="linkslist">
-  <p class="asidetitle">友情链接</p>
-    <ul>
-      <li><a href="http://www.yuanyang-miemie.win" target="_blank" title="袁咩咩的博客">Husband's Blog</a></li>
-      <li><a href="http://hexo.io" target="_blank" title="Hexo">Hexo</a></li>
-    </ul>
-</div>
-
-
-</aside>
-</div>
     </div>
-    <footer><div id="footer" >
-	
-	<div class="line">
-		<span></span>
-		<div class="author"></div>
-	</div>
-	
-	
-	<section class="info">
-		<p> Hello ,I&#39;m Gu in Cqupt. <br/>
-			我自是年少，韶华倾负。</p>
-	</section>
-	 
-	<div class="social-font clearfix">
-		
-		<a href="http://weibo.com/5205287645" target="_blank" title="weibo"></a>
-		
-		
-		
-		<a href="https://github.com/sweethhh" target="_blank" title="github"></a>
-		
-		
-		
-	</div>
-		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2018 
-		
-		<a href="http://houhonggu.top" target="_blank" title="Hou honggu">Hou honggu</a>
-		
-		 
-	<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1261489775'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1261489775%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
- 
-		</p>
-</div>
-</footer>
-    <script src="/js/jquery-2.1.0.min.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.navbar').click(function(){
-    $('header nav').toggleClass('shownav');
-  });
-  var myWidth = 0;
-  function getSize(){
-    if( typeof( window.innerWidth ) == 'number' ) {
-      myWidth = window.innerWidth;
-    } else if( document.documentElement && document.documentElement.clientWidth) {
-      myWidth = document.documentElement.clientWidth;
-    };
-  };
-  var m = $('#main'),
-      a = $('#asidepart'),
-      c = $('.closeaside'),
-      o = $('.openaside');
-  $(window).resize(function(){
-    getSize(); 
-    if (myWidth >= 1024) {
-      $('header nav').removeClass('shownav');
-    }else
-    {
-      m.removeClass('moveMain');
-      a.css('display', 'block').removeClass('fadeOut');
-      o.css('display', 'none');
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Hou honggu</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/avatar.png" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Hou honggu</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">And I know it&#39;s long gone and there was nothing else I could do.</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/archives">归档 | Archives</a></li>
+                
+                    <li><a href="/about">关于 | About</a></li>
+                
+                    <li><a href="/resume">简历 | Resume</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="/xxxxx" title="github">github</a>
+                    
+                        <a class="weibo" target="_blank" href="/xxxxxxxx" title="weibo">weibo</a>
+                    
+                        <a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+                    
+                </div>
+            </nav>
+        </header>
+    </div>
+</nav>
+      <div class="body-wrap">
+  
+    <article id="post-2D变换" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/04/06/2D变换/" class="article-date">
+      <time datetime="2017-04-06T06:58:20.616Z" itemprop="datePublished">2017-04-06</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
         
-    }
-  });
-  c.click(function(){
-    a.addClass('fadeOut').css('display', 'none');
-    o.css('display', 'block').addClass('fadeIn');
-    m.addClass('moveMain');
-  });
-  o.click(function(){
-    o.css('display', 'none').removeClass('beforeFadeIn');
-    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
-    m.removeClass('moveMain');
-  });
-  $(window).scroll(function(){
-    o.css("top",Math.max(80,260-$(this).scrollTop()));
-  });
-});
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/04/06/2D变换/">过渡和2D变换</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="transition过渡"><a href="#transition过渡" class="headerlink" title="transition过渡"></a>transition过渡</h1><p><code>transition: property duration timing-function</code></p>
+<p><code>property</code>:表示对哪个属性进行平滑过渡(all/attr)<br><code>duration</code>:过渡时间<br><code>timing-function</code>:平滑过渡的方法</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ease</td>
+<td>逐渐变慢（默认）</td>
+</tr>
+<tr>
+<td>linear</td>
+<td>匀速</td>
+</tr>
+<tr>
+<td>ease-in</td>
+<td>加速</td>
+</tr>
+<tr>
+<td>ease-out</td>
+<td>减速</td>
+</tr>
+<tr>
+<td>ease-in-out</td>
+<td>先加速后减速</td>
+</tr>
+<tr>
+<td>cubic-bezier</td>
+<td>贝赛尔曲线</td>
+</tr>
+</tbody>
+</table>
+<p>示例代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">.transition&#123;</div><div class="line">		width: 100px;</div><div class="line">		height: 100px;</div><div class="line">		background: pink;</div><div class="line">		transition: width 1s,height 2s;//多样式变换，逗号隔开</div><div class="line">	&#125;</div><div class="line">	.transition:hover&#123;</div><div class="line">		width: 1000px;</div><div class="line">		height: 1000px;</div><div class="line">		background: red;</div><div class="line">	&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="transitionend"><a href="#transitionend" class="headerlink" title="transitionend"></a>transitionend</h1><p><code>transitionend</code>过渡完成后执行的函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">.box&#123;width:100px;height:100px;background:red; transition:1s width;&#125;</div><div class="line">&lt;/style&gt;</div><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">oBox.onclick=function()</div><div class="line">&#123;</div><div class="line">	this.style.width=this.offsetWidth+100+&quot;px&quot;;</div><div class="line">&#125;;</div><div class="line">addEnd(oBox,function()&#123;</div><div class="line">	alert(&quot;end&quot;);	</div><div class="line">&#125;);</div><div class="line">function addEnd(obj,fn)</div><div class="line">&#123;</div><div class="line">	obj.addEventListener(&apos;WebkitTransitionEnd&apos;,fn,false);</div><div class="line">	obj.addEventListener(&apos;transitionend&apos;,fn,false);</div><div class="line">&#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<h1 id="2D变换"><a href="#2D变换" class="headerlink" title="2D变换"></a>2D变换</h1><h2 id="transform"><a href="#transform" class="headerlink" title="transform"></a>transform</h2><p><code>rotate()</code> 旋转函数</p>
+<ul>
+<li>deg 度数</li>
+<li><p>transform-origin 旋转基点<br>  <code>示例代码</code></p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">.rotate&#123;</div><div class="line">	transition: 1s all;</div><div class="line">	width: 100px;</div><div class="line">	height: 100px;</div><div class="line">	background: red;</div><div class="line">&#125;</div><div class="line">.rotate:hover&#123;</div><div class="line">	transform: rotate(150deg);</div><div class="line">	transform-origin: 10px 10px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><code>skew()</code>倾斜函数</p>
+<ul>
+<li>skewX()</li>
+<li><p>skewY()<br>  <code>示例代码</code></p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">.skew&#123;</div><div class="line">	width: 100px;</div><div class="line">	height: 100px;</div><div class="line">	background: pink;</div><div class="line">	transition: 1s all;</div><div class="line">&#125;</div><div class="line">.skew:hover&#123;</div><div class="line">	transform: skew(10deg,20deg);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><code>scale()</code> 缩放函数 值为正数、负数、小数</p>
+<ul>
+<li>scaleY()</li>
+<li><p>scaleX()</p>
+<p>  <code>示例代码</code></p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">.scale&#123;</div><div class="line">	width: 200px;</div><div class="line">	height: 300px;</div><div class="line">	background: purple;</div><div class="line">	transition: 1s all;</div><div class="line">&#125;</div><div class="line">.scale:hover&#123;</div><div class="line">	transform: scale(0.5);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><code>translate()</code> 位移函数</p>
+<ul>
+<li>translateX()</li>
+<li><p>translateY()</p>
+<p>  <code>示例代码</code></p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">.translate&#123;</div><div class="line">	width: 100px;</div><div class="line">	height: 300px;</div><div class="line">	background: black;</div><div class="line">	transition: 1s all;</div><div class="line">&#125;</div><div class="line">.translate:hover&#123;</div><div class="line">	transform: translate(100px,0px);</div><div class="line">&#125;</div></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/代码/">代码</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS3/">CSS3</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-html5css3新增UI属性" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/03/29/html5css3新增UI属性/" class="article-date">
+      <time datetime="2017-03-29T13:03:57.087Z" itemprop="datePublished">2017-03-29</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/03/29/html5css3新增UI属性/">HTML5CSS3新增UI</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="线性渐变"><a href="#线性渐变" class="headerlink" title="线性渐变"></a>线性渐变</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">div&#123;</div><div class="line">	background-image:-webkit-linear-gradient(`left top,red,pink`);	</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://onm9xh80o.bkt.clouddn.com/%E7%BA%BF%E6%80%A7%E6%B8%90%E5%8F%981.PNG" alt="线性渐变"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">div&#123;</div><div class="line">	background-image:-webkit-linear-gradient(30deg,red,blue);	 //逆时针旋转30度</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://onm9xh80o.bkt.clouddn.com/%E7%BA%BF%E6%80%A7%E6%B8%90%E5%8F%982.PNG" alt="逆时针旋转30°"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">div&#123;</div><div class="line">	background-image:-webkit-linear-gradient(30deg,red 30px,pink 100px);//或者用百分比表示</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://onm9xh80o.bkt.clouddn.com/%E7%BA%BF%E6%80%A7%E6%B8%90%E5%8F%983.PNG" alt="百分数表示渐变长度"></p>
+<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><h2 id="多背景"><a href="#多背景" class="headerlink" title="多背景"></a>多背景</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.bg&#123;</div><div class="line">		width: 300px;</div><div class="line">		height: 300px;</div><div class="line">		border: 1px solid black;</div><div class="line">		background: url(24.png) no-repeat,url(ssr.jpg) repeat-y right 0;  </div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<p><code>先写的背景在上，后写的在下</code><br><img src="http://onm9xh80o.bkt.clouddn.com/%E5%A4%9A%E8%83%8C%E6%99%AF.PNG" alt="多背景"></p>
+<h1 id="径向渐变"><a href="#径向渐变" class="headerlink" title="径向渐变"></a>径向渐变</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.radial&#123;</div><div class="line">		width: 300px;</div><div class="line">		height: 300px;</div><div class="line">		margin: 50px;</div><div class="line">		background: -webkit-radial-gradient(red,pink);</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://onm9xh80o.bkt.clouddn.com/%E5%BE%84%E5%90%91%E6%B8%90%E5%8F%98.PNG" alt="径向渐变"></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/代码/">代码</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS3/">CSS3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML5/">HTML5</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-css背景定位" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/03/29/css背景定位/" class="article-date">
+      <time datetime="2017-03-29T05:03:19.883Z" itemprop="datePublished">2017-03-29</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/03/29/css背景定位/">背景定位</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="固定背景不随滚动条滑动"><a href="#固定背景不随滚动条滑动" class="headerlink" title="固定背景不随滚动条滑动"></a>固定背景不随滚动条滑动</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">body&#123;</div><div class="line">	background: url(背景地址) no-repeat;</div><div class="line">	background-size:100% ; </div><div class="line">	background-size: cover;</div><div class="line">	background-attachment: fixed;//当页面的其余部分滚动时，背景图像不会移动。</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">background-size: length|percentage|cover|contain;</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>length</td>
+<td>设置背景图像的高度和宽度。第一个值设置宽度，第二个值设置高度。如果只设置一个值，则第二个值会被设置为 “auto”。</td>
+</tr>
+<tr>
+<td>percentage</td>
+<td>以父元素的百分比来设置背景图像的宽度和高度。第一个值设置宽度，第二个值设置高度。如果只设置一个值，则第二个值会被设置为 “auto”。</td>
+</tr>
+<tr>
+<td>cover</td>
+<td>把背景图像扩展至足够大，以使背景图像完全覆盖背景区域。背景图像的某些部分也许无法显示在背景定位区域中。</td>
+</tr>
+<tr>
+<td>contain</td>
+<td>把图像图像扩展至最大尺寸，以使其宽度和高度完全适应内容区域。</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/代码/">代码</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-响应式布局" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/03/27/响应式布局/" class="article-date">
+      <time datetime="2017-03-27T13:05:26.683Z" itemprop="datePublished">2017-03-27</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/03/27/响应式布局/">响应式布局</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="css3分栏布局（-webkit-内核）"><a href="#css3分栏布局（-webkit-内核）" class="headerlink" title="css3分栏布局（-webkit-内核）"></a>css3分栏布局（-webkit-内核）</h1><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>column-width</td>
+<td>栏目宽度</td>
+</tr>
+<tr>
+<td>column-count</td>
+<td>栏目列数</td>
+</tr>
+<tr>
+<td>column-gap</td>
+<td>栏目距离</td>
+</tr>
+<tr>
+<td>column-rule</td>
+<td>栏目间隔线</td>
+</tr>
+</tbody>
+</table>
+<h1 id="css3响应式布局"><a href="#css3响应式布局" class="headerlink" title="css3响应式布局"></a>css3响应式布局</h1><h2 id="引用样式适配分辨率"><a href="#引用样式适配分辨率" class="headerlink" title="引用样式适配分辨率"></a>引用样式适配分辨率</h2><ul>
+<li>引用样式表写法</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;indexa.css&quot; media=&quot;screen and (min-width:800px)&quot;&gt;</div><div class="line">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;indexb.css&quot; media=&quot;screen and (min-width:400px) and (max-width: 800px)&quot;&gt;</div><div class="line">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;indexc.css&quot; media=&quot;screen and (max-width: 400px)&quot;&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li>样式表内部写法<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">@media screen and (min-width:800px) &#123;		</div><div class="line">	.wrap&#123;</div><div class="line">	border:1px solid #000; </div><div class="line">	font:14px/28px &quot;宋体&quot;;</div><div class="line">	color:#000; </div><div class="line">	text-indent:2em; </div><div class="line">	-webkit-column-count:4;</div><div class="line">	-webkit-column-gap:30px; -webkit-column-rule:1px solid #000;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">@import url(&quot;indexc.css&quot;) screen and (min-width:400px) and (max-width:800px);</div><div class="line"></div><div class="line">@media screen and (max-width:400px) &#123;		</div><div class="line">	.wrap&#123;</div><div class="line">		border:1px solid #000; </div><div class="line">		font:16px/28px &quot;宋体&quot;;</div><div class="line">		color:#000; </div><div class="line">		text-indent:2em; -webkit-column-count:2; -webkit-column-gap:20px; -webkit-column-rule:1px solid #000;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="横屏竖屏切换"><a href="#横屏竖屏切换" class="headerlink" title="横屏竖屏切换"></a>横屏竖屏切换</h2><ul>
+<li>引用样式表写法</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;link rel=&quot;stylesheet&quot; media=&quot;all and (orientation:portrait)&quot; href=&quot;indexb.css&quot;&gt;</div><div class="line">&lt;link rel=&quot;stylesheet&quot; media=&quot;all and (orientation:landscape)&quot; href=&quot;indexa.css&quot;&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li><p>样式表内部写法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">@media screen and (min-width:800px) &#123;		</div><div class="line">	.wrap&#123;</div><div class="line">		border:1px solid #000; </div><div class="line">		font:14px/28px &quot;宋体&quot;;</div><div class="line">		color:#000; </div><div class="line">		text-indent:2em; </div><div class="line">		-webkit-column-count:4; -webkit-column-gap:30px; -webkit-column-rule:1px solid #000;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">@import url(&quot;indexc.css&quot;) screen and (min-width:400px) and (max-width:800px);</div><div class="line"></div><div class="line">@media screen and (max-width:400px) &#123;		</div><div class="line">	.wrap&#123;</div><div class="line">		border:1px solid #000; </div><div class="line">		font:16px/28px &quot;宋体&quot;;</div><div class="line">		color:#000; </div><div class="line">		text-indent:2em; -webkit-column-count:2; -webkit-column-gap:20px; -webkit-column-rule:1px solid #000;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>portrait 竖屏</li>
+<li>landscape 横屏</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/代码/">代码</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS3/">CSS3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML5/">HTML5</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-html5css3笔记 二回目" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/03/15/html5css3笔记 二回目/" class="article-date">
+      <time datetime="2017-03-15T08:56:47.195Z" itemprop="datePublished">2017-03-15</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/03/15/html5css3笔记 二回目/">html5css3笔记系列 | 二</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h1><table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>说明 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E[attr=“value”]</td>
+<td>指定属性名，并指定了该属性的属性值 </td>
+</tr>
+<tr>
+<td>E[attr~=”value”]</td>
+<td>指定属性名，并且具有属性值，此属性值是一个词列表，并且以空格隔开，其中词列表中包含了一个value词，而且等号前面的“~”不能不写</td>
+</tr>
+<tr>
+<td>E[attr^=”value”]</td>
+<td>指定了属性名，并且有属性值，属性值是以value开头的</td>
+</tr>
+<tr>
+<td>E[attr$=”value”]</td>
+<td>指定了属性名，并且有属性值，属性值是以value结尾的</td>
+</tr>
+<tr>
+<td>E[attr*=”value”]</td>
+<td>指定了属性名，并且有属性值，而且属值中包含了value</td>
+</tr>
+<tr>
+<td>E[attr(竖)=”value”]</td>
+<td>指定了属性名，并且属性值是value或者以“value-”开头的值（比如说zh-cn）</td>
+</tr>
+</tbody>
+</table>
+<h1 id="结构性伪类"><a href="#结构性伪类" class="headerlink" title="结构性伪类"></a>结构性伪类</h1><table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E:nth-child(n)</td>
+<td>表示E父元素中的第n个字节点，其中n可以为odd(奇数),even(偶数),2n等</td>
+</tr>
+<tr>
+<td>E:nth-last-child(n)</td>
+<td>表示E父元素中的第n个字节点，从后向前计算</td>
+</tr>
+<tr>
+<td>E:nth-of-type(n)</td>
+<td>表示E父元素中的第n个字节点，且类型为E</td>
+</tr>
+<tr>
+<td>E:nth-last-of-type(n)</td>
+<td>表示E父元素中的第n个字节点，且类型为E,从后向前计算</td>
+</tr>
+<tr>
+<td>E:first-child</td>
+<td>表示E元素中的第一个子节点</td>
+</tr>
+<tr>
+<td>E:last-child</td>
+<td>表示E元素中的最后一个子节点</td>
+</tr>
+<tr>
+<td>E:first-of-type</td>
+<td>表示E父元素中的第一个子节点且节点类型是E的</td>
+</tr>
+<tr>
+<td>E:last-of-type</td>
+<td>表示E父元素中的最后一个子节点且节点类型是E的</td>
+</tr>
+<tr>
+<td>E:only-child</td>
+<td>表示E元素中只有一个子节点。注意：子节点不包含文本节点</td>
+</tr>
+</tbody>
+</table>
+<h1 id="伪类"><a href="#伪类" class="headerlink" title="伪类"></a>伪类</h1><table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E:target</td>
+<td>表示当前的URL片段的元素类型，这个元素必须是E</td>
+</tr>
+<tr>
+<td>E:disabled</td>
+<td>表示不可点击的表单控件</td>
+</tr>
+<tr>
+<td>E:enabled</td>
+<td>表示不可点击的表单控件</td>
+</tr>
+<tr>
+<td>E:checked</td>
+<td>表示已选中的checkbox或radio</td>
+</tr>
+<tr>
+<td>E:first-line</td>
+<td>表示E元素中的第一行</td>
+</tr>
+<tr>
+<td>E:first-letter</td>
+<td>表示E元素中的第一个字符</td>
+</tr>
+<tr>
+<td>E::selection</td>
+<td>表示E元素在用户选中文字时</td>
+</tr>
+<tr>
+<td>E:before</td>
+<td>生成内容在E元素前 content属性添加内容</td>
+</tr>
+<tr>
+<td>E:after</td>
+<td>生成内容在E元素后 content属性添加内容</td>
+</tr>
+<tr>
+<td>E:not(s)</td>
+<td>表示E元素不被匹配</td>
+</tr>
+<tr>
+<td>E~F</td>
+<td>表示E元素毗邻的F元素</td>
+</tr>
+</tbody>
+</table>
+<h1 id="文字阴影"><a href="#文字阴影" class="headerlink" title="文字阴影"></a>文字阴影</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">p&#123;</div><div class="line">	text-shadow: 1px 1px 1px black;// 前两个属性为上下左右偏移量，第三个属性为阴影粗度，最后一个为颜色</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">p&#123;</div><div class="line">	text-shadow:1px 1px 1px black,2px 2px 1px red;//多层阴影</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="文本新增属性"><a href="#文本新增属性" class="headerlink" title="文本新增属性"></a>文本新增属性</h1><h2 id="省略文本"><a href="#省略文本" class="headerlink" title="省略文本"></a>省略文本</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Text-overflow</td>
+<td>可选属性值有clip（无省略号）和Ellipsis（省略号）但要配合overflow:hidden和white-space:nowrap一块使用 </td>
+</tr>
+</tbody>
+</table>
+<h1 id="弹性盒模型"><a href="#弹性盒模型" class="headerlink" title="弹性盒模型"></a>弹性盒模型</h1><ul>
+<li>在使用弹性盒模型的时候 父元素必须要加display:box 或 display:inline-box</li>
+<li>Box-orient 定义盒模型的布局方向<ul>
+<li>Horizontal 水平显示</li>
+<li>vertical 垂直方向</li>
+</ul>
+</li>
+<li>box-direction 元素排列顺序<ul>
+<li>Normal 正序</li>
+<li>Reverse 反序</li>
+</ul>
+</li>
+<li>box-ordinal-group 设置元素的具体位置<ul>
+<li>属性值为数字顺序</li>
+</ul>
+</li>
+<li>Box-flex 定义盒子的弹性空间<ul>
+<li>属性值为数字    </li>
+<li>子元素的尺寸=盒子的尺寸*子元素的box-flex属性值 / 所有子元素的box-flex属性值的和 </li>
+</ul>
+</li>
+<li>box-pack 对盒子富裕的空间进行管理<ul>
+<li>Start 所有子元素在盒子左侧显示，富裕空间在右侧</li>
+<li>End 所有子元素在盒子右侧显示，富裕空间在左侧</li>
+<li>Center 所有子元素居中</li>
+<li>Justify 富余空间在子元素之间平均分布</li>
+</ul>
+</li>
+<li>box-align 在垂直方向上对元素的位置进行管理<ul>
+<li>Start 所有子元素在据顶</li>
+<li>End 所有子元素在据底</li>
+<li>Center 所有子元素居中</li>
+</ul>
+</li>
+</ul>
+<h1 id="盒模型阴影"><a href="#盒模型阴影" class="headerlink" title="盒模型阴影"></a>盒模型阴影</h1><ul>
+<li>box-shadow:[inset] x y blur [spread] color<ul>
+<li>inset：阴影方式</li>
+<li>x、y：阴影偏移</li>
+<li>blur：模糊半径</li>
+<li>spread：扩展阴影半径</li>
+<li>color：颜色</li>
+</ul>
+</li>
+</ul>
+<h1 id="倒影-目前仅仅-webkit-内核"><a href="#倒影-目前仅仅-webkit-内核" class="headerlink" title="倒影(目前仅仅-webkit-内核)"></a>倒影(目前仅仅-webkit-内核)</h1><ul>
+<li>box-reflect 倒影<br>  -direction  方向 above|below|left|right<ul>
+<li>距离</li>
+<li>渐变<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">-webkit-linear-gradient(right,rgba(0,0,0,1) 0,rgba(0,0,0,0) 50%);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="自由缩放"><a href="#自由缩放" class="headerlink" title="自由缩放"></a>自由缩放</h1><ul>
+<li>resize 自由缩放<ul>
+<li>Both 水平垂直都可以缩放</li>
+<li>Horizontal 只有水平方向可以缩放</li>
+<li>Vertical 只有垂直方向可以缩放</li>
+<li>要配合overflow:auto使用</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/代码/">代码</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS3/">CSS3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML5/">HTML5</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-html5css3笔记 旋转特效" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/03/09/html5css3笔记 旋转特效/" class="article-date">
+      <time datetime="2017-03-09T12:28:29.032Z" itemprop="datePublished">2017-03-09</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/03/09/html5css3笔记 旋转特效/">html5css3笔记系列 | 旋转特效</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="1-transition属性"><a href="#1-transition属性" class="headerlink" title="1.transition属性"></a>1.transition属性</h2><p>用于过渡动画<br>如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">transition:transform 0.5s;</div></pre></td></tr></table></figure></p>
+<h2 id="2-transform属性"><a href="#2-transform属性" class="headerlink" title="2.transform属性"></a>2.transform属性</h2><p>用于图形旋转<br>如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">transform:rotate(180deg);//旋转180度</div></pre></td></tr></table></figure></p>
+<h2 id="实例："><a href="#实例：" class="headerlink" title="实例："></a>实例：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</div><div class="line">&lt;style type=&quot;text/css&quot;&gt;</div><div class="line">	.rotate&#123;</div><div class="line">		box-shadow:2px 2px 3px #aaaaaa;</div><div class="line">		border: 1px solid #BFBFBF; </div><div class="line">		width: 200px;</div><div class="line">		height: 270px;</div><div class="line">		margin: 0px auto;</div><div class="line">		padding: 20px;</div><div class="line">		transform: rotate(20deg);</div><div class="line">	&#125;</div><div class="line">		.rotate1&#123;</div><div class="line">			background: white;</div><div class="line">			transform: rotate(-10deg);</div><div class="line">		box-shadow:2px 2px 3px #aaaaaa;</div><div class="line">		border: 1px solid #BFBFBF; </div><div class="line">		width: 200px;</div><div class="line">		height: 270px;</div><div class="line">		margin: 0 auto;</div><div class="line">		padding: 20px;</div><div class="line">	&#125;</div><div class="line">	.rotate:hover&#123;</div><div class="line">		transition: transform 0.5s;</div><div class="line">		transform: rotate(380deg);</div><div class="line">	&#125;</div><div class="line">&lt;/style&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;title&gt;xuanzhuan&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">	&lt;div class=&quot;rotate&quot;&gt;</div><div class="line">		&lt;img src=&quot;img/ssr.jpg&quot; width=&quot;200px&quot; height=&quot;200px&quot;&gt;</div><div class="line">		&lt;p&gt;我一定会抽到ssr的！&lt;/p&gt;</div><div class="line">	&lt;/div&gt;</div><div class="line">	&lt;div class=&quot;rotate1&quot;&gt;</div><div class="line">		&lt;img src=&quot;img/ssr.jpg&quot; width=&quot;200px&quot; height=&quot;200px&quot;&gt;</div><div class="line">		&lt;p&gt;我一定会抽到ssr的！&lt;/p&gt;</div><div class="line">	&lt;/div&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/代码/">代码</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS3/">CSS3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML5/">HTML5</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-html5css3笔记 一回目" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/03/06/html5css3笔记 一回目/" class="article-date">
+      <time datetime="2017-03-06T11:55:39.363Z" itemprop="datePublished">2017-03-06</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/03/06/html5css3笔记 一回目/">html5css3笔记系列 | 一</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="基本标签"><a href="#基本标签" class="headerlink" title="基本标签"></a>基本标签</h1><h2 id="1-progress进度条"><a href="#1-progress进度条" class="headerlink" title="1.progress进度条"></a>1.progress进度条</h2><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;progress value=&quot;20&quot; max=&quot;100&quot;&gt;</div><div class="line">&lt;/progress&gt;</div></pre></td></tr></table></figure>
+</code></pre><h2 id="2-details摘要"><a href="#2-details摘要" class="headerlink" title="2.details摘要"></a>2.details摘要</h2><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;details&gt;</div><div class="line">	&lt;summary&gt;lalalalla&lt;/summary&gt;</div><div class="line">	&lt;p&gt;lalalalalaalalalalalal&lt;/p&gt;</div><div class="line">&lt;/details&gt;</div></pre></td></tr></table></figure>
+</code></pre><p> 若要一开始就打开摘要 添加属性open=“open”</p>
+<h2 id="3-datalist下拉输入框"><a href="#3-datalist下拉输入框" class="headerlink" title="3.datalist下拉输入框"></a>3.datalist下拉输入框</h2><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;input list=&quot;data&quot;&gt;</div><div class="line">&lt;datalist id=&quot;data&quot;&gt;</div><div class="line">	&lt;option value=&quot;dataOne&quot;&gt;</div><div class="line">	&lt;option value=&quot;dataTwo&quot;&gt;</div><div class="line">	&lt;option value=&quot;dataThree&quot;&gt;</div><div class="line">&lt;/datalist&gt;</div></pre></td></tr></table></figure>
+</code></pre><h1 id="input输入类型"><a href="#input输入类型" class="headerlink" title="input输入类型"></a>input输入类型</h1><p>(type)<br>1.email 定义email地址字段<br>2.url 定义输入URL字段<br>3.number 定义数字字段<br>4.range 定义用于精确值不重要的输入数字控件 (max min属性可设置数值范围)<br>5.color 定义拾色器<br>6.data 定义日期<br>7.tel 电话</p>
+<h1 id="新增属性"><a href="#新增属性" class="headerlink" title="新增属性"></a>新增属性</h1><p>1.autocomplete 自动完成功能<br>2.autofocus 自动获得焦点<br>3.form 在表单外部定义input (用id定义)<br>4.pattern 正则表达式</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/代码/">代码</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS3/">CSS3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML5/">HTML5</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-我的第一篇文章" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/01/13/我的第一篇文章/" class="article-date">
+      <time datetime="2017-01-13T08:22:29.667Z" itemprop="datePublished">2017-01-13</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/01/13/我的第一篇文章/">我的第一篇文章</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="Git操作"><a href="#Git操作" class="headerlink" title="Git操作"></a>Git操作</h2><p>1.cd 文件夹名字<br>2.git init<br>3.git add 文件名字（git add -A 添加当前目录全部文件）<br>4.git commit -m “操作名”<br>5.在github上创建同名仓库<br>6.git remote add origin git@github.com:sweethhh/文件夹名字.git(仅第一次需要此步骤，之后更新不需要)<br>7.git push -u origin master</p>
+<p>预览项目<br><a href="http://htmlpreview.github.io/" target="_blank" rel="external">http://htmlpreview.github.io/</a></p>
+<h2 id="发布博客"><a href="#发布博客" class="headerlink" title="发布博客"></a>发布博客</h2><p>1.hexo g<br>2.hexo deploy<br>3.hexo restart 重启服务器<br>4.hexo n page “pageName” 新建一个Tab标签文件<br>5.hexo s 打开本地服务器</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Git命令/">Git命令</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/命令/">命令</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/01/13/hello-world/" class="article-date">
+      <time datetime="2017-01-13T08:01:44.706Z" itemprop="datePublished">2017-01-13</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/01/13/hello-world/">Hello World</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+    </nav>
+  
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2018 Hou honggu
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo &nbsp;&nbsp;</a><a href="https://github.com/maochunguang" target="_blank">Blog</a> by tommy
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >极客到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 1;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'xxxxx', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?xxxxxx";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
 </script>
 
 
-
-
-
-
- 
-
-  </body>
- </html>
+  </div>
+</body>
+</html>
