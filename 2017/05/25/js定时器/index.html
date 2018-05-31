@@ -408,6 +408,21 @@ setTimeout() 只执行 code 一次。如果要多次调用，请使用 setInterv
     }
 </script>
 
+    <style>
+        .toc {
+            white-space: nowrap;
+            overflow-x: hidden;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            $(".toc li a").mouseover(function() {
+                var title = $(this).attr('href');
+                $(this).attr("title", title);
+            });
+        })
+    </script>
+
 
 
 

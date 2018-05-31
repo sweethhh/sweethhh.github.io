@@ -709,6 +709,21 @@ hello world引入：12345&amp;lt;!-- 开发环境版本，包含了用帮助的�
     }
 </script>
 
+    <style>
+        .toc {
+            white-space: nowrap;
+            overflow-x: hidden;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            $(".toc li a").mouseover(function() {
+                var title = $(this).attr('href');
+                $(this).attr("title", title);
+            });
+        })
+    </script>
+
 
 
 

@@ -547,6 +547,21 @@ el:指当前元素1console.log(el);//&amp;lt;span&amp;gt;10&amp;">
     }
 </script>
 
+    <style>
+        .toc {
+            white-space: nowrap;
+            overflow-x: hidden;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            $(".toc li a").mouseover(function() {
+                var title = $(this).attr('href');
+                $(this).attr("title", title);
+            });
+        })
+    </script>
+
 
 
 

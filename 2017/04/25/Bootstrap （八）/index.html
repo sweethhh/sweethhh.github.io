@@ -421,6 +421,21 @@ data-offset-top=”150” 起到初始状态固定导航条的作用
     }
 </script>
 
+    <style>
+        .toc {
+            white-space: nowrap;
+            overflow-x: hidden;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            $(".toc li a").mouseover(function() {
+                var title = $(this).attr('href');
+                $(this).attr("title", title);
+            });
+        })
+    </script>
+
 
 
 

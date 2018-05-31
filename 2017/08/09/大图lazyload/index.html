@@ -433,6 +433,21 @@ jQuery图片延迟加载插件jQuery.lazyload,使用延迟加载在可提高网�
     }
 </script>
 
+    <style>
+        .toc {
+            white-space: nowrap;
+            overflow-x: hidden;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            $(".toc li a").mouseover(function() {
+                var title = $(this).attr('href');
+                $(this).attr("title", title);
+            });
+        })
+    </script>
+
 
 
 
