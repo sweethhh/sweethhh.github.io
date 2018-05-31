@@ -9,22 +9,16 @@
   
   <title>html5css3笔记系列 | 旋转特效 | 你家谷谷</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.transition属性用于过渡动画如：1transition:transform 0.5s;
-2.transform属性用于图形旋转如：1transform:rotate(180deg);//旋转180度
-实例：123456789101112131415161718192021222324252627282930313233343536373839404142&amp;lt;!DOCTYPE htm">
+  <meta name="description" content="1.transition属性用于过渡动画">
 <meta property="og:type" content="article">
 <meta property="og:title" content="html5css3笔记系列 | 旋转特效">
 <meta property="og:url" content="http://houhonggu.top/2017/03/09/html5css3笔记 旋转特效/index.html">
 <meta property="og:site_name" content="你家谷谷">
-<meta property="og:description" content="1.transition属性用于过渡动画如：1transition:transform 0.5s;
-2.transform属性用于图形旋转如：1transform:rotate(180deg);//旋转180度
-实例：123456789101112131415161718192021222324252627282930313233343536373839404142&amp;lt;!DOCTYPE htm">
-<meta property="og:updated_time" content="2017-03-15T09:14:14.086Z">
+<meta property="og:description" content="1.transition属性用于过渡动画">
+<meta property="og:updated_time" content="2018-05-31T11:20:51.665Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="html5css3笔记系列 | 旋转特效">
-<meta name="twitter:description" content="1.transition属性用于过渡动画如：1transition:transform 0.5s;
-2.transform属性用于图形旋转如：1transform:rotate(180deg);//旋转180度
-实例：123456789101112131415161718192021222324252627282930313233343536373839404142&amp;lt;!DOCTYPE htm">
+<meta name="twitter:description" content="1.transition属性用于过渡动画">
   
     <link rel="alternative" href="/atom.xml" title="你家谷谷" type="application/atom+xml">
   
@@ -319,7 +313,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="1-transition属性"><a href="#1-transition属性" class="headerlink" title="1.transition属性"></a>1.transition属性</h2><p>用于过渡动画<br>如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">transition:transform 0.5s;</div></pre></td></tr></table></figure></p>
+        <h2 id="1-transition属性"><a href="#1-transition属性" class="headerlink" title="1.transition属性"></a>1.transition属性</h2><p>用于过渡动画<br><a id="more"></a><br>如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">transition:transform 0.5s;</div></pre></td></tr></table></figure></p>
 <h2 id="2-transform属性"><a href="#2-transform属性" class="headerlink" title="2.transform属性"></a>2.transform属性</h2><p>用于图形旋转<br>如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">transform:rotate(180deg);//旋转180度</div></pre></td></tr></table></figure></p>
 <h2 id="实例："><a href="#实例：" class="headerlink" title="实例："></a>实例：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</div><div class="line">&lt;style type=&quot;text/css&quot;&gt;</div><div class="line">	.rotate&#123;</div><div class="line">		box-shadow:2px 2px 3px #aaaaaa;</div><div class="line">		border: 1px solid #BFBFBF; </div><div class="line">		width: 200px;</div><div class="line">		height: 270px;</div><div class="line">		margin: 0px auto;</div><div class="line">		padding: 20px;</div><div class="line">		transform: rotate(20deg);</div><div class="line">	&#125;</div><div class="line">		.rotate1&#123;</div><div class="line">			background: white;</div><div class="line">			transform: rotate(-10deg);</div><div class="line">		box-shadow:2px 2px 3px #aaaaaa;</div><div class="line">		border: 1px solid #BFBFBF; </div><div class="line">		width: 200px;</div><div class="line">		height: 270px;</div><div class="line">		margin: 0 auto;</div><div class="line">		padding: 20px;</div><div class="line">	&#125;</div><div class="line">	.rotate:hover&#123;</div><div class="line">		transition: transform 0.5s;</div><div class="line">		transform: rotate(380deg);</div><div class="line">	&#125;</div><div class="line">&lt;/style&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;title&gt;xuanzhuan&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">	&lt;div class=&quot;rotate&quot;&gt;</div><div class="line">		&lt;img src=&quot;img/ssr.jpg&quot; width=&quot;200px&quot; height=&quot;200px&quot;&gt;</div><div class="line">		&lt;p&gt;我一定会抽到ssr的！&lt;/p&gt;</div><div class="line">	&lt;/div&gt;</div><div class="line">	&lt;div class=&quot;rotate1&quot;&gt;</div><div class="line">		&lt;img src=&quot;img/ssr.jpg&quot; width=&quot;200px&quot; height=&quot;200px&quot;&gt;</div><div class="line">		&lt;p&gt;我一定会抽到ssr的！&lt;/p&gt;</div><div class="line">	&lt;/div&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
 
@@ -333,7 +327,7 @@
         <p><span>本文标题:</span><a  href="/2017/03/09/html5css3笔记 旋转特效/">html5css3笔记系列 | 旋转特效</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问 你家谷谷 的个人博客">你家谷谷</a></p>
         <p><span>发布时间:</span>2017年03月09日 - 20时28分</p>
-        <p><span>最后更新:</span>2017年03月15日 - 17时14分</p>
+        <p><span>最后更新:</span>2018年05月31日 - 19时20分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/03/09/html5css3笔记 旋转特效/" title="html5css3笔记系列 | 旋转特效">http://houhonggu.top/2017/03/09/html5css3笔记 旋转特效/</a>
             <span class="copy-path" data-clipboard-text="原文: http://houhonggu.top/2017/03/09/html5css3笔记 旋转特效/　　作者: 你家谷谷" title=""></span>

@@ -9,19 +9,16 @@
   
   <title>示范中心项目踩坑记录 | 你家谷谷</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1. jquery 中 append() 后的元素无法添加事件解决方法123$(&amp;quot;父元素名&amp;quot;).on(&amp;quot;click&amp;quot;,&amp;quot;需要操作的元素名&amp;quot;,function()&amp;#123;	//TO DO...&amp;#125;
-2.设置input元素不可编辑解决方法&amp;lt;input type=&amp;quot;text&amp;quot;  readonly=&amp;quot">
+  <meta name="description" content="1. jquery 中 append() 后的元素无法添加事件解决方法123$(&amp;quot;父元素名&amp;quot;).on(&amp;quot;click&amp;quot;,&amp;quot;需要操作的元素名&amp;quot;,function()&amp;#123;	//TO DO...&amp;#125;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="示范中心项目踩坑记录">
 <meta property="og:url" content="http://houhonggu.top/2017/07/26/示范中心项目踩坑记录/index.html">
 <meta property="og:site_name" content="你家谷谷">
-<meta property="og:description" content="1. jquery 中 append() 后的元素无法添加事件解决方法123$(&amp;quot;父元素名&amp;quot;).on(&amp;quot;click&amp;quot;,&amp;quot;需要操作的元素名&amp;quot;,function()&amp;#123;	//TO DO...&amp;#125;
-2.设置input元素不可编辑解决方法&amp;lt;input type=&amp;quot;text&amp;quot;  readonly=&amp;quot">
-<meta property="og:updated_time" content="2017-07-26T10:31:29.976Z">
+<meta property="og:description" content="1. jquery 中 append() 后的元素无法添加事件解决方法123$(&amp;quot;父元素名&amp;quot;).on(&amp;quot;click&amp;quot;,&amp;quot;需要操作的元素名&amp;quot;,function()&amp;#123;	//TO DO...&amp;#125;">
+<meta property="og:updated_time" content="2018-05-31T11:22:12.292Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="示范中心项目踩坑记录">
-<meta name="twitter:description" content="1. jquery 中 append() 后的元素无法添加事件解决方法123$(&amp;quot;父元素名&amp;quot;).on(&amp;quot;click&amp;quot;,&amp;quot;需要操作的元素名&amp;quot;,function()&amp;#123;	//TO DO...&amp;#125;
-2.设置input元素不可编辑解决方法&amp;lt;input type=&amp;quot;text&amp;quot;  readonly=&amp;quot">
+<meta name="twitter:description" content="1. jquery 中 append() 后的元素无法添加事件解决方法123$(&amp;quot;父元素名&amp;quot;).on(&amp;quot;click&amp;quot;,&amp;quot;需要操作的元素名&amp;quot;,function()&amp;#123;	//TO DO...&amp;#125;">
   
     <link rel="alternative" href="/atom.xml" title="你家谷谷" type="application/atom+xml">
   
@@ -317,6 +314,7 @@
       
           
         <h1 id="1-jquery-中-append-后的元素无法添加事件"><a href="#1-jquery-中-append-后的元素无法添加事件" class="headerlink" title="1. jquery 中 append() 后的元素无法添加事件"></a>1. jquery 中 append() 后的元素无法添加事件</h1><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(&quot;父元素名&quot;).on(&quot;click&quot;,&quot;需要操作的元素名&quot;,function()&#123;</div><div class="line">	//TO DO...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <h1 id="2-设置input元素不可编辑"><a href="#2-设置input元素不可编辑" class="headerlink" title="2.设置input元素不可编辑"></a>2.设置input元素不可编辑</h1><h2 id="解决方法-1"><a href="#解决方法-1" class="headerlink" title="解决方法"></a>解决方法</h2><h3 id="lt-input-type-quot-text-quot-readonly-quot-readonly-quot-name-quot-id-quot-gt"><a href="#lt-input-type-quot-text-quot-readonly-quot-readonly-quot-name-quot-id-quot-gt" class="headerlink" title="&lt;input type=&quot;text&quot;  readonly=&quot;readonly&quot; name=&quot;id&quot;&gt;"></a><code>&lt;input type=&quot;text&quot;  readonly=&quot;readonly&quot; name=&quot;id&quot;&gt;</code></h3><p>此时文字不可编辑，但可以通过value获取。</p>
 <h3 id="lt-input-type-quot-text-quot-disabled-quot-disabled-quot-name-quot-id-quot-gt"><a href="#lt-input-type-quot-text-quot-disabled-quot-disabled-quot-name-quot-id-quot-gt" class="headerlink" title="&lt;input type=&quot;text&quot;  disabled=&quot;disabled&quot; name=&quot;id&quot;&gt;"></a><code>&lt;input type=&quot;text&quot;  disabled=&quot;disabled&quot; name=&quot;id&quot;&gt;</code></h3><p>此时文字不可编辑，不可获取</p>
 <h1 id="3-formData-用法"><a href="#3-formData-用法" class="headerlink" title="3.formData()用法"></a>3.formData()用法</h1><h2 id="解决方法-2"><a href="#解决方法-2" class="headerlink" title="解决方法"></a>解决方法</h2><h3 id="formData-可以通过打包表单数据传给后台"><a href="#formData-可以通过打包表单数据传给后台" class="headerlink" title="formData()可以通过打包表单数据传给后台"></a>formData()可以通过打包表单数据传给后台</h3><h3 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h3><ul>
@@ -344,7 +342,7 @@
         <p><span>本文标题:</span><a  href="/2017/07/26/示范中心项目踩坑记录/">示范中心项目踩坑记录</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问 你家谷谷 的个人博客">你家谷谷</a></p>
         <p><span>发布时间:</span>2017年07月26日 - 13时31分</p>
-        <p><span>最后更新:</span>2017年07月26日 - 18时31分</p>
+        <p><span>最后更新:</span>2018年05月31日 - 19时22分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/07/26/示范中心项目踩坑记录/" title="示范中心项目踩坑记录">http://houhonggu.top/2017/07/26/示范中心项目踩坑记录/</a>
             <span class="copy-path" data-clipboard-text="原文: http://houhonggu.top/2017/07/26/示范中心项目踩坑记录/　　作者: 你家谷谷" title=""></span>
