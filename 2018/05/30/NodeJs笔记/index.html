@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://houhonggu.top/2018/05/30/NodeJs笔记/index.html">
 <meta property="og:site_name" content="你家谷谷">
 <meta property="og:description" content="记录NODE学习中的一些问题。">
-<meta property="og:updated_time" content="2018-05-31T11:44:24.493Z">
+<meta property="og:updated_time" content="2018-05-31T12:47:37.160Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NodeJs笔记">
 <meta name="twitter:description" content="记录NODE学习中的一些问题。">
@@ -315,6 +315,18 @@
           
         <p>记录NODE学习中的一些问题。</p>
 <a id="more"></a>
+<h1 id="V8引擎"><a href="#V8引擎" class="headerlink" title="V8引擎"></a>V8引擎</h1><blockquote>
+<p>他是一款专门对JavaScript语言进行解释和执行的流程引擎虚拟机。把<code>V8</code>引擎嵌入浏览器中，js代码就会被浏览器执行。如果把<code>V8</code>嵌入到<code>NodeJS</code>环境中，js就会被服务器执行。</p>
+</blockquote>
+<p><strong><em>V8优势</em></strong></p>
+<ul>
+<li>强大的编译和快速执行效率</li>
+<li>没有同步I/O，只有异步I/O，解决I/O阻塞</li>
+<li>强大的事件驱动机制</li>
+</ul>
+<ul>
+<li>V8引擎内核被修改 =&gt; NodeJS(服务器端语言)</li>
+</ul>
 <h1 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h1><blockquote>
 <p>一个包管理工具</p>
 </blockquote>
@@ -379,7 +391,7 @@
 <p><strong><em>删除目录</em></strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fs.rmdirSync(<span class="string">'newDir'</span>);</div></pre></td></tr></table></figure></p>
 <p>(以上对目录的操作方法都是同步的)</p>
 <p>(异步方法↓↓↓)<br>新建一个文件目录，将README的文件内容写到新建的一个WRITEME.txt中，然后放入新建的文件目录中。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">fs.mkdir(<span class="string">'newDir'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	fs.readFile(<span class="string">'README'</span>,<span class="string">'utf-8'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">err,data</span>)</span>&#123;</div><div class="line">		fs.writeFile(<span class="string">'./newDir/WRITEME.txt'</span>,data,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">			<span class="built_in">console</span>.log(<span class="string">'copy success'</span>);</div><div class="line">		&#125;);</div><div class="line">	&#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<h1 id="流和管道"><a href="#流和管道" class="headerlink" title="流和管道"></a>流和管道</h1>
+
       
     </div>
     
@@ -390,7 +402,7 @@
         <p><span>本文标题:</span><a  href="/2018/05/30/NodeJs笔记/">NodeJs笔记</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问 你家谷谷 的个人博客">你家谷谷</a></p>
         <p><span>发布时间:</span>2018年05月30日 - 15时06分</p>
-        <p><span>最后更新:</span>2018年05月31日 - 19时44分</p>
+        <p><span>最后更新:</span>2018年05月31日 - 20时47分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/05/30/NodeJs笔记/" title="NodeJs笔记">http://houhonggu.top/2018/05/30/NodeJs笔记/</a>
             <span class="copy-path" data-clipboard-text="原文: http://houhonggu.top/2018/05/30/NodeJs笔记/　　作者: 你家谷谷" title=""></span>
@@ -418,7 +430,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#npm"><span class="toc-number">1.</span> <span class="toc-text">npm</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#命令"><span class="toc-number">1.1.</span> <span class="toc-text">命令</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#nodejs"><span class="toc-number">2.</span> <span class="toc-text">nodejs</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#全局对象"><span class="toc-number">2.1.</span> <span class="toc-text">全局对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#回调函数"><span class="toc-number">2.2.</span> <span class="toc-text">回调函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模块"><span class="toc-number">2.3.</span> <span class="toc-text">模块</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#事件"><span class="toc-number">3.</span> <span class="toc-text">事件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#读写文件"><span class="toc-number">4.</span> <span class="toc-text">读写文件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#同步"><span class="toc-number">4.1.</span> <span class="toc-text">同步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#异步"><span class="toc-number">4.2.</span> <span class="toc-text">异步</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#创建和删除目录"><span class="toc-number">5.</span> <span class="toc-text">创建和删除目录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#流和管道"><span class="toc-number">6.</span> <span class="toc-text">流和管道</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#V8引擎"><span class="toc-number">1.</span> <span class="toc-text">V8引擎</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#npm"><span class="toc-number">2.</span> <span class="toc-text">npm</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#命令"><span class="toc-number">2.1.</span> <span class="toc-text">命令</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#nodejs"><span class="toc-number">3.</span> <span class="toc-text">nodejs</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#全局对象"><span class="toc-number">3.1.</span> <span class="toc-text">全局对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#回调函数"><span class="toc-number">3.2.</span> <span class="toc-text">回调函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模块"><span class="toc-number">3.3.</span> <span class="toc-text">模块</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#事件"><span class="toc-number">4.</span> <span class="toc-text">事件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#读写文件"><span class="toc-number">5.</span> <span class="toc-text">读写文件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#同步"><span class="toc-number">5.1.</span> <span class="toc-text">同步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#异步"><span class="toc-number">5.2.</span> <span class="toc-text">异步</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#创建和删除目录"><span class="toc-number">6.</span> <span class="toc-text">创建和删除目录</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
