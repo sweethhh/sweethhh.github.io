@@ -7,18 +7,33 @@
   
   
   
-  <title>html5css3笔记系列 | 二 | 你家谷谷</title>
+  <title>访问对象属性的两种方式 | 你家谷谷</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="属性选择器">
+  <meta name="description" content="点号（.）和方括号（[]）1234var obj=&amp;#123;name:&apos;gugu&apos;,age:21&amp;#125;;console.log(obj.name); // guguconsole.log(obj[age]); // 21
+
+方括号[]中可以写可计算的表达式，更为灵活
+点号.只能写固定值
+
+数组去重1234567891011121314Array.prototype.distinct = f">
 <meta property="og:type" content="article">
-<meta property="og:title" content="html5css3笔记系列 | 二">
-<meta property="og:url" content="http://houhonggu.top/2017/03/15/html5css3笔记 二回目/index.html">
+<meta property="og:title" content="访问对象属性的两种方式">
+<meta property="og:url" content="http://houhonggu.top/2018/06/02/访问对象属性的两种方式/index.html">
 <meta property="og:site_name" content="你家谷谷">
-<meta property="og:description" content="属性选择器">
-<meta property="og:updated_time" content="2018-05-31T11:20:47.455Z">
+<meta property="og:description" content="点号（.）和方括号（[]）1234var obj=&amp;#123;name:&apos;gugu&apos;,age:21&amp;#125;;console.log(obj.name); // guguconsole.log(obj[age]); // 21
+
+方括号[]中可以写可计算的表达式，更为灵活
+点号.只能写固定值
+
+数组去重1234567891011121314Array.prototype.distinct = f">
+<meta property="og:updated_time" content="2018-06-02T12:02:12.933Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="html5css3笔记系列 | 二">
-<meta name="twitter:description" content="属性选择器">
+<meta name="twitter:title" content="访问对象属性的两种方式">
+<meta name="twitter:description" content="点号（.）和方括号（[]）1234var obj=&amp;#123;name:&apos;gugu&apos;,age:21&amp;#125;;console.log(obj.name); // guguconsole.log(obj[age]); // 21
+
+方括号[]中可以写可计算的表达式，更为灵活
+点号.只能写固定值
+
+数组去重1234567891011121314Array.prototype.distinct = f">
   
     <link rel="alternative" href="/atom.xml" title="你家谷谷" type="application/atom+xml">
   
@@ -269,11 +284,11 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-html5css3笔记 二回目" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-访问对象属性的两种方式" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2017/03/15/html5css3笔记 二回目/" class="article-date">
-      <time datetime="2017-03-15T08:56:47.195Z" itemprop="datePublished">2017-03-15</time>
+      <a  href="/2018/06/02/访问对象属性的两种方式/" class="article-date">
+      <time datetime="2018-06-02T11:22:03.856Z" itemprop="datePublished">2018-06-02</time>
 </a>
 
     </div>
@@ -287,7 +302,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      html5css3笔记系列 | 二
+      访问对象属性的两种方式
     </h1>
   
 
@@ -303,7 +318,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS3/">CSS3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML5/">HTML5</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -313,220 +328,13 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h1><a id="more"></a>
-<table>
-<thead>
-<tr>
-<th>选择器</th>
-<th>说明 </th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>E[attr=“value”]</td>
-<td>指定属性名，并指定了该属性的属性值 </td>
-</tr>
-<tr>
-<td>E[attr~=”value”]</td>
-<td>指定属性名，并且具有属性值，此属性值是一个词列表，并且以空格隔开，其中词列表中包含了一个value词，而且等号前面的“~”不能不写</td>
-</tr>
-<tr>
-<td>E[attr^=”value”]</td>
-<td>指定了属性名，并且有属性值，属性值是以value开头的</td>
-</tr>
-<tr>
-<td>E[attr$=”value”]</td>
-<td>指定了属性名，并且有属性值，属性值是以value结尾的</td>
-</tr>
-<tr>
-<td>E[attr*=”value”]</td>
-<td>指定了属性名，并且有属性值，而且属值中包含了value</td>
-</tr>
-<tr>
-<td>E[attr(竖)=”value”]</td>
-<td>指定了属性名，并且属性值是value或者以“value-”开头的值（比如说zh-cn）</td>
-</tr>
-</tbody>
-</table>
-<h1 id="结构性伪类"><a href="#结构性伪类" class="headerlink" title="结构性伪类"></a>结构性伪类</h1><table>
-<thead>
-<tr>
-<th>选择器</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>E:nth-child(n)</td>
-<td>表示E父元素中的第n个字节点，其中n可以为odd(奇数),even(偶数),2n等</td>
-</tr>
-<tr>
-<td>E:nth-last-child(n)</td>
-<td>表示E父元素中的第n个字节点，从后向前计算</td>
-</tr>
-<tr>
-<td>E:nth-of-type(n)</td>
-<td>表示E父元素中的第n个字节点，且类型为E</td>
-</tr>
-<tr>
-<td>E:nth-last-of-type(n)</td>
-<td>表示E父元素中的第n个字节点，且类型为E,从后向前计算</td>
-</tr>
-<tr>
-<td>E:first-child</td>
-<td>表示E元素中的第一个子节点</td>
-</tr>
-<tr>
-<td>E:last-child</td>
-<td>表示E元素中的最后一个子节点</td>
-</tr>
-<tr>
-<td>E:first-of-type</td>
-<td>表示E父元素中的第一个子节点且节点类型是E的</td>
-</tr>
-<tr>
-<td>E:last-of-type</td>
-<td>表示E父元素中的最后一个子节点且节点类型是E的</td>
-</tr>
-<tr>
-<td>E:only-child</td>
-<td>表示E元素中只有一个子节点。注意：子节点不包含文本节点</td>
-</tr>
-</tbody>
-</table>
-<h1 id="伪类"><a href="#伪类" class="headerlink" title="伪类"></a>伪类</h1><table>
-<thead>
-<tr>
-<th>选择器</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>E:target</td>
-<td>表示当前的URL片段的元素类型，这个元素必须是E</td>
-</tr>
-<tr>
-<td>E:disabled</td>
-<td>表示不可点击的表单控件</td>
-</tr>
-<tr>
-<td>E:enabled</td>
-<td>表示不可点击的表单控件</td>
-</tr>
-<tr>
-<td>E:checked</td>
-<td>表示已选中的checkbox或radio</td>
-</tr>
-<tr>
-<td>E:first-line</td>
-<td>表示E元素中的第一行</td>
-</tr>
-<tr>
-<td>E:first-letter</td>
-<td>表示E元素中的第一个字符</td>
-</tr>
-<tr>
-<td>E::selection</td>
-<td>表示E元素在用户选中文字时</td>
-</tr>
-<tr>
-<td>E:before</td>
-<td>生成内容在E元素前 content属性添加内容</td>
-</tr>
-<tr>
-<td>E:after</td>
-<td>生成内容在E元素后 content属性添加内容</td>
-</tr>
-<tr>
-<td>E:not(s)</td>
-<td>表示E元素不被匹配</td>
-</tr>
-<tr>
-<td>E~F</td>
-<td>表示E元素毗邻的F元素</td>
-</tr>
-</tbody>
-</table>
-<h1 id="文字阴影"><a href="#文字阴影" class="headerlink" title="文字阴影"></a>文字阴影</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">p&#123;</div><div class="line">	text-shadow: 1px 1px 1px black;// 前两个属性为上下左右偏移量，第三个属性为阴影粗度，最后一个为颜色</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">p&#123;</div><div class="line">	text-shadow:1px 1px 1px black,2px 2px 1px red;//多层阴影</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h1 id="文本新增属性"><a href="#文本新增属性" class="headerlink" title="文本新增属性"></a>文本新增属性</h1><h2 id="省略文本"><a href="#省略文本" class="headerlink" title="省略文本"></a>省略文本</h2><table>
-<thead>
-<tr>
-<th>属性</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Text-overflow</td>
-<td>可选属性值有clip（无省略号）和Ellipsis（省略号）但要配合overflow:hidden和white-space:nowrap一块使用 </td>
-</tr>
-</tbody>
-</table>
-<h1 id="弹性盒模型"><a href="#弹性盒模型" class="headerlink" title="弹性盒模型"></a>弹性盒模型</h1><ul>
-<li>在使用弹性盒模型的时候 父元素必须要加display:box 或 display:inline-box</li>
-<li>Box-orient 定义盒模型的布局方向<ul>
-<li>Horizontal 水平显示</li>
-<li>vertical 垂直方向</li>
+        <h1 id="点号（-）和方括号（-）"><a href="#点号（-）和方括号（-）" class="headerlink" title="点号（.）和方括号（[]）"></a>点号（.）和方括号（[]）</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj=&#123;<span class="attr">name</span>:<span class="string">'gugu'</span>,<span class="attr">age</span>:<span class="number">21</span>&#125;;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(obj.name); <span class="comment">// gugu</span></div><div class="line"><span class="built_in">console</span>.log(obj[age]); <span class="comment">// 21</span></div></pre></td></tr></table></figure>
+<ul>
+<li>方括号<code>[]</code>中可以写可计算的表达式，更为灵活</li>
+<li>点号<code>.</code>只能写固定值</li>
 </ul>
-</li>
-<li>box-direction 元素排列顺序<ul>
-<li>Normal 正序</li>
-<li>Reverse 反序</li>
-</ul>
-</li>
-<li>box-ordinal-group 设置元素的具体位置<ul>
-<li>属性值为数字顺序</li>
-</ul>
-</li>
-<li>Box-flex 定义盒子的弹性空间<ul>
-<li>属性值为数字    </li>
-<li>子元素的尺寸=盒子的尺寸*子元素的box-flex属性值 / 所有子元素的box-flex属性值的和 </li>
-</ul>
-</li>
-<li>box-pack 对盒子富裕的空间进行管理<ul>
-<li>Start 所有子元素在盒子左侧显示，富裕空间在右侧</li>
-<li>End 所有子元素在盒子右侧显示，富裕空间在左侧</li>
-<li>Center 所有子元素居中</li>
-<li>Justify 富余空间在子元素之间平均分布</li>
-</ul>
-</li>
-<li>box-align 在垂直方向上对元素的位置进行管理<ul>
-<li>Start 所有子元素在据顶</li>
-<li>End 所有子元素在据底</li>
-<li>Center 所有子元素居中</li>
-</ul>
-</li>
-</ul>
-<h1 id="盒模型阴影"><a href="#盒模型阴影" class="headerlink" title="盒模型阴影"></a>盒模型阴影</h1><ul>
-<li>box-shadow:[inset] x y blur [spread] color<ul>
-<li>inset：阴影方式</li>
-<li>x、y：阴影偏移</li>
-<li>blur：模糊半径</li>
-<li>spread：扩展阴影半径</li>
-<li>color：颜色</li>
-</ul>
-</li>
-</ul>
-<h1 id="倒影-目前仅仅-webkit-内核"><a href="#倒影-目前仅仅-webkit-内核" class="headerlink" title="倒影(目前仅仅-webkit-内核)"></a>倒影(目前仅仅-webkit-内核)</h1><ul>
-<li>box-reflect 倒影<br>  -direction  方向 above|below|left|right<ul>
-<li>距离</li>
-<li>渐变<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">-webkit-linear-gradient(right,rgba(0,0,0,1) 0,rgba(0,0,0,0) 50%);</div></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-<h1 id="自由缩放"><a href="#自由缩放" class="headerlink" title="自由缩放"></a>自由缩放</h1><ul>
-<li>resize 自由缩放<ul>
-<li>Both 水平垂直都可以缩放</li>
-<li>Horizontal 只有水平方向可以缩放</li>
-<li>Vertical 只有垂直方向可以缩放</li>
-<li>要配合overflow:auto使用</li>
-</ul>
-</li>
-</ul>
-
+<h1 id="数组去重"><a href="#数组去重" class="headerlink" title="数组去重"></a>数组去重</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Array</span>.prototype.distinct = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</div><div class="line">	 <span class="keyword">var</span> arr = <span class="keyword">this</span>,</div><div class="line">	  i,</div><div class="line">	  obj = &#123;&#125;,</div><div class="line">	  result = [],</div><div class="line">	  len = arr.length;</div><div class="line">	 <span class="keyword">for</span>(i = <span class="number">0</span>; i&lt; arr.length; i++)&#123;</div><div class="line">	  <span class="keyword">if</span>(!obj[arr[i]])&#123; <span class="comment">//如果能查找到，证明数组元素重复了</span></div><div class="line">	   obj[arr[i]] = <span class="number">1</span>;</div><div class="line">	   result.push(arr[i]);</div><div class="line">	  &#125;</div><div class="line">	 &#125;</div><div class="line">	 <span class="keyword">return</span> result;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h1 id="统计出现次数最多字符"><a href="#统计出现次数最多字符" class="headerlink" title="统计出现次数最多字符"></a>统计出现次数最多字符</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str = <span class="string">"zhaochucichuzuiduodezifu"</span>;</div><div class="line"><span class="keyword">var</span> o = &#123;&#125;;</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, length = str.length; i &lt; length; i++) &#123;</div><div class="line">    <span class="keyword">var</span> char = str.charAt(i);</div><div class="line">    <span class="keyword">if</span> (o[char]) &#123;  <span class="comment">//char就是对象o的一个属性，o[char]是属性值，o[char]控制出现的次数</span></div><div class="line">        o[char]++;  <span class="comment">//次数加1</span></div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        o[char] = <span class="number">1</span>;    <span class="comment">//若第一次出现，次数记为1</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(o);   <span class="comment">//输出的是完整的对象，记录着每一个字符及其出现的次数</span></div><div class="line"><span class="comment">//遍历对象，找到出现次数最多的字符和次数</span></div><div class="line"><span class="keyword">var</span> max = <span class="number">0</span>;</div><div class="line"><span class="keyword">var</span> maxChar = <span class="literal">null</span>;</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> o) &#123;</div><div class="line">    <span class="keyword">if</span> (max &lt; o[key]) &#123;</div><div class="line">        max = o[key];   <span class="comment">//max始终储存次数最大的那个</span></div><div class="line">        maxChar = key;  <span class="comment">//那么对应的字符就是当前的key</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"最多的字符是"</span> + maxChar);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"出现的次数是"</span> + max);</div></pre></td></tr></table></figure>
       
     </div>
     
@@ -534,13 +342,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a  href="/2017/03/15/html5css3笔记 二回目/">html5css3笔记系列 | 二</a></p>
+        <p><span>本文标题:</span><a  href="/2018/06/02/访问对象属性的两种方式/">访问对象属性的两种方式</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问 你家谷谷 的个人博客">你家谷谷</a></p>
-        <p><span>发布时间:</span>2017年03月15日 - 16时56分</p>
-        <p><span>最后更新:</span>2018年05月31日 - 19时20分</p>
+        <p><span>发布时间:</span>2018年06月02日 - 19时22分</p>
+        <p><span>最后更新:</span>2018年06月02日 - 20时02分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/03/15/html5css3笔记 二回目/" title="html5css3笔记系列 | 二">http://houhonggu.top/2017/03/15/html5css3笔记 二回目/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://houhonggu.top/2017/03/15/html5css3笔记 二回目/　　作者: 你家谷谷" title=""></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/06/02/访问对象属性的两种方式/" title="访问对象属性的两种方式">http://houhonggu.top/2018/06/02/访问对象属性的两种方式/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://houhonggu.top/2018/06/02/访问对象属性的两种方式/　　作者: 你家谷谷" title=""></span>
         </p>
         <p>
             <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
@@ -551,18 +359,9 @@
 
 <nav id="article-nav">
   
-    <a  href="/2017/03/27/响应式布局/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          响应式布局
-        
-      </div>
-    </a>
   
-  
-    <a  href="/2017/03/09/html5css3笔记 旋转特效/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">html5css3笔记系列 | 旋转特效</div>
+    <a  href="/2018/06/01/深拷贝与浅拷贝/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">深浅拷贝</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -574,7 +373,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#属性选择器"><span class="toc-number">1.</span> <span class="toc-text">属性选择器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结构性伪类"><span class="toc-number">2.</span> <span class="toc-text">结构性伪类</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#伪类"><span class="toc-number">3.</span> <span class="toc-text">伪类</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#文字阴影"><span class="toc-number">4.</span> <span class="toc-text">文字阴影</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#文本新增属性"><span class="toc-number">5.</span> <span class="toc-text">文本新增属性</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#省略文本"><span class="toc-number">5.1.</span> <span class="toc-text">省略文本</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#弹性盒模型"><span class="toc-number">6.</span> <span class="toc-text">弹性盒模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#盒模型阴影"><span class="toc-number">7.</span> <span class="toc-text">盒模型阴影</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#倒影-目前仅仅-webkit-内核"><span class="toc-number">8.</span> <span class="toc-text">倒影(目前仅仅-webkit-内核)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#自由缩放"><span class="toc-number">9.</span> <span class="toc-text">自由缩放</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#点号（-）和方括号（-）"><span class="toc-number">1.</span> <span class="toc-text">点号（.）和方括号（[]）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数组去重"><span class="toc-number">2.</span> <span class="toc-text">数组去重</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#统计出现次数最多字符"><span class="toc-number">3.</span> <span class="toc-text">统计出现次数最多字符</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -650,13 +449,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a  href="/2017/03/27/响应式布局/" title="上一篇: 响应式布局">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a  href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a  href="/2017/03/09/html5css3笔记 旋转特效/" title="下一篇: html5css3笔记系列 | 旋转特效">
+            <a  href="/2018/06/01/深拷贝与浅拷贝/" title="下一篇: 深浅拷贝">
                 <i class="fa fa-angle-right"></i>
             </a>
         
