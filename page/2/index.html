@@ -939,36 +939,8 @@
           
               <h1 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h1><p><em>使用Babel将ES6语法转换为ES5，chorme已经支持ES6</em></p>
 <ol>
-<li><p>新建两个文件夹<br><code>dist</code>用于生产环境<br><code>src</code>用于开发环境</p>
-</li>
-<li><p>准备代码<br><code>index.js</code>写在<code>src</code>中。<br><code>index.html</code>引用时，引用<code>dist</code>中的<code>index.js</code></p>
-</li>
-<li><p>控制台初始化</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm init -y</div></pre></td></tr></table></figure>
-</li>
+<li>新建两个文件夹<br><code>dist</code>用于生产环境<br><code>src</code>用于开发环境</li>
 </ol>
-<p><em>生成package.json,-y是指初始化默认值，不用一路回车</em></p>
-<ol>
-<li><p>安装转换插件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm install -g babel-cli</div><div class="line">npm install --save-dev babel-preset-es2015 babel-cli</div></pre></td></tr></table></figure>
-</li>
-<li><p>.babelrc文件<br>在根目录新建一个<code>.babelrc</code>文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	&apos;presets&apos;:[</div><div class="line">		&apos;es2015&apos;</div><div class="line">	],</div><div class="line">	&apos;plaugins&apos;:[]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>转换命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">babel src/index.js -o dist/index.js</div></pre></td></tr></table></figure>
-</li>
-<li><p>可以在<code>package.json</code>中配置简化转换命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&quot;scripts&quot;: &#123;</div><div class="line">  &quot;build&quot;: &quot;babel src/index.js -o dist/index.js&quot;</div><div class="line">&#125;,</div></pre></td></tr></table></figure>
-</li>
-<li><p>简化命令后</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm run build</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<h1 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h1><ul>
-<li>用=&gt;定义函数<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> f = <span class="function"><span class="params">v</span> =&gt;</span> v;</div><div class="line"></div><div class="line"><span class="comment">// 等同于</span></div><div class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span> (<span class="params">v</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> v;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-</li>
-</ul>
           
       
     </div>
