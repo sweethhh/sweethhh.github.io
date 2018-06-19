@@ -7,21 +7,22 @@
   
   
   
-  <title>对模块化的理解 | 你家谷谷</title>
+  <title>原型与原型链 | 你家谷谷</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="原文地址：模块化
-模块化首先要将方法分成各个独立的js文件。">
+  <meta name="description" content="原型与原型链是比较基础但是不太好理解的问题。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="对模块化的理解">
-<meta property="og:url" content="http://houhonggu.top/2018/05/19/对模块化的理解/index.html">
+<meta property="og:title" content="原型与原型链">
+<meta property="og:url" content="http://houhonggu.top/2018/06/19/原型与原型链/index.html">
 <meta property="og:site_name" content="你家谷谷">
-<meta property="og:description" content="原文地址：模块化
-模块化首先要将方法分成各个独立的js文件。">
-<meta property="og:updated_time" content="2018-05-31T11:21:50.847Z">
+<meta property="og:description" content="原型与原型链是比较基础但是不太好理解的问题。">
+<meta property="og:image" content="http://onm9xh80o.bkt.clouddn.com/%E5%8E%9F%E5%9E%8B%E4%B8%8E%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0.PNG">
+<meta property="og:image" content="http://onm9xh80o.bkt.clouddn.com/%E6%98%BE%E5%BC%8F%E5%8E%9F%E5%9E%8B%E4%B8%8E%E9%9A%90%E5%BC%8F%E5%8E%9F%E5%9E%8B.PNG">
+<meta property="og:image" content="http://onm9xh80o.bkt.clouddn.com/%E5%8E%9F%E5%9E%8B%E9%93%BE.PNG">
+<meta property="og:updated_time" content="2018-06-19T12:28:28.925Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="对模块化的理解">
-<meta name="twitter:description" content="原文地址：模块化
-模块化首先要将方法分成各个独立的js文件。">
+<meta name="twitter:title" content="原型与原型链">
+<meta name="twitter:description" content="原型与原型链是比较基础但是不太好理解的问题。">
+<meta name="twitter:image" content="http://onm9xh80o.bkt.clouddn.com/%E5%8E%9F%E5%9E%8B%E4%B8%8E%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0.PNG">
   
     <link rel="alternative" href="/atom.xml" title="你家谷谷" type="application/atom+xml">
   
@@ -272,11 +273,11 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-对模块化的理解" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-原型与原型链" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2018/05/19/对模块化的理解/" class="article-date">
-      <time datetime="2018-05-19T06:59:39.365Z" itemprop="datePublished">2018-05-19</time>
+      <a  href="/2018/06/19/原型与原型链/" class="article-date">
+      <time datetime="2018-06-19T10:06:18.947Z" itemprop="datePublished">2018-06-19</time>
 </a>
 
     </div>
@@ -290,7 +291,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      对模块化的理解
+      原型与原型链
     </h1>
   
 
@@ -300,13 +301,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/模块化/">模块化</a>
+    <a class="article-category-link" href="/categories/js/">js</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/思想/">思想</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -316,26 +317,48 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>原文地址：<br><a href="http://www.css88.com/archives/7628" target="_blank" rel="external">模块化</a></p>
-<p>模块化首先要将方法分成各个独立的js文件。<br><a id="more"></a></p>
-<h1 id="一、内嵌脚本"><a href="#一、内嵌脚本" class="headerlink" title="一、内嵌脚本"></a>一、内嵌脚本</h1><p>使用内嵌脚本会缺乏代码的可复用性，在使用方法之前必须保证添加了依赖，还会导致全局命名空间污染。</p>
-<h1 id="二、通过src引入"><a href="#二、通过src引入" class="headerlink" title="二、通过src引入"></a>二、通过src引入</h1><p>缺乏依赖解析，引入顺序依然重要，还是会造成全局命令空间污染。</p>
-<h1 id="三、IIFE模式"><a href="#三、IIFE模式" class="headerlink" title="三、IIFE模式"></a>三、IIFE模式</h1><p>IIFE模块模式是首先向全局公开一个对象，如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var myApp=&#123;&#125;;</div></pre></td></tr></table></figure></p>
-<p>然后通过立即执行函数的方式将方法包裹起来。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">(function()&#123;</div><div class="line">	myApp.add=function(a,b)&#123;</div><div class="line">		return a+b;</div><div class="line">	&#125;</div><div class="line">	&#125;)();</div></pre></td></tr></table></figure>
-<p>这种方式一定程度上避免了全局污染作用域，可以用myApp来访问这些函数。但是依然有一个全局变量，而且文件顺序依然重要。</p>
-<h1 id="四、CommonJs"><a href="#四、CommonJs" class="headerlink" title="四、CommonJs"></a>四、CommonJs</h1><p>CommonJs本是为WEB服务器、桌面和命令行应用程序定义的一套通用API</p>
-<p>导出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">module.exports=function add(a,b)&#123;</div><div class="line">	return a+b;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>导入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var add=require(&apos;./add&apos;);</div></pre></td></tr></table></figure></p>
-<p>但是CommonJs是同步的，当require一个模块时，系统将暂停，直到加载完毕。</p>
-<h1 id="五、异步模块定义（AMD）"><a href="#五、异步模块定义（AMD）" class="headerlink" title="五、异步模块定义（AMD）"></a>五、异步模块定义（AMD）</h1><p>由于CommonJs的同步问题，出现了AMD。</p>
-<p>AMD语法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">define([&apos;add&apos;,&apos;reduce&apos;],function(add,reduce)&#123;</div><div class="line">		return function()&#123;</div><div class="line">			//....</div><div class="line">		&#125;;</div><div class="line">	&#125;);</div></pre></td></tr></table></figure></p>
-<h1 id="六、RequireJs"><a href="#六、RequireJs" class="headerlink" title="六、RequireJs"></a>六、RequireJs</h1><p>RequireJs是一个模块加载器，需要引入RequireJs。可以根据需求异步加载AMD。</p>
-<p>他会通过引入的main.js递归寻找其他依赖。</p>
-<h1 id="七、Browserify"><a href="#七、Browserify" class="headerlink" title="七、Browserify"></a>七、Browserify</h1><p>模块打包器，可使用CommonJs语法，他遍历代码的依赖树，生成一个文件。</p>
-<h1 id="八、ES6模块语法"><a href="#八、ES6模块语法" class="headerlink" title="八、ES6模块语法"></a>八、ES6模块语法</h1><p>导入：import 导出： export</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">import add from &apos;./add&apos;;</div><div class="line">import reduce from &apos;./reduce&apos;;</div><div class="line"></div><div class="line">export default finction sum(arr)&#123;</div><div class="line">	return reduce(arr,add);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h1 id="九、Webpack"><a href="#九、Webpack" class="headerlink" title="九、Webpack"></a>九、Webpack</h1><p>Webpack基于CommonJs和AMD语法。<br>代码分离、自定义加载器，可打包非js文件，插件。</p>
+        <p>原型与原型链是比较基础但是不太好理解的问题。<br><a id="more"></a></p>
+<h1 id="prototype"><a href="#prototype" class="headerlink" title="prototype"></a>prototype</h1><ul>
+<li>每个函数都有一个<code>prototype</code>属性，它默认指向一个<code>object</code>空对象，就是原型对象。</li>
+<li>系统内置的如时间对象（date）的原型对象中包括一些时间对象的方法和<code>__proto__</code>属性。</li>
+<li><p>我们自己手动新建的一个函数中有<code>constructor</code>和<code>__proto__</code>两个属性。</p>
+</li>
+<li><p>原型对象中有一个<code>constructor</code>属性，它指向函数对象</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Date</span>.prototype.constructor===<span class="built_in">Date</span>); <span class="comment">// true</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>构造函数与原型对象相互引用</strong></p>
+<p><img src="http://onm9xh80o.bkt.clouddn.com/%E5%8E%9F%E5%9E%8B%E4%B8%8E%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0.PNG" alt="原型对象与构造函数"></p>
+<h1 id="原型的作用"><a href="#原型的作用" class="headerlink" title="原型的作用"></a>原型的作用</h1><ol>
+<li>给原型对象添加方法（属性）</li>
+<li>实例对象可以访问</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Fun</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="comment">// 一个空的函数</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 给空的函数添加原型方法</span></div><div class="line">Fun.prototype.test=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">'test()'</span>);</div><div class="line">&#125;</div><div class="line"><span class="comment">// 实例化Fun再调用原型中的方法</span></div><div class="line"><span class="keyword">var</span> fun=<span class="keyword">new</span> Fun();</div><div class="line">fun.test(); <span class="comment">// test()</span></div></pre></td></tr></table></figure>
+<h1 id="显式原型与隐式原型"><a href="#显式原型与隐式原型" class="headerlink" title="显式原型与隐式原型"></a>显式原型与隐式原型</h1><ul>
+<li>每个函数<code>function</code>都有一个<code>prototype</code>，就是他们的显式原型</li>
+<li>每个实例对象都有一个<code>__proto__</code>，称为隐式原型</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(Fun.prototype); <span class="comment">// 显式原型</span></div><div class="line"></div><div class="line"><span class="comment">// 实例的隐式原型</span></div><div class="line"><span class="keyword">var</span> fn=<span class="keyword">new</span> Fun();</div><div class="line"><span class="built_in">console</span>.log(fn.__proto__);</div></pre></td></tr></table></figure>
+<p><strong><em>对象隐式原型的值，为其对应构造函数显式的值</em></strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Fun.prototype==fn.__proto__ <span class="comment">// true</span></div></pre></td></tr></table></figure>
+<p>声明函数的时候，相当于执行了一个将当前函数的原型指向一个空对象的语句<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.prototype=&#123;&#125;</div></pre></td></tr></table></figure></p>
+<p>创建实例化时，相当于执行了一句赋值语句，将<code>Fn.prototype</code>的值赋给<code>fn.__proto__</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fn.__proto__=Fn.prototype</div></pre></td></tr></table></figure>
+<p><img src="http://onm9xh80o.bkt.clouddn.com/%E6%98%BE%E5%BC%8F%E5%8E%9F%E5%9E%8B%E4%B8%8E%E9%9A%90%E5%BC%8F%E5%8E%9F%E5%9E%8B.PNG" alt="显式原型与隐式原型"></p>
+<p>当通过prototype给原型新添对象时，是在prototype和<strong>proto</strong>共同指向的Object中新添方法。</p>
+<h1 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h1><p>示例代码<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Fn</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">this</span>.test1=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="built_in">console</span>.log(<span class="string">'test1'</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">Fn.protptype.test2=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	soneole.log(<span class="string">'test2'</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> fn=<span class="keyword">new</span> Fn();</div><div class="line"></div><div class="line">fn.test1();</div><div class="line">fn.test2();</div><div class="line">fn.toString();</div></pre></td></tr></table></figure></p>
+<p><strong>说明</strong></p>
+<ol>
+<li>首先创建了一个<code>Fn</code>构造函数，构造函数中有一个<code>prototype</code>属性。<code>Fn</code>函数本身是<code>Object</code>的实例化，所以<code>prototype</code>指向一个<code>object</code>空对象，这个空对象中有一个<code>__proto__</code>指向<code>Object</code>的地址。</li>
+<li>然后通过<code>prototype</code>给Fn添加了一个<code>test2</code>属性（方法），所以在<code>Fn</code>的<code>prototype</code>指向的<code>Object</code>空对象中添加一个<code>test2</code>函数。</li>
+<li>创建了一个<code>Fn</code>的实例<code>fn</code>,在栈内存中为这个实例新开辟一块空间，指向堆空间中的这个实例，这个实例中有<code>__proto__</code>属性指向上一步<code>prototype</code>指向的空<code>object</code>对象，因为在<code>Fn</code>构造函数中有一个<code>this.test1()</code>，所以这个实例对象中还有个<code>test2</code>属性方法。</li>
+<li><p>在内存中，本身就存在一个<code>object</code>对象，他在栈内存中存放名字及地址指针，指向堆内存中一个<code>object</code>对象，这个<code>object</code>对象中有一个<code>prototype</code>属性，指向他的原型对象，而这个原型对象中本身就存在一些系统定义的方法如<code>toString()</code>、<code>hasOwnProperty()</code>等，也存在一个<code>__proto__:null</code>,这就是原型链的尽头。</p>
+</li>
+<li><p>当我们在调用以上各种方法的时候，我们会通过链式寻找，如果找到<code>__proto__:null</code>，就会返回<code>xxx is not a function.</code>或<code>undefined</code>的错误。</p>
+</li>
+</ol>
+<p><img src="http://onm9xh80o.bkt.clouddn.com/%E5%8E%9F%E5%9E%8B%E9%93%BE.PNG" alt="原型链"></p>
+<p><strong>原型链实际上是个隐式原型链</strong></p>
 
       
     </div>
@@ -344,13 +367,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a  href="/2018/05/19/对模块化的理解/">对模块化的理解</a></p>
+        <p><span>本文标题:</span><a  href="/2018/06/19/原型与原型链/">原型与原型链</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问 你家谷谷 的个人博客">你家谷谷</a></p>
-        <p><span>发布时间:</span>2018年05月19日 - 14时59分</p>
-        <p><span>最后更新:</span>2018年05月31日 - 19时21分</p>
+        <p><span>发布时间:</span>2018年06月19日 - 18时06分</p>
+        <p><span>最后更新:</span>2018年06月19日 - 20时28分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/05/19/对模块化的理解/" title="对模块化的理解">http://houhonggu.top/2018/05/19/对模块化的理解/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://houhonggu.top/2018/05/19/对模块化的理解/　　作者: 你家谷谷" title=""></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/06/19/原型与原型链/" title="原型与原型链">http://houhonggu.top/2018/06/19/原型与原型链/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://houhonggu.top/2018/06/19/原型与原型链/　　作者: 你家谷谷" title=""></span>
         </p>
         <p>
             <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
@@ -361,18 +384,9 @@
 
 <nav id="article-nav">
   
-    <a  href="/2018/05/26/VUE补充/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          vue补充
-        
-      </div>
-    </a>
   
-  
-    <a  href="/2018/05/19/异步请求/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">异步请求</div>
+    <a  href="/2018/06/03/布局/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">双飞翼布局</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -384,7 +398,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、内嵌脚本"><span class="toc-number">1.</span> <span class="toc-text">一、内嵌脚本</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、通过src引入"><span class="toc-number">2.</span> <span class="toc-text">二、通过src引入</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、IIFE模式"><span class="toc-number">3.</span> <span class="toc-text">三、IIFE模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、CommonJs"><span class="toc-number">4.</span> <span class="toc-text">四、CommonJs</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五、异步模块定义（AMD）"><span class="toc-number">5.</span> <span class="toc-text">五、异步模块定义（AMD）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六、RequireJs"><span class="toc-number">6.</span> <span class="toc-text">六、RequireJs</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#七、Browserify"><span class="toc-number">7.</span> <span class="toc-text">七、Browserify</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#八、ES6模块语法"><span class="toc-number">8.</span> <span class="toc-text">八、ES6模块语法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#九、Webpack"><span class="toc-number">9.</span> <span class="toc-text">九、Webpack</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#prototype"><span class="toc-number">1.</span> <span class="toc-text">prototype</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#原型的作用"><span class="toc-number">2.</span> <span class="toc-text">原型的作用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#显式原型与隐式原型"><span class="toc-number">3.</span> <span class="toc-text">显式原型与隐式原型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#原型链"><span class="toc-number">4.</span> <span class="toc-text">原型链</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -460,13 +474,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a  href="/2018/05/26/VUE补充/" title="上一篇: vue补充">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a  href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a  href="/2018/05/19/异步请求/" title="下一篇: 异步请求">
+            <a  href="/2018/06/03/布局/" title="下一篇: 双飞翼布局">
                 <i class="fa fa-angle-right"></i>
             </a>
         
