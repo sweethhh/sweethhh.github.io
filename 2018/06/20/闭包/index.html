@@ -7,18 +7,18 @@
   
   
   
-  <title>html5css3笔记系列 | 一 | 你家谷谷</title>
+  <title>闭包 | 你家谷谷</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="基本标签1.progress进度条">
+  <meta name="description" content="原文链接：(https://mp.weixin.qq.com/s?srcid=06174tMeRuG5Po2FZx8LUs3G&amp;amp;scene=23&amp;amp;mid=2247484017&amp;amp;sn=59cc1fb858efe661de6cec91e5fe9a46&amp;amp;idx=1&amp;amp;__biz=MzI4NjQ2MTY5MQ%3D%3D&amp;amp;chksm=ebddd9e5dcaa5">
 <meta property="og:type" content="article">
-<meta property="og:title" content="html5css3笔记系列 | 一">
-<meta property="og:url" content="http://houhonggu.top/2017/03/06/html5css3笔记 一回目/index.html">
+<meta property="og:title" content="闭包">
+<meta property="og:url" content="http://houhonggu.top/2018/06/20/闭包/index.html">
 <meta property="og:site_name" content="你家谷谷">
-<meta property="og:description" content="基本标签1.progress进度条">
-<meta property="og:updated_time" content="2018-05-31T11:20:43.369Z">
+<meta property="og:description" content="原文链接：(https://mp.weixin.qq.com/s?srcid=06174tMeRuG5Po2FZx8LUs3G&amp;amp;scene=23&amp;amp;mid=2247484017&amp;amp;sn=59cc1fb858efe661de6cec91e5fe9a46&amp;amp;idx=1&amp;amp;__biz=MzI4NjQ2MTY5MQ%3D%3D&amp;amp;chksm=ebddd9e5dcaa5">
+<meta property="og:updated_time" content="2018-06-20T08:36:11.106Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="html5css3笔记系列 | 一">
-<meta name="twitter:description" content="基本标签1.progress进度条">
+<meta name="twitter:title" content="闭包">
+<meta name="twitter:description" content="原文链接：(https://mp.weixin.qq.com/s?srcid=06174tMeRuG5Po2FZx8LUs3G&amp;amp;scene=23&amp;amp;mid=2247484017&amp;amp;sn=59cc1fb858efe661de6cec91e5fe9a46&amp;amp;idx=1&amp;amp;__biz=MzI4NjQ2MTY5MQ%3D%3D&amp;amp;chksm=ebddd9e5dcaa5">
   
     <link rel="alternative" href="/atom.xml" title="你家谷谷" type="application/atom+xml">
   
@@ -269,11 +269,11 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-html5css3笔记 一回目" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-闭包" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2017/03/06/html5css3笔记 一回目/" class="article-date">
-      <time datetime="2017-03-06T11:55:39.363Z" itemprop="datePublished">2017-03-06</time>
+      <a  href="/2018/06/20/闭包/" class="article-date">
+      <time datetime="2018-06-20T08:20:18.806Z" itemprop="datePublished">2018-06-20</time>
 </a>
 
     </div>
@@ -287,7 +287,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      html5css3笔记系列 | 一
+      闭包
     </h1>
   
 
@@ -297,13 +297,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/代码/">代码</a>
+    <a class="article-category-link" href="/categories/js/">js</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS3/">CSS3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML5/">HTML5</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -313,13 +313,20 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="基本标签"><a href="#基本标签" class="headerlink" title="基本标签"></a>基本标签</h1><h2 id="1-progress进度条"><a href="#1-progress进度条" class="headerlink" title="1.progress进度条"></a>1.progress进度条</h2><a id="more"></a>
-<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;progress value=&quot;20&quot; max=&quot;100&quot;&gt;</div><div class="line">&lt;/progress&gt;</div></pre></td></tr></table></figure>
-</code></pre><h2 id="2-details摘要"><a href="#2-details摘要" class="headerlink" title="2.details摘要"></a>2.details摘要</h2><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;details&gt;</div><div class="line">	&lt;summary&gt;lalalalla&lt;/summary&gt;</div><div class="line">	&lt;p&gt;lalalalalaalalalalalal&lt;/p&gt;</div><div class="line">&lt;/details&gt;</div></pre></td></tr></table></figure>
-</code></pre><p> 若要一开始就打开摘要 添加属性open=“open”</p>
-<h2 id="3-datalist下拉输入框"><a href="#3-datalist下拉输入框" class="headerlink" title="3.datalist下拉输入框"></a>3.datalist下拉输入框</h2><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;input list=&quot;data&quot;&gt;</div><div class="line">&lt;datalist id=&quot;data&quot;&gt;</div><div class="line">	&lt;option value=&quot;dataOne&quot;&gt;</div><div class="line">	&lt;option value=&quot;dataTwo&quot;&gt;</div><div class="line">	&lt;option value=&quot;dataThree&quot;&gt;</div><div class="line">&lt;/datalist&gt;</div></pre></td></tr></table></figure>
-</code></pre><h1 id="input输入类型"><a href="#input输入类型" class="headerlink" title="input输入类型"></a>input输入类型</h1><p>(type)<br>1.email 定义email地址字段<br>2.url 定义输入URL字段<br>3.number 定义数字字段<br>4.range 定义用于精确值不重要的输入数字控件 (max min属性可设置数值范围)<br>5.color 定义拾色器<br>6.data 定义日期<br>7.tel 电话</p>
-<h1 id="新增属性"><a href="#新增属性" class="headerlink" title="新增属性"></a>新增属性</h1><p>1.autocomplete 自动完成功能<br>2.autofocus 自动获得焦点<br>3.form 在表单外部定义input (用id定义)<br>4.pattern 正则表达式</p>
+        <p>原文链接：(<a href="https://mp.weixin.qq.com/s?srcid=06174tMeRuG5Po2FZx8LUs3G&amp;scene=23&amp;mid=2247484017&amp;sn=59cc1fb858efe661de6cec91e5fe9a46&amp;idx=1&amp;__biz=MzI4NjQ2MTY5MQ%3D%3D&amp;chksm=ebddd9e5dcaa50f378f16130ddc932621e59ad0a2bee020c7eaead4e9191fc27215acfe0e4b8&amp;mpshare=1#rd" target="_blank" rel="external">https://mp.weixin.qq.com/s?srcid=06174tMeRuG5Po2FZx8LUs3G&amp;scene=23&amp;mid=2247484017&amp;sn=59cc1fb858efe661de6cec91e5fe9a46&amp;idx=1&amp;__biz=MzI4NjQ2MTY5MQ%3D%3D&amp;chksm=ebddd9e5dcaa50f378f16130ddc932621e59ad0a2bee020c7eaead4e9191fc27215acfe0e4b8&amp;mpshare=1#rd</a>)<br>对闭包的再次理解。</p>
+<h1 id="什么是闭包"><a href="#什么是闭包" class="headerlink" title="什么是闭包"></a>什么是闭包</h1><a id="more"></a>
+<p>闭包就是在函数中有另一个函数，且被包裹的函数访问了父函数的变量。</p>
+<p>闭包在父函数调用时就形成，而不用调用子函数。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Fn1</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> a=<span class="number">1</span>;</div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">Fn2</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="built_in">console</span>.log(a);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Fn1();</div></pre></td></tr></table></figure></p>
+<h1 id="闭包应用场景"><a href="#闭包应用场景" class="headerlink" title="闭包应用场景"></a>闭包应用场景</h1><h2 id="累加"><a href="#累加" class="headerlink" title="累加"></a>累加</h2><p><strong>函数内局部变量的累加</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> num=<span class="number">100</span>;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        num++;</div><div class="line">        <span class="keyword">return</span> num;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> b=fn();<span class="comment">//获得函数</span></div><div class="line"><span class="comment">//你会发现局部变量num并没有在内存当中消失</span></div><div class="line"><span class="built_in">console</span>.log(b());<span class="comment">//调用匿名函数</span></div><div class="line"><span class="built_in">console</span>.log(b());<span class="comment">//第二次调用匿名函数，实现累加</span></div></pre></td></tr></table></figure></p>
+<p>由于闭包是对内存空间的一种持续占用，所以num并不会被销毁，在调用函数时会一直累加。</p>
+<p>由于闭包这一特性，所以滥用会导致内存泄漏，应合理使用闭包，避免性能下降。</p>
+<h2 id="For循环的输出"><a href="#For循环的输出" class="headerlink" title="For循环的输出"></a>For循环的输出</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">3</span>;i++)&#123;</div><div class="line">	<span class="built_in">console</span>.log(i); <span class="comment">// 3 3 3</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>以上代码的结果每次循环都会输出3。</p>
+<p><strong>解决方案一</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;<span class="number">3</span>;i++)&#123;</div><div class="line">	<span class="built_in">console</span>.log(i); <span class="comment">// 0 1 2</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>解决方案二</strong></p>
+<p>可使用闭包</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> arr=[];</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">3</span>;i++)&#123;</div><div class="line">        arr.push((<span class="function"><span class="keyword">function</span>(<span class="params">num</span>)</span>&#123;</div><div class="line">            <span class="comment">//将立即执行函数返回的匿名函数放到数组中。</span></div><div class="line">            <span class="comment">//因为num为函数的参数，因此有自己独立的作用域</span></div><div class="line">            <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">                <span class="keyword">return</span> num;</div><div class="line">            &#125;;</div><div class="line">        &#125;)(i));</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> arr;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> b=fn();</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;b.length;i++)&#123;</div><div class="line">    <span class="built_in">console</span>.log(b[i]());<span class="comment">//0，1，2</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -328,13 +335,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a  href="/2017/03/06/html5css3笔记 一回目/">html5css3笔记系列 | 一</a></p>
+        <p><span>本文标题:</span><a  href="/2018/06/20/闭包/">闭包</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问 你家谷谷 的个人博客">你家谷谷</a></p>
-        <p><span>发布时间:</span>2017年03月06日 - 19时55分</p>
-        <p><span>最后更新:</span>2018年05月31日 - 19时20分</p>
+        <p><span>发布时间:</span>2018年06月20日 - 16时20分</p>
+        <p><span>最后更新:</span>2018年06月20日 - 16时36分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/03/06/html5css3笔记 一回目/" title="html5css3笔记系列 | 一">http://houhonggu.top/2017/03/06/html5css3笔记 一回目/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://houhonggu.top/2017/03/06/html5css3笔记 一回目/　　作者: 你家谷谷" title=""></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/06/20/闭包/" title="闭包">http://houhonggu.top/2018/06/20/闭包/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://houhonggu.top/2018/06/20/闭包/　　作者: 你家谷谷" title=""></span>
         </p>
         <p>
             <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
@@ -345,18 +352,9 @@
 
 <nav id="article-nav">
   
-    <a  href="/2017/03/09/html5css3笔记 旋转特效/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          html5css3笔记系列 | 旋转特效
-        
-      </div>
-    </a>
   
-  
-    <a  href="/2017/01/13/我的第一篇文章/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">我的第一篇文章</div>
+    <a  href="/2018/06/19/原型与原型链/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">原型与原型链</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -368,7 +366,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#基本标签"><span class="toc-number">1.</span> <span class="toc-text">基本标签</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-progress进度条"><span class="toc-number">1.1.</span> <span class="toc-text">1.progress进度条</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-details摘要"><span class="toc-number">1.2.</span> <span class="toc-text">2.details摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-datalist下拉输入框"><span class="toc-number">1.3.</span> <span class="toc-text">3.datalist下拉输入框</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#input输入类型"><span class="toc-number">2.</span> <span class="toc-text">input输入类型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#新增属性"><span class="toc-number">3.</span> <span class="toc-text">新增属性</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#什么是闭包"><span class="toc-number">1.</span> <span class="toc-text">什么是闭包</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#闭包应用场景"><span class="toc-number">2.</span> <span class="toc-text">闭包应用场景</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#累加"><span class="toc-number">2.1.</span> <span class="toc-text">累加</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#For循环的输出"><span class="toc-number">2.2.</span> <span class="toc-text">For循环的输出</span></a></li></ol></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -444,13 +442,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a  href="/2017/03/09/html5css3笔记 旋转特效/" title="上一篇: html5css3笔记系列 | 旋转特效">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a  href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a  href="/2017/01/13/我的第一篇文章/" title="下一篇: 我的第一篇文章">
+            <a  href="/2018/06/19/原型与原型链/" title="下一篇: 原型与原型链">
                 <i class="fa fa-angle-right"></i>
             </a>
         
