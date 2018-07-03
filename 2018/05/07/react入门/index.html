@@ -9,13 +9,16 @@
   
   <title>React入门笔记 | 你家谷谷</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="重新学习React。">
+<meta property="og:type" content="article">
 <meta property="og:title" content="React入门笔记">
 <meta property="og:url" content="http://houhonggu.top/2018/05/07/react入门/index.html">
 <meta property="og:site_name" content="你家谷谷">
-<meta property="og:updated_time" content="2018-05-31T11:21:05.368Z">
+<meta property="og:description" content="重新学习React。">
+<meta property="og:updated_time" content="2018-07-03T09:11:52.724Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React入门笔记">
+<meta name="twitter:description" content="重新学习React。">
   
     <link rel="alternative" href="/atom.xml" title="你家谷谷" type="application/atom+xml">
   
@@ -310,7 +313,72 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <a id="more"></a>
+        <p>重新学习React。</p>
+<a id="more"></a>
+<h1 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h1><blockquote>
+<p>虚拟DOM，在每次更新时与之前DOM对比，只更新我们改变的DOM。组件化，组件横向划分。</p>
+</blockquote>
+<p><em>与vue不同</em><br>vue是双向数据绑定，react是单向，从父节点到子节点。</p>
+<h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><ol>
+<li>安装react<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm install react</div><div class="line">npm install react-dom</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>也可下载静态文件，并在页面中引用。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"react.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"react-dom.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h1 id="hello-world"><a href="#hello-world" class="headerlink" title="hello world"></a>hello world</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"root"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 组件</span></div><div class="line"><span class="keyword">var</span> HelloComponent =React.createClass(&#123;</div><div class="line">    <span class="attr">render</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> React.createElement(<span class="string">'h1'</span>,<span class="literal">null</span>,<span class="string">'Hello world'</span>);</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"> <span class="comment">// 挂载</span></div><div class="line">ReactDOM.render(</div><div class="line">    React.createElement(HelloComponent,<span class="literal">null</span>),<span class="built_in">document</span>.getElementById(<span class="string">'root'</span>)</div><div class="line">);</div></pre></td></tr></table></figure>
+<h1 id="JSX语法"><a href="#JSX语法" class="headerlink" title="JSX语法"></a>JSX语法</h1><blockquote>
+<p>JSX=javascript XML</p>
+</blockquote>
+<p>若需要支持JSX语法，需要Babel转换。在学习中可引入Browser.js静态文件。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcss.com/babel-core/5.8.38/browser.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<p><em>注意</em>在使用Babel转换时，必须使用<code>&lt;script type=&quot;text/babel&quot;&gt;</code></p>
+<h2 id="JSX的helloworld"><a href="#JSX的helloworld" class="headerlink" title="JSX的helloworld"></a>JSX的helloworld</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> HelloComponent =React.createClass(&#123;</div><div class="line">    <span class="attr">render</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>HelloComponent<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"> </div><div class="line">ReactDOM.render(</div><div class="line">    <span class="xml"><span class="tag">&lt;<span class="name">HelloComponent</span>/&gt;</span></span>,<span class="built_in">document</span>.getElementById(<span class="string">'root'</span>)</div><div class="line">);</div></pre></td></tr></table></figure>
+<h2 id="JSX的表达式"><a href="#JSX的表达式" class="headerlink" title="JSX的表达式"></a>JSX的表达式</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> HelloComponent =React.createClass(&#123;</div><div class="line">    <span class="attr">render</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello &#123;this.props.name&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"> </div><div class="line">ReactDOM.render(</div><div class="line">    <span class="xml"><span class="tag">&lt;<span class="name">HelloComponent</span> <span class="attr">name</span>=<span class="string">'gugu'</span>/&gt;</span>,document.getElementById('root')</span></div><div class="line">);</div></pre></td></tr></table></figure>
+<h1 id="react组件"><a href="#react组件" class="headerlink" title="react组件"></a>react组件</h1><blockquote>
+<p>组件定义时，第一个字母需要大写。</p>
+</blockquote>
+<h2 id="state状态"><a href="#state状态" class="headerlink" title="state状态"></a>state状态</h2><blockquote>
+<p>与数据保持一致，数据驱动界面。</p>
+</blockquote>
+<p>下面是一个例子，点击按钮切换可用状态。</p>
+<ol>
+<li><p>创建一个组件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span>  TextBoxComponent = React.createClass(&#123;</div><div class="line">           <span class="comment">// 初始化状态</span></div><div class="line">           getInitialState:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">               <span class="keyword">return</span> &#123;<span class="attr">enable</span>:<span class="literal">false</span>&#125;</div><div class="line">           &#125;,</div><div class="line">           <span class="comment">// 点击触发的匿名函数</span></div><div class="line">           handleClick:<span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</div><div class="line">               <span class="keyword">this</span>.setState(&#123;<span class="attr">enable</span>:!<span class="keyword">this</span>.state.enable&#125;)</div><div class="line">           &#125;,</div><div class="line">           <span class="comment">// 组件内容</span></div><div class="line">           render:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">               <span class="keyword">return</span> (</div><div class="line">                   <span class="xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span></div><div class="line">                       <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">disabled</span>=<span class="string">&#123;this.state.enable&#125;</span> /&gt;</span></div><div class="line">                       <span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;this.handleClick&#125;</span>&gt;</span>改变textbox状态<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">                   <span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">               )</div><div class="line">           &#125;</div><div class="line">       &#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>挂载</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ReactDOM.render(<span class="xml"><span class="tag">&lt;<span class="name">TextBoxComponent</span>/&gt;</span></span>,<span class="built_in">document</span>.getElementById(<span class="string">"reactContainer"</span>));</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="props"><a href="#props" class="headerlink" title="props"></a>props</h2><blockquote>
+<p>通过<code>props</code>访问当前元素的指定属性值。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span>  TextBoxComponent = React.createClass(&#123;</div><div class="line">            <span class="attr">render</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">                <span class="keyword">return</span> (</div><div class="line">                    <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123; this.props.myAttr &#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></div><div class="line">                )</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line"> </div><div class="line">ReactDOM.render(<span class="xml"><span class="tag">&lt;<span class="name">TextBoxComponent</span> <span class="attr">myAttr</span>=<span class="string">'Your lovely GuGu'</span>/&gt;</span>,document.getElementById("reactContainer"));</span></div></pre></td></tr></table></figure>
+<p><strong>用法</strong></p>
+<ol>
+<li>在<code>render</code>中返回<code>this.props.myAttr</code> (myAttr是我自己取的名字)。</li>
+<li>在挂载（渲染）组件的时候添加<code>myAttr=&#39;Your lovely GuGu&#39;</code>属性。</li>
+</ol>
+<h2 id="render"><a href="#render" class="headerlink" title="render"></a>render</h2><blockquote>
+<p>创建组件时必须。只进行组件的主体书写，交互不写在这里。</p>
+</blockquote>
+<h2 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h2><p><em>三种状态</em></p>
+<ol>
+<li><code>mounting</code>:正在挂载虚拟DOM到真实DOM</li>
+<li><code>updating</code>:正在被重新渲染</li>
+<li><code>unmounting</code>:正在将虚拟DOM移除真实DOM</li>
+</ol>
+<p><em>三种状态对应的钩子</em></p>
+<ol>
+<li>componentWillMount() 即将要挂载</li>
+<li>componentDidMount() 挂载完成</li>
+<li>componentWillUpdate(object nextProps, object nextState) 将要更新</li>
+<li>componentDidUpdate(object prevProps, object prevState) 已更新</li>
+<li>componentWillUnmount() 将要卸载</li>
+</ol>
+<h1 id="附件"><a href="#附件" class="headerlink" title="附件"></a>附件</h1><p><strong>live-server</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g live-server</div></pre></td></tr></table></figure></p>
+<p><strong>使用</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">live-server</div></pre></td></tr></table></figure></p>
+<p>功能：热更新。</p>
+
       
     </div>
     
@@ -321,7 +389,7 @@
         <p><span>本文标题:</span><a  href="/2018/05/07/react入门/">React入门笔记</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问 你家谷谷 的个人博客">你家谷谷</a></p>
         <p><span>发布时间:</span>2018年05月07日 - 16时57分</p>
-        <p><span>最后更新:</span>2018年05月31日 - 19时21分</p>
+        <p><span>最后更新:</span>2018年07月03日 - 17时11分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/05/07/react入门/" title="React入门笔记">http://houhonggu.top/2018/05/07/react入门/</a>
             <span class="copy-path" data-clipboard-text="原文: http://houhonggu.top/2018/05/07/react入门/　　作者: 你家谷谷" title=""></span>
@@ -358,7 +426,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#特性"><span class="toc-number">1.</span> <span class="toc-text">特性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#准备"><span class="toc-number">2.</span> <span class="toc-text">准备</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#hello-world"><span class="toc-number">3.</span> <span class="toc-text">hello world</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JSX语法"><span class="toc-number">4.</span> <span class="toc-text">JSX语法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#JSX的helloworld"><span class="toc-number">4.1.</span> <span class="toc-text">JSX的helloworld</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JSX的表达式"><span class="toc-number">4.2.</span> <span class="toc-text">JSX的表达式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#react组件"><span class="toc-number">5.</span> <span class="toc-text">react组件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#state状态"><span class="toc-number">5.1.</span> <span class="toc-text">state状态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#props"><span class="toc-number">5.2.</span> <span class="toc-text">props</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#render"><span class="toc-number">5.3.</span> <span class="toc-text">render</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生命周期"><span class="toc-number">5.4.</span> <span class="toc-text">生命周期</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#附件"><span class="toc-number">6.</span> <span class="toc-text">附件</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {

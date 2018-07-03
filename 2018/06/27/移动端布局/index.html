@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="你家谷谷">
 <meta property="og:description" content="主要理解移动端与PC端布局有什么不同，如何解决">
 <meta property="og:image" content="http://onm9xh80o.bkt.clouddn.com/pixel.PNG">
-<meta property="og:updated_time" content="2018-06-30T08:41:01.921Z">
+<meta property="og:updated_time" content="2018-07-03T01:36:44.985Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="移动端布局">
 <meta name="twitter:description" content="主要理解移动端与PC端布局有什么不同，如何解决">
@@ -332,6 +332,29 @@
 <p>为什么要有Viewport?<br>为了<strong>正确排版</strong>。</p>
 <h1 id="Viewport-meta"><a href="#Viewport-meta" class="headerlink" title="Viewport_meta"></a>Viewport_meta</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;meta name=&apos;viewport&apos; content=&quot;name=value,value&quot;&gt;</div></pre></td></tr></table></figure>
 <p><strong>content参数</strong><br><code>width</code>设置布局viewport的特定值。（divice-width）<br><code>initial-scale</code>设置页面的初始缩放<br><code>minimum-scale</code>最小缩放<br><code>maximum-scale</code>最大缩放<br><code>user-scalable</code>用户能否缩放</p>
+<p><strong>重要</strong><br><code>divice-width</code> 让<code>viewport</code>时刻等于设备宽度。</p>
+<p><em>可通过<code>document.body.cliebtWidth</code>查看当前的<code>viewport</code></em></p>
+<h1 id="viewport-coding"><a href="#viewport-coding" class="headerlink" title="viewport_coding"></a>viewport_coding</h1><h1 id="移动端自适应"><a href="#移动端自适应" class="headerlink" title="移动端自适应"></a>移动端自适应</h1><h1 id="移动端特殊样式处理"><a href="#移动端特殊样式处理" class="headerlink" title="移动端特殊样式处理"></a>移动端特殊样式处理</h1><h2 id="高清图片"><a href="#高清图片" class="headerlink" title="高清图片"></a>高清图片</h2><p>图片使用物理像素渲染，<br>尺寸公式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">width:(w_value/dpr)px;</div><div class="line">heigth:(h_value/dpr)px;</div></pre></td></tr></table></figure></p>
+<h2 id="一像素边框"><a href="#一像素边框" class="headerlink" title="一像素边框"></a>一像素边框</h2><p><code>retina</code>屏幕下，1px使用2dp渲染的，但是我们不能使用0.5px。<br><strong>解决方案</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sacleY(0.5);</div></pre></td></tr></table></figure></p>
+<p>使用缩放。</p>
+<h2 id="rem"><a href="#rem" class="headerlink" title="rem"></a>rem</h2><p><em>相对单位</em></p>
+<p>rem与em对比</p>
+<ul>
+<li>em是根据复原的大小设置来确定缩放，但是由于层层层嵌套，代码变得难以维护。</li>
+<li>rem是根据html中的设置来统一管理，代码清晰易于管理。</li>
+</ul>
+<p><em>rem基值</em></p>
+<blockquote>
+<p>为了适配各种手机屏幕。</p>
+</blockquote>
+<p>推荐方案 rem = screen.width/20</p>
+<h2 id="多行文本溢出"><a href="#多行文本溢出" class="headerlink" title="多行文本溢出"></a>多行文本溢出</h2><p><em>单行文本溢出</em><br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.text</span>&#123;</div><div class="line">	<span class="attribute">overflow</span>:hidden;</div><div class="line">	<span class="attribute">white-space</span>:nowrap;</div><div class="line">	<span class="attribute">text-overflow</span>:ellipsis;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><em>多行文本溢出</em><br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">.text&#123;</div><div class="line">	display:-webkit-box !important;</div><div class="line">	overflow:hidden;</div><div class="line"></div><div class="line">	text-overflow:ellipsis;</div><div class="line">	word-break:break-all;</div><div class="line"></div><div class="line">	-webkit-box-orient:vertical;</div><div class="line">	-webkiy-line-clamp:2; // 溢出行号</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="终端交互优化"><a href="#终端交互优化" class="headerlink" title="终端交互优化"></a>终端交互优化</h1><h2 id="tap事件"><a href="#tap事件" class="headerlink" title="tap事件"></a>tap事件</h2><p>由于在手机端上需要判断我们的手势操作，所以点击加了300ms的延迟。为了解决这个所带来的一些问题，我们可以用tap事件。</p>
+<p><em>tap事件需要引用Zepto.js</em></p>
+<p><em>点击穿透</em><br>在一个遮罩层下面有一个tap按钮的话，点击遮罩层，会同时点击到按钮。</p>
+<h2 id="触摸touch"><a href="#触摸touch" class="headerlink" title="触摸touch"></a>触摸touch</h2><p><strong>四个事件</strong></p>
+<p>touchstart、touchmove、touchend、touchcancel。</p>
 
       
     </div>
@@ -343,7 +366,7 @@
         <p><span>本文标题:</span><a  href="/2018/06/27/移动端布局/">移动端布局</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问 你家谷谷 的个人博客">你家谷谷</a></p>
         <p><span>发布时间:</span>2018年06月27日 - 16时20分</p>
-        <p><span>最后更新:</span>2018年06月30日 - 16时41分</p>
+        <p><span>最后更新:</span>2018年07月03日 - 09时36分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/06/27/移动端布局/" title="移动端布局">http://houhonggu.top/2018/06/27/移动端布局/</a>
             <span class="copy-path" data-clipboard-text="原文: http://houhonggu.top/2018/06/27/移动端布局/　　作者: 你家谷谷" title=""></span>
@@ -371,7 +394,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Pixel"><span class="toc-number">1.</span> <span class="toc-text">Pixel</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#物理像素与逻辑像素"><span class="toc-number">1.1.</span> <span class="toc-text">物理像素与逻辑像素</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#默认缩放比对照表"><span class="toc-number">1.1.1.</span> <span class="toc-text">默认缩放比对照表</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Viewport"><span class="toc-number">2.</span> <span class="toc-text">Viewport</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Viewport-meta"><span class="toc-number">3.</span> <span class="toc-text">Viewport_meta</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Pixel"><span class="toc-number">1.</span> <span class="toc-text">Pixel</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#物理像素与逻辑像素"><span class="toc-number">1.1.</span> <span class="toc-text">物理像素与逻辑像素</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#默认缩放比对照表"><span class="toc-number">1.1.1.</span> <span class="toc-text">默认缩放比对照表</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Viewport"><span class="toc-number">2.</span> <span class="toc-text">Viewport</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Viewport-meta"><span class="toc-number">3.</span> <span class="toc-text">Viewport_meta</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#viewport-coding"><span class="toc-number">4.</span> <span class="toc-text">viewport_coding</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#移动端自适应"><span class="toc-number">5.</span> <span class="toc-text">移动端自适应</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#移动端特殊样式处理"><span class="toc-number">6.</span> <span class="toc-text">移动端特殊样式处理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#高清图片"><span class="toc-number">6.1.</span> <span class="toc-text">高清图片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一像素边框"><span class="toc-number">6.2.</span> <span class="toc-text">一像素边框</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#rem"><span class="toc-number">6.3.</span> <span class="toc-text">rem</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多行文本溢出"><span class="toc-number">6.4.</span> <span class="toc-text">多行文本溢出</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#终端交互优化"><span class="toc-number">7.</span> <span class="toc-text">终端交互优化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#tap事件"><span class="toc-number">7.1.</span> <span class="toc-text">tap事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#触摸touch"><span class="toc-number">7.2.</span> <span class="toc-text">触摸touch</span></a></li></ol></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
